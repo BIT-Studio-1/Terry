@@ -23,8 +23,9 @@ namespace Command_Line_Adventure
                 Console.Clear();
                 Console.WriteLine("You are in the Dungeon");
                 Console.WriteLine();
-                Console.WriteLine("Your options are...");
-                Console.WriteLine("- [1] Go to Hallway");
+                Console.WriteLine("CHOOSE AN OPTION");
+                Console.WriteLine("- [1] Go into the Hallway");
+                Console.WriteLine("- [2] Stay Imprisoned");
                 Console.WriteLine();
 
                 temp = Console.ReadLine();
@@ -35,6 +36,10 @@ namespace Command_Line_Adventure
                 {
                     case 1:
                         Hallway();
+                        break;
+                    case 2:
+                        Console.WriteLine("You die later that night");
+                        Console.ReadLine();
                         break;
                     default:
                         Console.WriteLine();
