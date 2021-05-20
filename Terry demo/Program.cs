@@ -4,9 +4,15 @@ namespace Terry
 {
     class Program
     {
-        static void Main(string[] args)
-
+        public static void Hallway_cells()
         {
+            Console.WriteLine("You are in a long and dark hallway, you can hear someone snoring close to you . ");
+            Console.WriteLine("Would you like to check or not?");
+        }
+            static void Main(string[] args)
+                
+            {
+
             string desition;
             int stealth = 1, strength = 1, cunning = 1;
             int result;
@@ -18,8 +24,8 @@ namespace Terry
             {
                 Console.WriteLine();
                 Console.WriteLine("You wake up in your cell with a noise, it did sound like someone unlocked the gate.");
-                do
-                {
+                
+                do{
                     Console.WriteLine("1) Go and Investigate");
                     Console.WriteLine("2) Open");
                     Console.WriteLine("3) Stay");
@@ -34,8 +40,7 @@ namespace Terry
                         case "1":
                         case "2":
 
-                            Console.WriteLine("You are in a long and dark hallway, you can hear someone snoring close to you . ");
-                            Console.WriteLine("Would you like to check or not?");
+                                Hallway_cells();
                             break;
                         case "3":
                             Console.WriteLine("You are afraid, but this may be your only chance to get out of here. ");
@@ -47,7 +52,8 @@ namespace Terry
 
 
                     }
-                } while (desition != "open");
+                    Console.WriteLine();
+                } while ((desition != "open") || (desition != "Go and Investigate"));
                 desition = Console.ReadLine();
                 switch (desition)
                 {
