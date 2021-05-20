@@ -4,6 +4,13 @@ namespace Command_Line_Adventure
 {
     class Program
     {
+        public static void Inventory()
+        {
+            string slot1 = "Empty", slot2 = "Empty", slot3 = "Empty", slot4 = "Empty";
+            Console.WriteLine("~Inventory~");
+            Console.WriteLine(slot1 + "\n" + slot2 + "\n" + slot3 + "\n" + slot4);
+            Console.ReadLine();
+        }
         public static void Dungeon()
         {
             string temp;
