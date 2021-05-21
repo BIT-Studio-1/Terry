@@ -34,7 +34,7 @@ namespace Command_Line_Adventure
                 Console.WriteLine("Your options are...");
                 Console.WriteLine("- [1] Go to Hallway");
                 Console.WriteLine("- [2] Stay Imprisoned");
-                Console.WriteLine("- [3] Inventory");
+                Console.WriteLine("- [3] Check Inventory");
                 Console.WriteLine();
 
                 temp = Console.ReadLine();
@@ -75,6 +75,7 @@ namespace Command_Line_Adventure
             Console.WriteLine("- [1] Go into the Dungeon");
             Console.WriteLine("- [2] Go Left ");
             Console.WriteLine("- [3] Go Right ");
+            Console.WriteLine("- [4] Check Inventory");
             Console.WriteLine();
             temp = Console.ReadLine();
             input = Convert.ToInt32(temp);
@@ -91,6 +92,11 @@ namespace Command_Line_Adventure
                 case 3:
                     RightHallway();
                     break;
+
+                case 4:
+                    Inventory();
+                    break;
+
                 default:
                     Console.WriteLine();
                     Console.WriteLine("You have entered an invalid input");
@@ -111,6 +117,7 @@ namespace Command_Line_Adventure
             Console.WriteLine("- [1] Go backwards");
             Console.WriteLine("- [2] Enter Armoury with Guards ");
             Console.WriteLine("- [3] Enter the Crematorium ");
+            Console.WriteLine("- [4] Check Inventory");
             Console.WriteLine();
             temp = Console.ReadLine();
             input = Convert.ToInt32(temp);
@@ -124,8 +131,15 @@ namespace Command_Line_Adventure
                 case 2:
                     ArmouryWithguards();
                     break;
+
                 case 3:
                     Crematorium();
+                    break;
+
+                case 4:
+                    Inventory();
+                    break;
+
                     break;
                 default:
                     Console.WriteLine();
@@ -147,6 +161,7 @@ namespace Command_Line_Adventure
             Console.WriteLine("- [1] Go backwards");
             Console.WriteLine("- [2] Enter Lair of the Beast ");
             Console.WriteLine("- [3] Enter the Locked Mystery Room ");
+            Console.WriteLine("- [4] Check Inventory");
             Console.WriteLine();
             temp = Console.ReadLine();
             input = Convert.ToInt32(temp);
@@ -163,6 +178,11 @@ namespace Command_Line_Adventure
                 case 3:
                     Lockedmysteryroom();
                     break;
+
+                case 4:
+                    Inventory();
+                    break;
+
                 default:
                     Console.WriteLine();
                     Console.WriteLine("You have entered an invalid input");
@@ -181,6 +201,8 @@ namespace Command_Line_Adventure
             Console.WriteLine();
             Console.WriteLine("Your options are...");
             Console.WriteLine("- [1] Go backwards");
+            Console.WriteLine("- [2] Check what's in the box");
+            Console.WriteLine("- [3] Check Inventory");
 
             Console.WriteLine();
             temp = Console.ReadLine();
@@ -192,6 +214,11 @@ namespace Command_Line_Adventure
                 case 1:
                     LeftHallway();
                     break;
+
+                case 3:
+                    Inventory();
+                    break;
+
                 default:
                     Console.WriteLine();
                     Console.WriteLine("You have entered an invalid input");
@@ -210,6 +237,8 @@ namespace Command_Line_Adventure
             Console.WriteLine();
             Console.WriteLine("Your options are...");
             Console.WriteLine("- [1] Go backwards");
+            Console.WriteLine("- [2] Take a chance and fight!");
+            Console.WriteLine("- [3] Check Inventory");
             Console.WriteLine();
             temp = Console.ReadLine();
             input = Convert.ToInt32(temp);
@@ -220,6 +249,11 @@ namespace Command_Line_Adventure
                 case 1:
                     LeftHallway();
                     break;
+
+                case 3:
+                    Inventory();
+                    break;
+
                 default:
                     Console.WriteLine();
                     Console.WriteLine("You have entered an invalid input");
@@ -238,6 +272,8 @@ namespace Command_Line_Adventure
             Console.WriteLine();
             Console.WriteLine("Your options are...");
             Console.WriteLine("- [1] Go backwards");
+            Console.WriteLine("- [2] What's that strange sound???");
+            Console.WriteLine("- [3] Check Inventory");
 
             Console.WriteLine();
             temp = Console.ReadLine();
@@ -249,6 +285,11 @@ namespace Command_Line_Adventure
                 case 1:
                     LeftHallway();
                     break;
+
+                case 3:
+                    Inventory();
+                    break;
+
                 default:
                     Console.WriteLine();
                     Console.WriteLine("You have entered an invalid input");
@@ -267,6 +308,7 @@ namespace Command_Line_Adventure
             Console.WriteLine();
             Console.WriteLine("Your options are...");
             Console.WriteLine("- [1] Go backwards");
+            Console.WriteLine("- [3] Check Inventory");
 
             Console.WriteLine();
             temp = Console.ReadLine();
@@ -278,6 +320,11 @@ namespace Command_Line_Adventure
                 case 1:
                     LeftHallway();
                     break;
+
+                case 3:
+                    Inventory();
+                    break;
+
                 default:
                     Console.WriteLine();
                     Console.WriteLine("You have entered an invalid input");
