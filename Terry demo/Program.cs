@@ -4,12 +4,19 @@ namespace Command_Line_Adventure
 {
     class Program
     {
+        private static int strength, stealth, cunning;     // These are universal variables 
+
+
 
         public static void Inventory()
         {
             string slot1 = "Empty", slot2 = "Empty", slot3 = "Empty", slot4 = "Empty";
             Console.WriteLine("~Inventory~");
             Console.WriteLine(slot1 + "\n" + slot2 + "\n" + slot3 + "\n" + slot4);
+            Console.WriteLine("~Statistics~");
+            Console.WriteLine($"Strength : {strength}");
+            Console.WriteLine($"Stealth  : {stealth}");
+            Console.WriteLine($"Cunning  : {cunning}");
             Console.ReadLine();
         }
         public static void Dungeon()
@@ -27,6 +34,7 @@ namespace Command_Line_Adventure
                 Console.WriteLine("Your options are...");
                 Console.WriteLine("- [1] Go to Hallway");
                 Console.WriteLine("- [2] Stay Imprisoned");
+                Console.WriteLine("- [3] Inventory");
                 Console.WriteLine();
 
                 temp = Console.ReadLine();
@@ -42,6 +50,10 @@ namespace Command_Line_Adventure
                         Console.WriteLine("You die later that night");
                         Console.ReadLine();
                         break;
+                    case 3:
+                        Inventory();
+                        break;
+
                     default:
                         Console.WriteLine();
                         Console.WriteLine("You have entered an invalid input");
@@ -276,6 +288,39 @@ namespace Command_Line_Adventure
         }
         public static void Main()
         {
+            string Character;
+
+            Console.WriteLine("Choose a character: ");
+            Console.WriteLine();
+            Console.WriteLine("           Strength       Stealth        Cunning");
+            Console.WriteLine("          ----------     ---------      ---------");
+            Console.WriteLine("Strength:     3              1              1     ");
+            Console.WriteLine("Stealth:      1              3              1     ");
+            Console.WriteLine("Cunning:      1              1              3     ");
+
+
+
+            Character = Console.ReadLine();
+            switch (Character)
+            {
+                case "Strength":
+                    strength = 3;
+                    stealth = 1;
+                    cunning = 1;
+                    break;
+
+                case "Stealth":
+                    strength = 1;
+                    stealth = 3;
+                    cunning = 1;
+                    break;
+
+                case "Cunning":
+                    strength = 1;
+                    stealth = 1;
+                    cunning = 3;
+                    break;
+            }
             Dungeon();
             Console.ReadLine();
         }
