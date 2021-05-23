@@ -4,21 +4,24 @@ namespace Command_Line_Adventure
 {
     class Program
     {
-        private static int strength, stealth, cunning;     // These are universal variables 
+        public static string temp;
+        public static int strength, stealth, cunning;     // These are universal variables 
 
 
 
         public static void Inventory()
         {
             string slot1 = "Empty", slot2 = "Empty", slot3 = "Empty", slot4 = "Empty";
+            Console.WriteLine();
             Console.WriteLine("~Inventory~");
-            Console.WriteLine(slot1 + "\n" + slot2 + "\n" + slot3 + "\n" + slot4);
+            Console.WriteLine("Item 1: " + slot1 + "\n" + "Item 2: " + slot2 + "\n" + "Item 3: " + slot3 + "\n" + "Item 4: " + slot4);
             Console.WriteLine("~Statistics~");
             Console.WriteLine($"Strength : {strength}");
             Console.WriteLine($"Stealth  : {stealth}");
             Console.WriteLine($"Cunning  : {cunning}");
             Console.ReadLine();
         }
+        
         public static void Dungeon()
         {
             string temp;
@@ -95,6 +98,8 @@ namespace Command_Line_Adventure
 
                 case 4:
                     Inventory();
+                    Console.WriteLine("PRESS ENTER");
+                    NorthMiddleHallway();
                     break;
 
                 default:
@@ -138,9 +143,11 @@ namespace Command_Line_Adventure
 
                 case 4:
                     Inventory();
+                    Console.WriteLine("PRESS ENTER");
+                    LeftHallway();
                     break;
 
-                    break;
+                    
                 default:
                     Console.WriteLine();
                     Console.WriteLine("You have entered an invalid input");
@@ -181,6 +188,8 @@ namespace Command_Line_Adventure
 
                 case 4:
                     Inventory();
+                    Console.WriteLine("PRESS ENTER");
+                    RightHallway();
                     break;
 
                 default:
@@ -217,6 +226,8 @@ namespace Command_Line_Adventure
 
                 case 3:
                     Inventory();
+                    Console.WriteLine("PRESS ENTER");
+                    Crematorium();
                     break;
 
                 default:
@@ -252,6 +263,8 @@ namespace Command_Line_Adventure
 
                 case 3:
                     Inventory();
+                    Console.WriteLine("PRESS ENTER");
+                    ArmouryWithguards();
                     break;
 
                 default:
@@ -288,6 +301,8 @@ namespace Command_Line_Adventure
 
                 case 3:
                     Inventory();
+                    Console.WriteLine("PRESS ENTER");
+                    Lairofthebeast();
                     break;
 
                 default:
@@ -323,6 +338,8 @@ namespace Command_Line_Adventure
 
                 case 3:
                     Inventory();
+                    Console.WriteLine("PRESS ENTER");
+                    Lockedmysteryroom();
                     break;
 
                 default:
@@ -335,40 +352,70 @@ namespace Command_Line_Adventure
         }
         public static void Main()
         {
-            string Character;
+            int Character;
 
+            do { 
             Console.WriteLine("Choose a character: ");
+            Console.WriteLine("Select: 1 for Strength, 2 for Stealth or 3 for Cunning.") ;
             Console.WriteLine();
-            Console.WriteLine("           Strength       Stealth        Cunning");
-            Console.WriteLine("          ----------     ---------      ---------");
-            Console.WriteLine("Strength:     3              1              1     ");
-            Console.WriteLine("Stealth:      1              3              1     ");
-            Console.WriteLine("Cunning:      1              1              3     ");
+            Console.WriteLine("       1 - Strength       2 - Stealth        3 - Cunning");
+            Console.WriteLine("          ----------         ---------          ---------");
+            Console.WriteLine("Strength:     3                  1                  1     ");
+            Console.WriteLine("Stealth:      1                  3                  1     ");
+            Console.WriteLine("Cunning:      1                  1                  3     ");
 
 
 
-            Character = Console.ReadLine();
-            switch (Character)
-            {
-                case "Strength":
-                    strength = 3;
-                    stealth = 1;
-                    cunning = 1;
-                    break;
+            temp = Console.ReadLine();
+            Character = Convert.ToInt32(temp);
+                switch (Character)
+                {
+                    case 1:
+                        strength = 3;
+                        stealth = 1;
+                        cunning = 1;
+                        Console.WriteLine("You chose Strength. ");
+                        Console.WriteLine("PRESS ENTER");
+                        Console.ReadLine();
+                        break;
 
-                case "Stealth":
-                    strength = 1;
-                    stealth = 3;
-                    cunning = 1;
-                    break;
+                    case 2:
+                        strength = 1;
+                        stealth = 3;
+                        cunning = 1;
+                        Console.WriteLine("You chose Stealth. ");
+                        Console.WriteLine("PRESS ENTER");
+                        Console.ReadLine();
+                        break;
 
-                case "Cunning":
-                    strength = 1;
-                    stealth = 1;
-                    cunning = 3;
-                    break;
+                    case 3:
+                        strength = 1;
+                        stealth = 1;
+                        cunning = 3;
+                        Console.WriteLine("You chose Cunning. ");
+                        Console.WriteLine("PRESS ENTER");
+                        Console.ReadLine();
+                        break;
+
+                    default:
+                        Console.WriteLine();
+                        Console.WriteLine("Wrong command. ");
+                        Console.WriteLine("PRESS ENTER");
+                        Console.ReadLine();
+                        Console.Clear();
+                        break;
+                }
+                
+            } while ((Character != 1) && (Character != 2) && (Character != 3));
+            Console.WriteLine("Type 1 to check your stats or press Enter to continue. ");
+            temp = Console.ReadLine();
+            if (temp == "1") {
+                Inventory();
             }
+
+
             Dungeon();
+            
             Console.ReadLine();
         }
     }
