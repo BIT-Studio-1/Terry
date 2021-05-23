@@ -14,11 +14,14 @@ namespace Command_Line_Adventure
             string slot1 = "Empty", slot2 = "Empty", slot3 = "Empty", slot4 = "Empty";
             Console.WriteLine();
             Console.WriteLine("~Inventory~");
-            Console.WriteLine("Item 1: " + slot1 + "\n" + "Item 2: " + slot2 + "\n" + "Item 3: " + slot3 + "\n" + "Item 4: " + slot4);
+            Console.WriteLine("-----------");
+            Console.WriteLine("  Item 1: " + slot1 + "\n" + "  Item 2: " + slot2 + "\n" + "  Item 3: " + slot3 + "\n" + "  Item 4: " + slot4);
+            Console.WriteLine();
             Console.WriteLine("~Statistics~");
-            Console.WriteLine($"Strength : {strength}");
-            Console.WriteLine($"Stealth  : {stealth}");
-            Console.WriteLine($"Cunning  : {cunning}");
+            Console.WriteLine("------------");
+            Console.WriteLine($"  Strength : {strength}");
+            Console.WriteLine($"  Stealth  : {stealth}");
+            Console.WriteLine($"  Cunning  : {cunning}");
             Console.WriteLine();
             Console.WriteLine("Press Enter to continue...");
             Console.ReadLine();
