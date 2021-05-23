@@ -5,17 +5,20 @@ namespace Command_Line_Adventure
     class Program
     {
         public static string temp;
+        public static string item1 = "Empty", item2 = "Empty", item3 = "Empty";
         public static int strength, stealth, cunning;     // These are universal variables 
 
 
 
         public static void Inventory()
         {
-            string slot1 = "Empty", slot2 = "Empty", slot3 = "Empty", slot4 = "Empty";
+            
             Console.WriteLine();
             Console.WriteLine("~Inventory~");
             Console.WriteLine("-----------");
-            Console.WriteLine("  Item 1: " + slot1 + "\n" + "  Item 2: " + slot2 + "\n" + "  Item 3: " + slot3 + "\n" + "  Item 4: " + slot4);
+            Console.WriteLine($"  Slot 1 : {item1}");
+            Console.WriteLine($"  Slot 2 : {item2}");
+            Console.WriteLine($"  Slot 3 : {item3}");
             Console.WriteLine();
             Console.WriteLine("~Statistics~");
             Console.WriteLine("------------");
