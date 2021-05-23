@@ -84,8 +84,8 @@ namespace Command_Line_Adventure
             Console.WriteLine();
             Console.WriteLine("Your options are...");
             Console.WriteLine("- [1] Go back into the Dungeon");
-            Console.WriteLine("- [2] Go to North West part of hallway ");
-            Console.WriteLine("- [3] Go to North East part of hallway ");
+            Console.WriteLine("- [2] Go  Left <--");
+            Console.WriteLine("- [3] Go  Right -->");
             Console.WriteLine("- [4] Check Inventory");
             Console.WriteLine();
             temp = Console.ReadLine();
@@ -127,10 +127,10 @@ namespace Command_Line_Adventure
             Console.WriteLine("You are in the North West part of the Hallway");
             Console.WriteLine();
             Console.WriteLine("Your options are...");
-            Console.WriteLine("- [1] Go North middle part of hallway");
+            Console.WriteLine("- [1] Go  Right -->");
             Console.WriteLine("- [2] Enter Armoury with Guards ");
             Console.WriteLine("- [3] Enter the Crematorium ");
-            Console.WriteLine("- [4] Go South West part of the hallway ");
+            Console.WriteLine("- [4] Go  Down");
             Console.WriteLine("- [5] Check Inventory");
             Console.WriteLine();
             temp = Console.ReadLine();
@@ -173,10 +173,10 @@ namespace Command_Line_Adventure
             Console.WriteLine("You are in the North East part of the Hallway");
             Console.WriteLine();
             Console.WriteLine("Your options are...");
-            Console.WriteLine("- [1] Go to North Middle part of hallway");
+            Console.WriteLine("- [1] Go  Left <--");
             Console.WriteLine("- [2] Enter Lair of the Beast ");
             Console.WriteLine("- [3] Enter the Locked Mystery Room ");
-            Console.WriteLine("- [4] Go to South East part of the hallway");
+            Console.WriteLine("- [4] Go  Down (South)");
             Console.WriteLine("- [5] Check Inventory");
             Console.WriteLine();
             temp = Console.ReadLine();
@@ -371,8 +371,8 @@ namespace Command_Line_Adventure
             Console.WriteLine("You are South East part of the hallway");
             Console.WriteLine();
             Console.WriteLine("Your options are...");
-            Console.WriteLine("- [1] Go to North East part of the hallway");
-            Console.WriteLine("- [2] Go to the South West part of the hallway");
+            Console.WriteLine("- [1] Go Up (North)");
+            Console.WriteLine("- [2] Go  Left <--");
             Console.WriteLine("- [3] Enter the Armoury");
             Console.WriteLine("- [4] Check Inventory");
 
@@ -460,8 +460,8 @@ namespace Command_Line_Adventure
             Console.WriteLine("You are South West part of the hallway");
             Console.WriteLine();
             Console.WriteLine("Your options are...");
-            Console.WriteLine("- [1] Go to North West part of the hallway");
-            Console.WriteLine("- [2] Go to South East part of the hallway");
+            Console.WriteLine("- [1] Go  Up (North)");
+            Console.WriteLine("- [2] Go  Right -->");
             Console.WriteLine("- [3] Enter the Heavy dungeon");
             Console.WriteLine("- [4] Check Inventory");
 
