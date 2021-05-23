@@ -142,7 +142,7 @@ namespace Command_Line_Adventure
                     NorthMiddleHallway();
                     break;
                 case 2:
-                    ArmouryWithguards();
+                    GuardsChamber();
                     break;
 
                 case 3:
@@ -247,13 +247,13 @@ namespace Command_Line_Adventure
                     break;
             }
         }
-        public static void ArmouryWithguards()
+        public static void GuardsChamber()
         {
             string temp;
             int input;
 
             Console.Clear();
-            Console.WriteLine("You are in the Armoury With Guards");
+            Console.WriteLine("You are in the Guards chamber. It seems like only one guard is here. You see a key hanging from his belt.");
             Console.WriteLine();
             Console.WriteLine("Your options are...");
             Console.WriteLine("- [1] Go backwards");
@@ -269,11 +269,12 @@ namespace Command_Line_Adventure
                 case 1:
                     LeftHallway();
                     break;
-
+                case 2:
+                    break;
                 case 3:
                     Inventory();
                     Console.WriteLine("PRESS ENTER");
-                    ArmouryWithguards();
+                    GuardsChamber();
                     break;
 
                 default:
