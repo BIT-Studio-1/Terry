@@ -373,7 +373,7 @@ namespace Command_Line_Adventure
             Console.WriteLine("Your options are...");
             Console.WriteLine("- [1] Go to North East part of the hallway");
             Console.WriteLine("- [2] Go to the South West part of the hallway");
-            Console.WriteLine("- [3] Enter the Locked Armoury");
+            Console.WriteLine("- [3] Enter the Armoury");
             Console.WriteLine("- [4] Check Inventory");
 
             Console.WriteLine();
@@ -390,7 +390,7 @@ namespace Command_Line_Adventure
                     Southwesthallway();
                     break;
                 case 3:
-                    LockedArmoury();
+                    EmptyArmoury();
                     break;
                 case 4:
                     Inventory();
@@ -406,16 +406,17 @@ namespace Command_Line_Adventure
                     break;
             }
         }
-        public static void LockedArmoury()
+        public static void EmptyArmoury()
         {
             string temp;
             int input;
 
             Console.Clear();
-            Console.WriteLine("You are in the Locked Armoury");
+            Console.WriteLine("You are in the Armoury. Al weapons are gone but it seems to be a 'Rusty sword' in one corner ");
             Console.WriteLine();
             Console.WriteLine("Your options are...");
             Console.WriteLine("- [1] Go backwards");
+            Console.WriteLine("- [2] Take the sword");
             Console.WriteLine("- [3] Check Inventory");
 
             Console.WriteLine();
@@ -428,12 +429,18 @@ namespace Command_Line_Adventure
                 case 1:
                     Southeasthallway();
                     break;
-                //case 2:
-                //    break;
+                case 2:
+                    item1 = "Rusty Sword";
+                    strength++;
+                    Console.WriteLine("You picked up the 'Rusty Sword'. Strength up +1.");
+                    Console.WriteLine("Press Enter to continue...");
+                    Console.ReadLine();
+                    EmptyArmoury();
+                    break;
                 case 3:
                     Inventory();
                     Console.WriteLine("PRESS ENTER");
-                    LockedArmoury();
+                    EmptyArmoury();
                     break;
 
                 default:
