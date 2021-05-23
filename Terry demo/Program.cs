@@ -19,6 +19,8 @@ namespace Command_Line_Adventure
             Console.WriteLine($"Strength : {strength}");
             Console.WriteLine($"Stealth  : {stealth}");
             Console.WriteLine($"Cunning  : {cunning}");
+            Console.WriteLine();
+            Console.WriteLine("Press Enter to continue...");
             Console.ReadLine();
         }
         
@@ -368,6 +370,7 @@ namespace Command_Line_Adventure
 
             temp = Console.ReadLine();
             Character = Convert.ToInt32(temp);
+                Console.WriteLine();
                 switch (Character)
                 {
                     case 1:
@@ -375,8 +378,7 @@ namespace Command_Line_Adventure
                         stealth = 1;
                         cunning = 1;
                         Console.WriteLine("You chose Strength. ");
-                        Console.WriteLine("PRESS ENTER");
-                        Console.ReadLine();
+                      
                         break;
 
                     case 2:
@@ -384,8 +386,7 @@ namespace Command_Line_Adventure
                         stealth = 3;
                         cunning = 1;
                         Console.WriteLine("You chose Stealth. ");
-                        Console.WriteLine("PRESS ENTER");
-                        Console.ReadLine();
+                        
                         break;
 
                     case 3:
@@ -393,8 +394,7 @@ namespace Command_Line_Adventure
                         stealth = 1;
                         cunning = 3;
                         Console.WriteLine("You chose Cunning. ");
-                        Console.WriteLine("PRESS ENTER");
-                        Console.ReadLine();
+                        
                         break;
 
                     default:
