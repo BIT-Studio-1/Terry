@@ -214,11 +214,11 @@ namespace Command_Line_Adventure
             int input;
 
             Console.Clear();
-            Console.WriteLine("You are in the Crematorium");
+            Console.WriteLine("You are in the Crematorium ");
             Console.WriteLine();
             Console.WriteLine("Your options are...");
             Console.WriteLine("- [1] Go backwards");
-            Console.WriteLine("- [2] Check what's in the box");
+            Console.WriteLine("- [2] something");
             Console.WriteLine("- [3] Check Inventory");
 
             Console.WriteLine();
@@ -231,6 +231,7 @@ namespace Command_Line_Adventure
                 case 1:
                     LeftHallway();
                     break;
+                
 
                 case 3:
                     Inventory();
