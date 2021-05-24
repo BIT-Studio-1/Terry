@@ -165,7 +165,6 @@ namespace Command_Line_Adventure
 
 
                 Console.Clear();
-                Console.WriteLine("You wake up in a dark and dilapidated Dungeon, With no idea how you got here. \nHowever you see a faint light in the distance and notice that the door is slightly open.  ");
                 Console.WriteLine();
                 Console.WriteLine("Your options are...");
                 Console.WriteLine("- [1] Go Investigate the Hallway");
@@ -853,8 +852,9 @@ namespace Command_Line_Adventure
             {
                 Inventory();
             }
-
-            Console.WriteLine("test intro text");
+            Console.Clear();
+            Console.WriteLine("You wake up in a dark and dilapidated Dungeon, With no idea how you got here. \nHowever you see a faint light in the distance and notice that the door is slightly open.  ");
+            Console.ReadLine();
             Dungeon();
 
             Console.ReadLine();
