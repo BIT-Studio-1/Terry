@@ -307,7 +307,7 @@ namespace Command_Line_Adventure
             Console.WriteLine("Your options are...");
             Console.WriteLine("- [1] Go  Left <--");
             Console.WriteLine("- [2] Enter Lair of the Beast ");
-            Console.WriteLine("- [3] Enter the Locked Mystery Room ");
+            Console.WriteLine("- [3] Enter the Mystery Room ");
             Console.WriteLine("- [4] Go  Down (South)");
             Console.WriteLine("- [5] Check Inventory");
             Console.WriteLine();
@@ -320,11 +320,35 @@ namespace Command_Line_Adventure
                 case 1:
                     NorthMiddleHallway();
                     break;
-                case 2:
+                case 2:                   
                     Lairofthebeast();
                     break;
                 case 3:
-                    Lockedmysteryroom();
+                    if ((item1 == "Key") || (item1 == "Key") || (item1 == "Key"))
+                    {
+                        do
+                        {
+                            Console.WriteLine("The door is locked. Use the key? y/n ");
+                            temp = Console.ReadLine();
+                            if (temp == "y")
+                            {
+                                Lockedmysteryroom();
+                            }
+                            else if (temp == "n")
+                            {
+                                RightHallway();
+                            }
+                            else
+                            {
+                                Console.WriteLine("Wrong command");
+                            }
+                        }while((temp != "y") || (temp != "n"));
+                    }
+                    else {
+                        Console.WriteLine("The door is locked. You need the key to open it...");
+                        Console.ReadLine();
+                        RightHallway();
+                    }
                     break;
                 case 4:
                     Southeasthallway();
