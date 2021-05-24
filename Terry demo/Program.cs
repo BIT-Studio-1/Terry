@@ -4,9 +4,13 @@ namespace Command_Line_Adventure
 {
     class Program
     {
+        // These are universal variables 
         public static string temp;
         public static string item1 = "Empty", item2 = "Empty", item3 = "Empty";
-        public static int strength, stealth, cunning, health = 3;     // These are universal variables 
+        public static int strength, stealth, cunning, health = 3;     
+        //This bools allow to change the situation when you get to a room
+        public static bool EmptyArmouryButton = false;
+        public static bool GuardsChamberButton = false;
 
         // this is just a simplified method of the players stats just so theres something to test with in this demo
         public static int[] PlayerStats()
@@ -264,7 +268,14 @@ namespace Command_Line_Adventure
                     NorthMiddleHallway();
                     break;
                 case 2:
-                    GuardsChamber();
+                    if (GuardsChamberButton == false)
+                    {
+                        GuardsChamber();
+                    }
+                    else
+                    {
+                        GuardsChamberB();
+                    }
                     break;
                 case 3:
                     Crematorium();
@@ -396,12 +407,57 @@ namespace Command_Line_Adventure
 
                 case 2:
                     Battle();
+                    GuardsChamberButton = true;
+                    if (EmptyArmouryButton == false)
+                    {
+                        EmptyArmoury();
+                    }
+                    else
+                    {
+                        EmptyArmouryB();
+                    }
                     break;
 
                 case 3:
                     Inventory();
                     Console.WriteLine("PRESS ENTER");
                     GuardsChamber();
+                    break;
+
+                default:
+                    Console.WriteLine();
+                    Console.WriteLine("You have entered an invalid input");
+                    Console.WriteLine("Press any key to continue...");
+                    Console.ReadLine();
+                    break;
+            }
+        }
+        public static void GuardsChamberB()
+        {
+            string temp;
+            int input;
+
+            Console.Clear();
+            Console.WriteLine("You are in the Guards chamber. The room is empty.");
+            Console.WriteLine();
+            Console.WriteLine("Your options are...");
+            Console.WriteLine("- [1] Go backwards");
+            Console.WriteLine("- [2] Check Inventory");
+            Console.WriteLine();
+            temp = Console.ReadLine();
+            input = Convert.ToInt32(temp);
+            Console.Clear();
+
+            switch (input)
+            {
+                case 1:
+                    LeftHallway();
+                    break;
+
+                case 2:
+                    Inventory();
+                    Console.WriteLine("PRESS ENTER");
+                    GuardsChamberB();
                     break;
 
                 default:
@@ -515,7 +571,14 @@ namespace Command_Line_Adventure
                     Southwesthallway();
                     break;
                 case 3:
-                    EmptyArmoury();
+                    if (EmptyArmouryButton == false)
+                    {
+                        EmptyArmoury();
+                    }
+                    else
+                    {
+                        EmptyArmouryB();
+                    }
                     break;
                 case 4:
                     Inventory();
@@ -537,7 +600,7 @@ namespace Command_Line_Adventure
             int input;
 
             Console.Clear();
-            Console.WriteLine("You are in the Armoury. Al weapons are gone but it seems to be a 'Rusty sword' in one corner ");
+            Console.WriteLine("You are in the Armoury. All weapons are gone but it seems to be a 'Rusty sword' in one corner ");
             Console.WriteLine();
             Console.WriteLine("Your options are...");
             Console.WriteLine("- [1] Go backwards");
@@ -559,13 +622,58 @@ namespace Command_Line_Adventure
                     strength++;
                     Console.WriteLine("You picked up the 'Rusty Sword'. Strength up +1.");
                     Console.WriteLine("Press Enter to continue...");
+                    EmptyArmouryButton = true;
                     Console.ReadLine();
-                    EmptyArmoury();
+                    EmptyArmouryB();
                     break;
                 case 3:
                     Inventory();
                     Console.WriteLine("PRESS ENTER");
-                    EmptyArmoury();
+                    if (EmptyArmouryButton == false)
+                    {
+                        EmptyArmoury();
+                    }
+                    else
+                    {
+                        EmptyArmouryB();
+                    }
+                    break;
+
+                default:
+                    Console.WriteLine();
+                    Console.WriteLine("You have entered an invalid input");
+                    Console.WriteLine("Press any key to continue...");
+                    Console.ReadLine();
+                    break;
+            }
+        }
+        public static void EmptyArmouryB()
+        {
+            string temp;
+            int input;
+
+            Console.Clear();
+            Console.WriteLine("You are in the Armoury. All weapons are gone... ");
+            Console.WriteLine();
+            Console.WriteLine("Your options are...");
+            Console.WriteLine("- [1] Go backwards");
+            Console.WriteLine("- [2] Check Inventory");
+
+            Console.WriteLine();
+            temp = Console.ReadLine();
+            input = Convert.ToInt32(temp);
+            Console.Clear();
+
+            switch (input)
+            {
+                case 1:
+                    Southeasthallway();
+                    break;
+
+                case 2:
+                    Inventory();
+                    Console.WriteLine("PRESS ENTER");
+                    EmptyArmouryB();
                     break;
 
                 default:
