@@ -165,10 +165,9 @@ namespace Command_Line_Adventure
 
 
                 Console.Clear();
-                Console.WriteLine("You are in the Dungeon");
                 Console.WriteLine();
                 Console.WriteLine("Your options are...");
-                Console.WriteLine("- [1] Go to the Hallway");
+                Console.WriteLine("- [1] Go Investigate the Hallway");
                 Console.WriteLine("- [2] Stay Imprisoned");
                 Console.WriteLine("- [3] Check Inventory");
                 Console.WriteLine();
@@ -183,7 +182,7 @@ namespace Command_Line_Adventure
                         NorthMiddleHallway();
                         break;
                     case 2:
-                        Console.WriteLine("You die later that night");
+                        Console.WriteLine("You chose to stay. And with that your only chance of escape is gone, The Guards walk into the dungeon \nYou die later that night");
                         Console.ReadLine();
                         break;
                     case 3:
@@ -854,8 +853,9 @@ namespace Command_Line_Adventure
             {
                 Inventory();
             }
-
-
+            Console.Clear();
+            Console.WriteLine("You wake up in a dark and dilapidated Dungeon, With no idea how you got here. \nHowever you see a faint light in the distance and notice that the door is slightly open.  ");
+            Console.ReadLine();
             Dungeon();
 
             Console.ReadLine();
