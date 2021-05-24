@@ -43,7 +43,7 @@ namespace Command_Line_Adventure
                 Console.WriteLine("You are in the Dungeon");
                 Console.WriteLine();
                 Console.WriteLine("Your options are...");
-                Console.WriteLine("- [1] Go to Hallway");
+                Console.WriteLine("- [1] Go to the Hallway");
                 Console.WriteLine("- [2] Stay Imprisoned");
                 Console.WriteLine("- [3] Check Inventory");
                 Console.WriteLine();
