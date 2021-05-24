@@ -6,9 +6,130 @@ namespace Command_Line_Adventure
     {
         public static string temp;
         public static string item1 = "Empty", item2 = "Empty", item3 = "Empty";
-        public static int strength, stealth, cunning;     // These are universal variables 
+        public static int strength, stealth, cunning, health = 3;     // These are universal variables 
+
+        // this is just a simplified method of the players stats just so theres something to test with in this demo
+        public static int[] PlayerStats()
+        {
+            // slot 1 = Strength: slot 2 = Stealth: slot 3 = Cunning: slot 4 = Health;
+            int[] PlayerStats = { strength, stealth, cunning, health };
+            return PlayerStats;
+        }
 
 
+
+        // this method will get opened up whenever theres a battle
+        public static bool Battle()
+        {
+            string temp1;
+            int decision, temp2;
+            Random randy = new Random();
+
+
+
+            // this is just a temperary variable, but this can be swapped out with other information eventually. its filled with things like diolage options and its name  
+            // slot 1 = Introduction: slot 2 = if you hit the guard: slot 3 = if the guard hits you: slot 4 = if you beat the guard: slot 5 = if the guard beats you: slot 6 = name
+            string[] enemyDis = { "you are confronted by a dungeon Guard \nGuard: Stop in the name of the law", "Guard: Arrgh", "Guard: Haha", "Guard: I . need .. back up ...", "Guard: Its been a while since ive had a good brawl", "Guard" };
+
+
+
+            // slot 1 = Strength: slot 2 = Stealth: slot 3 = Cunning: slot 4 = Health
+            int[] enemyStats = { 2, 2, 1, 2 }; // eventually "enemyStats" will be like "playerStats"
+            int[] playerStats = PlayerStats();
+
+
+
+            // this while loop will stay running while the players health does not reach 0
+            while (playerStats[3] != 0)
+            {
+                // shows the players and enemys health <3
+                Console.WriteLine("Your <3 = " + playerStats[3]);
+                Console.WriteLine(enemyDis[5] + " <3 = " + enemyStats[3]);
+                Console.ReadLine();
+
+
+
+                // Choices 2 and 3 do nothing
+                Console.WriteLine("1: Attack the " + enemyDis[5]);
+                Console.WriteLine("2: Hide from the " + enemyDis[5]);
+                Console.WriteLine("3: do stuff");
+                temp1 = Console.ReadLine();
+                decision = Convert.ToInt32(temp1);
+
+
+                // this happens if you choose to battle
+                if (decision == 1)
+                {
+                    // total rolls of both charcters will be compared to determine who hits who
+                    int yourRoll = 0, enemyRoll = 0;
+
+                    // shows your strength stat, that stat is how much dice you roll
+                    Console.WriteLine("You attack with " + playerStats[0] + " dice");
+                    Console.ReadLine();
+
+                    // this for loop runs as many times as your strength stat
+                    for (int i = 0; i < playerStats[0]; i++)
+                    {
+                        int dice = randy.Next(1, 7);
+                        Console.WriteLine(dice);
+                        yourRoll = yourRoll + dice;
+                    }
+
+                    Console.ReadLine();
+                    Console.WriteLine("The " + enemyDis[5] + " attacks with " + enemyStats[0] + " dice"); // finds info on enemys name and strength stat
+                    Console.ReadLine();
+
+                    // same as above
+                    for (int i = 0; i < enemyStats[0]; i++)
+                    {
+                        int dice = randy.Next(1, 7);
+                        Console.WriteLine(dice);
+                        enemyRoll = enemyRoll + dice;
+                    }
+
+                    Console.ReadLine();
+                    Console.WriteLine("Your total roll is " + yourRoll);
+                    Console.ReadLine();
+
+                    Console.WriteLine("The " + enemyDis[5] + "s total roll is " + enemyRoll);
+                    Console.ReadLine();
+
+                    if (yourRoll > enemyRoll)
+                    {
+                        // if your total is greater then the enemys, you hit the enemy and deal 1 damage to his health, and he says a line
+                        enemyStats[3] = enemyStats[3] - 1;
+                        Console.WriteLine("You hit the " + enemyDis[5]);
+                        Console.WriteLine(enemyDis[1]);
+                        Console.ReadLine();
+                    }
+
+                    if (yourRoll < enemyRoll)
+                    {
+                        // if your total roll is lesser then the enemys, you lose 1 health and he says a line again
+                        playerStats[3] = playerStats[3] - 1;
+                        Console.WriteLine("The " + enemyDis[5] + " hits you");
+                        Console.WriteLine(enemyDis[2]);
+                        Console.ReadLine();
+                    }
+
+                }
+
+                if (decision == 2)
+                {
+                    // something stealth related happens, not yet implimented
+                }
+
+                if (decision == 3)
+                {
+                    // something happens, not yet implimented
+                }
+
+            }
+
+
+
+            return true; // this means nothing right now
+        }
 
         public static void Inventory()
         {
@@ -271,6 +392,10 @@ namespace Command_Line_Adventure
             {
                 case 1:
                     LeftHallway();
+                    break;
+
+                case 2:
+                    Battle();
                     break;
 
                 case 3:
