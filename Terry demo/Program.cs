@@ -854,7 +854,7 @@ namespace Command_Line_Adventure
                 Inventory();
             }
 
-
+            Console.WriteLine();
             Dungeon();
 
             Console.ReadLine();
