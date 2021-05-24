@@ -7,7 +7,7 @@ namespace Command_Line_Adventure
         // These are universal variables 
         public static string temp;
         public static string item1 = "Empty", item2 = "Empty", item3 = "Empty";
-        public static int strength, stealth, cunning, health = 3;     
+        public static int strength, stealth, cunning, health;     
         //This bools allow to change the situation when you get to a room
         public static bool EmptyArmouryButton = false;
         public static bool GuardsChamberButton = false;
@@ -249,8 +249,7 @@ namespace Command_Line_Adventure
             int input;
 
             Console.Clear();
-            Console.WriteLine("You are in the North West part of the Hallway");
-            Console.WriteLine();
+            Console.WriteLine("You are in the North West part of the Hallway\n");
             Console.WriteLine("Your options are...");
             Console.WriteLine("- [1] Go  Right -->");
             Console.WriteLine("- [2] Enter Armoury with Guards ");
@@ -302,8 +301,7 @@ namespace Command_Line_Adventure
             int input;
 
             Console.Clear();
-            Console.WriteLine("You are in the North East part of the Hallway");
-            Console.WriteLine();
+            Console.WriteLine("You are in the North East part of the Hallway\n");
             Console.WriteLine("Your options are...");
             Console.WriteLine("- [1] Go  Left <--");
             Console.WriteLine("- [2] Enter Lair of the Beast ");
@@ -803,9 +801,9 @@ namespace Command_Line_Adventure
                 Console.WriteLine("       1 - Strength       2 - Stealth        3 - Cunning");
                 Console.WriteLine("          ----------         ---------          ---------");
                 Console.WriteLine("Strength:     3                  1                  1     ");
-                Console.WriteLine("Stealth:      1                  3                  1     ");
-                Console.WriteLine("Cunning:      1                  1                  3     ");
-
+                Console.WriteLine("Stealth :     1                  4                  1     ");
+                Console.WriteLine("Cunning :     1                  2                  4     ");
+                Console.WriteLine("Health  :     4                  2                  3     ");
 
 
                 temp = Console.ReadLine();
@@ -817,14 +815,16 @@ namespace Command_Line_Adventure
                         strength = 3;
                         stealth = 1;
                         cunning = 1;
+                        health = 4;
                         Console.WriteLine("You chose Strength. ");
 
                         break;
 
                     case 2:
                         strength = 1;
-                        stealth = 3;
-                        cunning = 1;
+                        stealth = 4;
+                        cunning = 2;
+                        health = 2;
                         Console.WriteLine("You chose Stealth. ");
 
                         break;
@@ -832,7 +832,8 @@ namespace Command_Line_Adventure
                     case 3:
                         strength = 1;
                         stealth = 1;
-                        cunning = 3;
+                        cunning = 4;
+                        health = 3;
                         Console.WriteLine("You chose Cunning. ");
 
                         break;
