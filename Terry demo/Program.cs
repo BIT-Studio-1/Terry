@@ -12,7 +12,12 @@ namespace Command_Line_Adventure
         public static bool EmptyArmouryButton = false;
         public static bool GuardsChamberButton = false;
         //Item list
-        public static string RustySword;
+        public static void RustySword() {
+            string RustySword = "Rusty Sword";
+            strength++;
+            Console.WriteLine("You picked up the 'Rusty Sword'. Strength up +1.");
+            
+        }
 
         // this is just a simplified method of the players stats just so theres something to test with in this demo
         public static int[] PlayerStats()
@@ -757,8 +762,8 @@ namespace Command_Line_Adventure
                     break;
                 case 2:
                     item1 = "Rusty Sword";
-                    strength++;
-                    Console.WriteLine("You picked up the 'Rusty Sword'. Strength up +1.");
+
+                    PickItem();
                     Console.WriteLine("Press Enter to continue...");
                     EmptyArmouryButton = true;
                     Console.ReadLine();
