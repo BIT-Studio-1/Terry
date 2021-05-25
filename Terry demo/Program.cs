@@ -22,44 +22,74 @@ namespace Command_Line_Adventure
 
 
 
+        public static int[] EnemyStats(int enemyNumber) // this method stores all the integer information of the enemys
+        {
+            switch (enemyNumber)
+            {
+                case 1:
+                    int[] GuardStats = { 2, 2, 1, 3 };
+                    return GuardStats;
+                case 2:
+                    int[] OgreStats = { 4, 1, 1, 4 };
+                    return OgreStats;
+
+            }
+            int[] Null = { 0, 0, 0, 0 };
+            return Null;
+        }
+        public static string[] EnemyDio(int enemyNumber) // this method stores all the string information for enemys
+        {
+            switch (enemyNumber)
+            {
+                case 1:                  // slot 1 = Introduction: slot 2 = if you hit the guard: slot 3 = if the guard hits you: slot 4 = if you beat the guard: slot 5 = if the guard beats you: slot 6 = name
+                    string[] GuardDio = { "The Guard spots you!\n\nGuard: Stop! in the name of the law, your under arest", "Guard: Bastard!", "Guard: Take that", "Guard: I . need .. back up ...", "Guard: Its back to the cell for you", "Guard" };
+                    return GuardDio;
+                case 2:
+                    string[] OgreDio = { "Before you stands an Ogre. Huge and threating, the Ogre yells \n\nOgre: Im gonna eat you!", "Ogre: Ourghhh! you hit me!", "Ogre: hehe get in me belly", "Ogre: ARGGHH *thud*\nThe Ogre falls, shacking the ground you stand on, \nthe bigger they are the harder they fall\nYou find a very sharp blade on his belt\nYour strength is increased", "Ogre: Finaly! Dinner\nThe Ogre drags you to his lair where he prepares his dinner\nYou are eaten, luckily you bled to death before that happened", "Ogre" };
+                    return OgreDio;
+                default:
+                    break;
+            }
+            string[] Null = { "silence", "silence", "silence", "silence", "silence", "silence" };
+            return Null;
+        }
         // this method will get opened up whenever theres a battle
-        public static bool Battle()
+        public static bool Battle(int scenarioNumber, string PlaceName)
         {
             string temp1;
-            int decision, temp2;
+            int decision;
             Random randy = new Random();
 
-
-
-            // this is just a temperary variable, but this can be swapped out with other information eventually. its filled with things like diolage options and its name  
-            // slot 1 = Introduction: slot 2 = if you hit the guard: slot 3 = if the guard hits you: slot 4 = if you beat the guard: slot 5 = if the guard beats you: slot 6 = name
-            string[] enemyDis = { "you are confronted by a dungeon Guard \nGuard: Stop in the name of the law", "Guard: Arrgh", "Guard: Haha", "Guard: I . need .. back up ...", "Guard: Its been a while since ive had a good brawl", "Guard" };
+            string placeName = PlaceName;
+            int[] enemyStats = EnemyStats(scenarioNumber);
+            string[] enemyDis = EnemyDio(scenarioNumber);
 
 
 
             // slot 1 = Strength: slot 2 = Stealth: slot 3 = Cunning: slot 4 = Health
-            int[] enemyStats = { 2, 2, 1, 2 }; // eventually "enemyStats" will be like "playerStats"
+            // eventually "enemyStats" will be like "playerStats"
             int[] playerStats = PlayerStats();
 
-
+            Console.WriteLine(enemyDis[0]);
+            Console.ReadLine();
 
             // this while loop will stay running while the players health does not reach 0
             while (playerStats[3] != 0)
             {
+                Console.Clear();
+
                 // shows the players and enemys health <3
-                Console.WriteLine("Your <3 = " + playerStats[3]);
-                Console.WriteLine(enemyDis[5] + " <3 = " + enemyStats[3]);
-                Console.ReadLine();
-
-
+                Console.WriteLine("Your Health: " + playerStats[3]);
+                Console.WriteLine(enemyDis[5] + " Health: " + enemyStats[3] + "\n");
 
                 // Choices 2 and 3 do nothing
                 Console.WriteLine("1: Attack the " + enemyDis[5]);
                 Console.WriteLine("2: Hide from the " + enemyDis[5]);
-                Console.WriteLine("3: do stuff");
+                Console.WriteLine("3: something to do with cunning (leads nowhere)\n");
                 temp1 = Console.ReadLine();
                 decision = Convert.ToInt32(temp1);
 
+                Console.Clear();
 
                 // this happens if you choose to battle
                 if (decision == 1)
@@ -79,8 +109,7 @@ namespace Command_Line_Adventure
                         yourRoll = yourRoll + dice;
                     }
 
-                    Console.ReadLine();
-                    Console.WriteLine("The " + enemyDis[5] + " attacks with " + enemyStats[0] + " dice"); // finds info on enemys name and strength stat
+                    Console.WriteLine("\nThe " + enemyDis[5] + " attacks with " + enemyStats[0] + " dice"); // finds info on enemys name and strength stat
                     Console.ReadLine();
 
                     // same as above
@@ -92,10 +121,10 @@ namespace Command_Line_Adventure
                     }
 
                     Console.ReadLine();
-                    Console.WriteLine("Your total roll is " + yourRoll);
+                    Console.WriteLine("Your total strength is " + yourRoll);
                     Console.ReadLine();
 
-                    Console.WriteLine("The " + enemyDis[5] + "s total roll is " + enemyRoll);
+                    Console.WriteLine("The " + enemyDis[5] + "s total strength is " + enemyRoll);
                     Console.ReadLine();
 
                     if (yourRoll > enemyRoll)
@@ -116,11 +145,77 @@ namespace Command_Line_Adventure
                         Console.ReadLine();
                     }
 
+                    if (playerStats[3] == 0)
+                    {
+                        Console.WriteLine(enemyDis[4]);
+                        Console.ReadLine();
+                    }
+
+                    if (enemyStats[3] == 0)
+                    {
+                        Console.WriteLine(enemyDis[3]);
+                        Console.ReadLine();
+                        break;
+                    }
+
                 }
 
                 if (decision == 2)
                 {
-                    // something stealth related happens, not yet implimented
+                    int yourRoll = 0, enemyRoll = 0;
+
+                    // shows your strength stat, that stat is how much dice you roll
+                    Console.WriteLine("You try hide, you use " + playerStats[1] + " dice");
+                    Console.ReadLine();
+
+                    // this for loop runs as many times as your strength stat
+                    for (int i = 0; i < playerStats[1]; i++)
+                    {
+                        int dice = randy.Next(1, 7);
+                        Console.WriteLine(dice);
+                        yourRoll = yourRoll + dice;
+                    }
+
+                    Console.WriteLine("\nThe " + enemyDis[5] + " checks with " + enemyStats[1] + " dice"); // finds info on enemys name and strength stat
+                    Console.ReadLine();
+
+                    // same as above
+                    for (int i = 0; i < enemyStats[1]; i++)
+                    {
+                        int dice = randy.Next(1, 7);
+                        Console.WriteLine(dice);
+                        enemyRoll = enemyRoll + dice;
+                    }
+
+                    Console.ReadLine();
+                    Console.WriteLine("Your total stealth roll is " + yourRoll);
+                    Console.ReadLine();
+
+                    Console.WriteLine("The " + enemyDis[5] + "s total stealth is " + enemyRoll);
+                    Console.ReadLine();
+
+                    if (yourRoll > enemyRoll)
+                    {
+                        Console.WriteLine("You hide from the " + enemyDis[5]);
+                        Console.WriteLine(enemyDis[5] + ": where did you go?");
+                        Console.ReadLine();
+                        Console.WriteLine("Do you want to run away?\n1: Yes\n2: No\n");
+                        temp1 = Console.ReadLine();
+                        decision = Convert.ToInt32(temp1);
+                        if (decision == 1)
+                        {
+                            Console.WriteLine("You escape the " + placeName);
+                            return true;
+                        }
+                    }
+
+                    if (yourRoll < enemyRoll)
+                    {
+                        playerStats[3] = playerStats[3] - 1;
+                        Console.WriteLine("You unsuccsesfully hide and the " + enemyDis[5] + " hits you");
+                        Console.WriteLine(enemyDis[2]);
+                        Console.ReadLine();
+                    }
                 }
 
                 if (decision == 3)
@@ -129,8 +224,6 @@ namespace Command_Line_Adventure
                 }
 
             }
-
-
 
             return true; // this means nothing right now
         }
@@ -420,6 +513,9 @@ namespace Command_Line_Adventure
             input = Convert.ToInt32(temp);
             Console.Clear();
 
+            int Scenario = 1;
+            string PlaceName = "Guards Chamber";
+
             switch (input)
             {
                 case 1:
@@ -427,7 +523,7 @@ namespace Command_Line_Adventure
                     break;
 
                 case 2:
-                    Battle();
+                    Battle(Scenario,PlaceName);
                     GuardsChamberButton = true;
                     if (EmptyArmouryButton == false)
                     {
