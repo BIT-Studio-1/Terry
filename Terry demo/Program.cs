@@ -6,18 +6,14 @@ namespace Command_Line_Adventure
     {
         // These are universal variables 
         public static string temp;
+        public static string tempItem;
         public static string item1 = "Empty", item2 = "Empty", item3 = "Empty";
         public static int strength, stealth, cunning, health;     
         //This bools allow to change the situation when you get to a room
         public static bool EmptyArmouryButton = false;
         public static bool GuardsChamberButton = false;
         //Item list
-        public static void RustySword() {
-            string RustySword = "Rusty Sword";
-            strength++;
-            Console.WriteLine("You picked up the 'Rusty Sword'. Strength up +1.");
-            
-        }
+        
 
         // this is just a simplified method of the players stats just so theres something to test with in this demo
         public static int[] PlayerStats()
@@ -236,20 +232,36 @@ namespace Command_Line_Adventure
         }
 
         public static void PickItem() {
-            
-            Console.WriteLine("Choose a slot for the item ");
-            Console.WriteLine($" [1] Slot 1: {item1}");
-            Console.WriteLine($" [2] Slot 2: {item2}");
-            Console.WriteLine($" [3] Slot 3: {item3}");
-
             string temp;
             int input;
-            temp = Console.ReadLine();
-            input = Convert.ToInt32(temp);
-            switch (input) {
-                
+            do
+            {
+                Console.WriteLine("Choose a slot for the item ");
+                Console.WriteLine($" [1] Slot 1: {item1}");
+                Console.WriteLine($" [2] Slot 2: {item2}");
+                Console.WriteLine($" [3] Slot 3: {item3}");
 
-            }
+
+                temp = Console.ReadLine();
+                input = Convert.ToInt32(temp);
+                switch (input)
+                {
+                    case 1:
+                        item1 = tempItem;
+                        break;
+                    case 2:
+                        item2 = tempItem;
+                        break;
+                    case 3:
+                        item3 = tempItem;
+                        break;
+                    default:
+                        Console.WriteLine("Wrong command ");
+                        break;
+
+                }
+            } while ((input != 1) && (input != 2) && (input != 3));
+            
 
 
         }
@@ -761,9 +773,10 @@ namespace Command_Line_Adventure
                     Southeasthallway();
                     break;
                 case 2:
-                    item1 = "Rusty Sword";
-
+                    tempItem = "Rusty Sword";
                     PickItem();
+                    Console.WriteLine("You picked up the 'Rusty Sword'. Strength +1.'");
+                    strength++;
                     Console.WriteLine("Press Enter to continue...");
                     EmptyArmouryButton = true;
                     Console.ReadLine();
