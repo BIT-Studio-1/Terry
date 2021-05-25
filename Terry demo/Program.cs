@@ -242,7 +242,7 @@ namespace Command_Line_Adventure
             temp = Console.ReadLine();
             input = Convert.ToInt32(temp);
             switch (input) {
-                case 1:
+                
 
             }
 
@@ -263,6 +263,7 @@ namespace Command_Line_Adventure
             Console.WriteLine($"  Strength : {strength}");
             Console.WriteLine($"  Stealth  : {stealth}");
             Console.WriteLine($"  Cunning  : {cunning}");
+            Console.WriteLine($"  Health   : {health}");
             Console.WriteLine();
             Console.WriteLine("Press Enter to continue...");
             Console.ReadLine();
