@@ -158,9 +158,10 @@ namespace Command_Line_Adventure
                     {
                         Console.WriteLine(enemyDis[3]);
                         Console.ReadLine();
+                        
                         break;
                     }
-
+                    
                 }
 
                 if (decision == 2)
@@ -227,13 +228,14 @@ namespace Command_Line_Adventure
                 }
 
             }
-
+            Console.Clear();
             return true; // this means nothing right now
         }
 
         public static void PickItem() {
             string temp;
             int input;
+            string input2 = "y";
             do
             {
                 Console.WriteLine("Choose a slot for the item ");
@@ -241,27 +243,64 @@ namespace Command_Line_Adventure
                 Console.WriteLine($" [2] Slot 2: {item2}");
                 Console.WriteLine($" [3] Slot 3: {item3}");
 
-
+                input2 = "y";
                 temp = Console.ReadLine();
                 input = Convert.ToInt32(temp);
                 switch (input)
                 {
                     case 1:
-                        item1 = tempItem;
+                        if (item1 != "Empty")
+                        {
+                            Console.WriteLine($"Are you sure you want to replace the {item1} for the {tempItem}? y/n");
+                            input2 = Console.ReadLine();
+                            if (input2 == "y")
+                            {
+                                item1 = tempItem;
+                            }
+                        }
+                        else {
+                            item1 = tempItem;
+                        }                        
                         break;
                     case 2:
-                        item2 = tempItem;
+                        if (item2 != "Empty")
+                        {
+                            Console.WriteLine($"Are you sure you want to replace the {item2} for the {tempItem}? y/n");
+                            input2 = Console.ReadLine();
+                            if (input2 == "y")
+                            {
+                                item2 = tempItem;
+                            }
+                        }
+                        else
+                        {
+                            item2 = tempItem;
+                        }
                         break;
                     case 3:
-                        item3 = tempItem;
+                        if (item3 != "Empty")
+                        {
+                            Console.WriteLine($"Are you sure you want to replace the {item3} for the {tempItem}? y/n");
+                            input2 = Console.ReadLine();
+                            if (input2 == "y") {
+                                item3 = tempItem;                              
+                            }                   
+                        }
+                        else
+                        {
+                            item3 = tempItem;
+                        }
                         break;
                     default:
                         Console.WriteLine("Wrong command ");
                         break;
 
                 }
-            } while ((input != 1) && (input != 2) && (input != 3));
+            } while ((input != 1) && (input != 2) && (input != 3) || (input2 == "n"));
             
+            Console.WriteLine($"You picked the {tempItem}");
+            Console.WriteLine("Press Enter to continue...");
+            Console.ReadLine();
 
 
         }
@@ -562,14 +601,16 @@ namespace Command_Line_Adventure
 
                 case 2:
                     Battle(Scenario,PlaceName);
+                    tempItem = "Key";
+                    PickItem();
                     GuardsChamberButton = true;
-                    if (EmptyArmouryButton == false)
+                    if (GuardsChamberButton == false)
                     {
-                        EmptyArmoury();
+                        GuardsChamber();
                     }
                     else
                     {
-                        EmptyArmouryB();
+                        GuardsChamberB();
                     }
                     break;
 
@@ -775,11 +816,10 @@ namespace Command_Line_Adventure
                 case 2:
                     tempItem = "Rusty Sword";
                     PickItem();
-                    Console.WriteLine("You picked up the 'Rusty Sword'. Strength +1.'");
                     strength++;
-                    Console.WriteLine("Press Enter to continue...");
+                    
                     EmptyArmouryButton = true;
-                    Console.ReadLine();
+                    
                     EmptyArmouryB();
                     break;
                 case 3:
