@@ -545,8 +545,9 @@ namespace Command_Line_Adventure
             Console.WriteLine();
             Console.WriteLine("Your options are...");
             Console.WriteLine("- [1] Go backwards");
-            Console.WriteLine("- [2] something");
+            Console.WriteLine("- [2] Search the crematorium oven");
             Console.WriteLine("- [3] Check Inventory");
+            Console.WriteLine();
 
             Console.WriteLine();
             temp = Console.ReadLine();
@@ -558,6 +559,19 @@ namespace Command_Line_Adventure
                 case 1:
                     LeftHallway();
                     break;
+                case 2:
+                    Console.WriteLine("You find a large pile of ashes in the oven and you notice your deceased father's lucky ring.");
+                    Console.WriteLine("Would you like to take your father's ring? 'y' for yes 'n' for no");
+                    temp = Console.ReadLine();
+                    if(temp == "y")
+                    {
+                        Console.WriteLine("You have picked up your fathers lucky ring");
+                        tempItem = "Father's ring";
+                        PickItem();
+                        cunning++;
+                    }
+                    break;
+
 
                 case 3:
                     Inventory();
@@ -573,6 +587,21 @@ namespace Command_Line_Adventure
                     break;
             }
         }
+        
+        public static void CrematoryB()
+        {
+
+
+
+
+
+
+
+
+
+        }
+        
+        
         public static void GuardsChamber()
         {
             string temp;
@@ -1084,6 +1113,14 @@ namespace Command_Line_Adventure
             Dungeon();
 
             Console.ReadLine();
+
         }
+    
+    
+    
+    
+    
+    
+    
     }
 }
