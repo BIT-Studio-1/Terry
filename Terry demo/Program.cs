@@ -19,7 +19,7 @@ namespace Command_Line_Adventure
             return PlayerStats;
         }
 
-        public static int[] StatsCalculation()
+        public static int[] StatsCalculation() // Player stats + Weapon stats + Clothing stats = your stats
         {
             int[] finalStats = { 0, 0, 0, 0 };
 
@@ -36,7 +36,7 @@ namespace Command_Line_Adventure
             return finalStats;
         }
 
-        public static int[] weapon(int weaponNumber)
+        public static int[] weapon(int weaponNumber) // List of weapon stats
         {
             switch (weaponNumber)
             {
@@ -48,7 +48,7 @@ namespace Command_Line_Adventure
             return Null;
         }
 
-        public static int[] clothing(int clothingNumber)
+        public static int[] clothing(int clothingNumber) // List of clothing stats
         {
             switch (clothingNumber)
             {
@@ -60,7 +60,7 @@ namespace Command_Line_Adventure
             return Null;
         }
 
-        public static int[] EnemyStats(int enemyNumber)
+        public static int[] EnemyStats(int enemyNumber) // List of enemy stats
         {
             switch (enemyNumber)
             {
@@ -75,7 +75,7 @@ namespace Command_Line_Adventure
             int[] Null = { 0, 0, 0, 0 };
             return Null;
         }
-        public static string[] EnemyBarks(int enemyNumber)
+        public static string[] EnemyBarks(int enemyNumber) // List of enemy barks
         {
             switch (enemyNumber)
             {
