@@ -975,7 +975,7 @@ namespace Command_Line_Adventure
             Console.WriteLine();
             Console.WriteLine("Your options are...");
             Console.WriteLine("- [1] Go backwards"); //NEEDS TO BE CONNECTED TO HALLWAY SECOND FLOOR
-            Console.WriteLine("- [2] option2"); // CHECK CHEST?
+            Console.WriteLine("- [2] Check the Chest "); 
             Console.WriteLine("- [3] option3"); // CHECK CHEST?
             Console.WriteLine("- [4] Check Inventory");
 
@@ -986,10 +986,15 @@ namespace Command_Line_Adventure
 
             switch (input)
             {
-                // case 1:
-                //empty
-                // case 2:
-                //empty 
+                //case 1:
+  
+                case 2:
+                    tempItem = "The King's Sword"; //PLEACEHOLDER
+                    PickItem();
+                    strength = strength + 2;
+                    Console.WriteLine("You have picked up The King's Sword");
+                    break;
+
                 // case 3:
                 //empty 
 
