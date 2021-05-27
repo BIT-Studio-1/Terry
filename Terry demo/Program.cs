@@ -1009,7 +1009,7 @@ namespace Command_Line_Adventure
             Console.WriteLine();
             Console.WriteLine("Your options are...");
             Console.WriteLine("- [1] Go backwards"); //NEEDS TO BE CONNECTED TO HALLWAY SECOND FLOOR
-            Console.WriteLine("- [2] option2"); // CHECK CHEST?
+            Console.WriteLine("- [2] Check the Chest "); 
             Console.WriteLine("- [3] option3"); // CHECK CHEST?
             Console.WriteLine("- [4] Check Inventory");
 
@@ -1020,10 +1020,15 @@ namespace Command_Line_Adventure
 
             switch (input)
             {
-                // case 1:
-                //empty
-                // case 2:
-                //empty 
+                //case 1:
+  
+                case 2:
+                    tempItem = "The King's Sword"; //PLEACEHOLDER
+                    PickItem();
+                    strength = strength + 2;
+                    Console.WriteLine("You have picked up The King's Sword");
+                    break;
+
                 // case 3:
                 //empty 
 
@@ -1031,6 +1036,53 @@ namespace Command_Line_Adventure
                     Inventory();
                     Console.WriteLine("PRESS ENTER");
                     BetterArmory();
+                    break;
+
+                default:
+                    Console.WriteLine();
+                    Console.WriteLine("You have entered an invalid input");
+                    Console.WriteLine("Press any key to continue...");
+                    Console.ReadLine();
+                    break;
+            }
+        }
+
+        public static void BetterArmoryB()
+        // ROOM CURRENTLY NOT CONNECTED TO ANYTHING
+        // CAN'T BE TESTED UNTIL CONNECTED
+        // EMPTY ROOM!!!!!!!!!!
+        {
+            string temp;
+            int input;
+            Console.Clear();
+            Console.WriteLine("You are in the Better Armory");
+            Console.WriteLine();
+            Console.WriteLine("Your options are...");
+            Console.WriteLine("- [1] Go backwards"); //NEEDS TO BE CONNECTED TO HALLWAY SECOND FLOOR
+            Console.WriteLine("- [2] Check the Chest ");
+            Console.WriteLine("- [3] option3"); // CHECK CHEST?
+            Console.WriteLine("- [4] Check Inventory");
+
+            Console.WriteLine();
+            temp = Console.ReadLine();
+            input = Convert.ToInt32(temp);
+            Console.Clear();
+
+            switch (input)
+            {
+                //case 1:
+
+                case 2:
+                    Console.WriteLine("The Chest is empty");
+                    break;
+
+                // case 3:
+                //empty 
+
+                case 4:
+                    Inventory();
+                    Console.WriteLine("PRESS ENTER");
+                    BetterArmoryB();
                     break;
 
                 default:
