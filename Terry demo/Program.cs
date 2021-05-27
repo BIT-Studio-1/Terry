@@ -492,8 +492,8 @@ namespace Command_Line_Adventure
                     if(temp == "y")
                     {
                         Console.WriteLine("You have picked up your fathers lucky ring");
-                        tempItem = "Father's ring";
-                        PickItem();
+                        //tempItem = "Father's ring";
+                        //Need a number for the ring
                         cunning++;
                     }
                     break;
@@ -556,8 +556,8 @@ namespace Command_Line_Adventure
 
                 case 2:
                     Battle(Scenario,PlaceName);
-                    tempItem = "Key";
-                    PickItem();
+                    //tempItem = "Key";
+                    // need a number for the key
                     GuardsChamberButton = true;
                     if (GuardsChamberButton == false)
                     {
@@ -627,10 +627,15 @@ namespace Command_Line_Adventure
             Console.Clear();
             Console.WriteLine("You are in the Lair Of The Beast");
             Console.WriteLine();
+            Console.WriteLine("You are in a large dark room with a cage containing the BEAST...\nTo your left there is a key to unlock his cage\nTo the right there is a basket full of meat\n");
+            Thread.Sleep(1000);
+            Console.WriteLine("There is a low risk of surviving if you let it free but you could try taming it...\n");
+            Thread.Sleep(1000);
             Console.WriteLine("Your options are...");
-            Console.WriteLine("- [1] Go backwards");
-            Console.WriteLine("- [2] What's that strange sound???");
-            Console.WriteLine("- [3] Check Inventory");
+            Console.WriteLine("- [1] Leave the BEAST alone and leave the lair");
+            Console.WriteLine("- [2] Use the cage key to free it");
+            Console.WriteLine("- [3] Grab a piece of chicken and feed the BEAST");
+            Console.WriteLine("- [4] Check Inventory");
 
             Console.WriteLine();
             temp = Console.ReadLine();
@@ -642,8 +647,22 @@ namespace Command_Line_Adventure
                 case 1:
                     RightHallway();
                     break;
-
+                case 2:
+                    Console.WriteLine("The BEAST grabs you, throws you out of the lair causing a loss in your health\n");
+                    Console.WriteLine("Your [Health] - (1)");
+                    health = health - 1;
+                    Console.ReadKey();
+                    RightHallway();
+                    break;
                 case 3:
+                    Console.WriteLine("You reach inside the basket grab a juicy thigh piece and throw it to the hungry BEAST...");
+                    Thread.Sleep(1000);
+                    Console.WriteLine("He grabs it, swallows it whole and is hungry for some more...\n");
+                    Console.WriteLine("Press Any Key To Continue");
+                    Console.ReadKey();
+                    Lairofthebeast();
+                    break;
+                case 4:
                     Inventory();
                     Console.WriteLine("PRESS ENTER");
                     Lairofthebeast();
@@ -653,7 +672,7 @@ namespace Command_Line_Adventure
                     Console.WriteLine();
                     Console.WriteLine("You have entered an invalid input");
                     Console.WriteLine("Press any key to continue...");
-                    Console.ReadLine();
+                    Console.ReadKey();
                     break;
             }
         }
@@ -770,7 +789,7 @@ namespace Command_Line_Adventure
                     break;
                 case 2:
 
-                    
+                    Weapon = 1;
                     EmptyArmouryButton = true;
                     
                     EmptyArmouryB();
@@ -942,8 +961,8 @@ namespace Command_Line_Adventure
                 //case 1:
   
                 case 2:
-                    tempItem = "The King's Sword"; //PLEACEHOLDER
-                    PickItem();
+                    //tempItem = "The King's Sword"; //PLEACEHOLDER
+                    // need a number for it
                     strength = strength + 2;
                     Console.WriteLine("You have picked up The King's Sword");
                     break;
