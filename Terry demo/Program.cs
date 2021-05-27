@@ -492,8 +492,8 @@ namespace Command_Line_Adventure
                     if(temp == "y")
                     {
                         Console.WriteLine("You have picked up your fathers lucky ring");
-                        tempItem = "Father's ring";
-                        PickItem();
+                        //tempItem = "Father's ring";
+                        //Need a number for the ring
                         cunning++;
                     }
                     break;
@@ -556,8 +556,8 @@ namespace Command_Line_Adventure
 
                 case 2:
                     Battle(Scenario,PlaceName);
-                    tempItem = "Key";
-                    PickItem();
+                    //tempItem = "Key";
+                    // need a number for the key
                     GuardsChamberButton = true;
                     if (GuardsChamberButton == false)
                     {
@@ -770,7 +770,7 @@ namespace Command_Line_Adventure
                     break;
                 case 2:
 
-                    
+                    Weapon = 1;
                     EmptyArmouryButton = true;
                     
                     EmptyArmouryB();
@@ -942,8 +942,8 @@ namespace Command_Line_Adventure
                 //case 1:
   
                 case 2:
-                    tempItem = "The King's Sword"; //PLEACEHOLDER
-                    PickItem();
+                    //tempItem = "The King's Sword"; //PLEACEHOLDER
+                    // need a number for it
                     strength = strength + 2;
                     Console.WriteLine("You have picked up The King's Sword");
                     break;
