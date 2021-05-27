@@ -8,7 +8,8 @@ namespace Command_Line_Adventure
         // These are universal variables 
         public static string temp;
         public static string item1 = "Empty", item2 = "Empty", item3 = "Empty";
-        public static int strength, stealth, cunning, health, Weapon, Clothing;     
+        public static int[] stats = { 0, 0, 0, 0 };
+        public static int strength = stats[0], stealth = stats[1], cunning = stats[2], health = stats[3], Weapon, Clothing;     
         public static bool EmptyArmouryButton = false;
         public static bool GuardsChamberButton = false;
 
@@ -23,7 +24,7 @@ namespace Command_Line_Adventure
         {
             int[] finalStats = { 0, 0, 0, 0 };
 
-            int[] weaponStats = weapon(Weapon);
+            int[] weaponStats = weapon(ref Weapon);
 
             int[] clothingStats = clothing(Clothing);
 
@@ -36,7 +37,7 @@ namespace Command_Line_Adventure
             return finalStats;
         }
 
-        public static int[] weapon(int weaponNumber)
+        public static int[] weapon(ref int weaponNumber)
         {
             switch (weaponNumber)
             {
@@ -238,10 +239,10 @@ namespace Command_Line_Adventure
             Console.WriteLine();
             Console.WriteLine("~Statistics~");
             Console.WriteLine("------------");
-            Console.WriteLine($"  Strength : {strength}");
-            Console.WriteLine($"  Stealth  : {stealth}");
-            Console.WriteLine($"  Cunning  : {cunning}");
-            Console.WriteLine($"  Health   : {health}");
+            Console.WriteLine($"  Strength : {stats[strength]}");
+            Console.WriteLine($"  Stealth  : {stats[stealth]}");
+            Console.WriteLine($"  Cunning  : {stats[cunning]}");
+            Console.WriteLine($"  Health   : {stats[health]}");
             Console.WriteLine();
             Console.WriteLine("Press Enter to continue...");
             Console.ReadLine();
@@ -771,6 +772,14 @@ namespace Command_Line_Adventure
                 case 2:
 
                     Weapon = 1;
+
+                    //stats = weapon(ref Weapon);
+                    
+                    for (int i = 0; i < stats.Length; i++)
+                    {
+                        stats[i] = stats[i] + weapon(ref Weapon)[i];
+                    }
+
                     EmptyArmouryButton = true;
                     
                     EmptyArmouryB();
