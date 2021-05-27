@@ -13,9 +13,7 @@ namespace Command_Line_Adventure
         public static bool EmptyArmouryButton = false;
         public static bool GuardsChamberButton = false;
         //Item list
-        
 
-        // this is just a simplified method of the players stats just so theres something to test with in this demo
         public static int[] PlayerStats()
         {
             // slot 1 = Strength: slot 2 = Stealth: slot 3 = Cunning: slot 4 = Health;
@@ -23,7 +21,48 @@ namespace Command_Line_Adventure
             return PlayerStats;
         }
 
+        public static int[] ()
+        {
+            int[] finalStats = { 0, 0, 0, 0 };
 
+            int weaponNumber = 1;
+            int[] weaponStats = weapon(weaponNumber);
+
+            int clothingNumber = 1;
+            int[] clothingStats = clothing(clothingNumber);
+
+            int[] PlayerStats = startingChracter();
+            for (int i = 0; i < PlayerStats.Length; i++)
+            {
+                finalStats[i] = PlayerStats[i] + weaponStats[i] + clothingStats[i];
+            }
+
+            return finalStats;
+        }
+
+        public static int[] weapon(int weaponNumber)
+        {
+            switch (weaponNumber)
+            {
+                case 1:
+                    int[] rustySword = { 1, 0, 0, 0 };
+                    return rustySword;
+            }
+            int[] Null = { 0, 0, 0, 0 };
+            return Null;
+        }
+
+        public static int[] clothing(int clothingNumber)
+        {
+            switch (clothingNumber)
+            {
+                case 1:
+                    int[] LeatherAmour = { 0, 1, 0, 1 };
+                    return LeatherAmour;
+            }
+            int[] Null = { 0, 0, 0, 0 };
+            return Null;
+        }
 
         public static int[] EnemyStats(int enemyNumber) // this method stores all the integer information of the enemys
         {
@@ -66,7 +105,6 @@ namespace Command_Line_Adventure
             string placeName = PlaceName;
             int[] enemyStats = EnemyStats(scenarioNumber);
             string[] enemyDis = EnemyDio(scenarioNumber);
-
 
 
             // slot 1 = Strength: slot 2 = Stealth: slot 3 = Cunning: slot 4 = Health
@@ -232,7 +270,8 @@ namespace Command_Line_Adventure
             return true; // this means nothing right now
         }
 
-        public static void PickItem() {
+        public static void PickItem() 
+            {
             string temp;
             int input;
             string input2 = "y";
@@ -301,15 +340,20 @@ namespace Command_Line_Adventure
             Console.WriteLine($"You picked the {tempItem}");
             Console.WriteLine("Press Enter to continue...");
             Console.ReadLine();
+        }
 
+        public static void playerStatInfo()
+        {
 
         }
+
         public static void Inventory()
         {
 
             Console.WriteLine();
             Console.WriteLine("~Inventory~");
             Console.WriteLine("-----------");
+            Console.WriteLine($"  Weapon : {item1}");
             Console.WriteLine($"  Slot 1 : {item1}");
             Console.WriteLine($"  Slot 2 : {item2}");
             Console.WriteLine($"  Slot 3 : {item3}");
