@@ -47,6 +47,17 @@ namespace Command_Line_Adventure
             int[] Null = { 0, 0, 0, 0 };
             return Null;
         }
+        public static string[] weaponString(int weaponNumber)
+        {
+            switch (weaponNumber)
+            {
+                case 1:
+                    string[] rustySword = {"~Rusty Sword~","Old and rusted but still effective"};
+                    return rustySword;
+            }
+            string[] Null = {"...","..."};
+            return Null;
+        }
 
         public static int[] clothing(int clothingNumber) // List of clothing stats
         {
@@ -227,21 +238,22 @@ namespace Command_Line_Adventure
 
         public static void Inventory()
         {
-
+            int[] Stats = StatsCalculation();
+            String[] WeaponInfo = weaponString(Weapon);
             Console.WriteLine();
             Console.WriteLine("~Inventory~");
             Console.WriteLine("-----------");
-            Console.WriteLine($"  Weapon : {item1}");
+            Console.WriteLine($"  Weapon : {WeaponInfo[0]}");
             Console.WriteLine($"  Slot 1 : {item1}");
             Console.WriteLine($"  Slot 2 : {item2}");
             Console.WriteLine($"  Slot 3 : {item3}");
             Console.WriteLine();
             Console.WriteLine("~Statistics~");
             Console.WriteLine("------------");
-            Console.WriteLine($"  Strength : {strength}");
-            Console.WriteLine($"  Stealth  : {stealth}");
-            Console.WriteLine($"  Cunning  : {cunning}");
-            Console.WriteLine($"  Health   : {health}");
+            Console.WriteLine($"  Strength : {Stats[0]}");
+            Console.WriteLine($"  Stealth  : {Stats[1]}");
+            Console.WriteLine($"  Cunning  : {Stats[2]}");
+            Console.WriteLine($"  Health   : {Stats[3]}");
             Console.WriteLine();
             Console.WriteLine("Press Enter to continue...");
             Console.ReadLine();
