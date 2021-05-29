@@ -114,7 +114,7 @@ namespace Command_Line_Adventure
             string placeName = PlaceName;
             int[] enemyStats = EnemyStats(scenarioNumber);
             string[] enemyBarks = EnemyBarks(scenarioNumber);
-            int[] playerStats = PlayerStats();
+            int[] playerStats = StatsCalculation();
             Console.WriteLine(enemyBarks[0]);
             Console.ReadLine();
             while (playerStats[3] != 0)
