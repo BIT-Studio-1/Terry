@@ -9,7 +9,7 @@ namespace Command_Line_Adventure
         public static string temp;
         public static string item1 = "Empty", item2 = "Empty", item3 = "Empty";
         public static int[] stats = { 0, 0, 0, 0 };
-        public static int strength = stats[0], stealth = stats[1], cunning = stats[2], health = stats[3], Weapon, Clothing;     
+        public static int strength = stats[0], stealth = stats[1], cunning = stats[2], health = stats[3], Weapon, Clothing;
         public static bool EmptyArmouryButton = false;
         public static bool GuardsChamberButton = false;
 
@@ -53,10 +53,10 @@ namespace Command_Line_Adventure
             switch (weaponNumber)
             {
                 case 1:
-                    string[] rustySword = {"~Rusty Sword~","Old and rusted but still effective"};
+                    string[] rustySword = { "~Rusty Sword~", "Old and rusted but still effective", "Strength +1" };
                     return rustySword;
             }
-            string[] Null = {"...","..."};
+            string[] Null = { "...", "..." };
             return Null;
         }
 
@@ -105,7 +105,7 @@ namespace Command_Line_Adventure
         }
 
         // ** ALL STATS AND BARKS ABOVE THIS POINT ** //
-        
+
         public static bool Battle(int scenarioNumber, string PlaceName)
         {
             string temp1;
@@ -422,7 +422,7 @@ namespace Command_Line_Adventure
                 case 1:
                     NorthMiddleHallway();
                     break;
-                case 2:                   
+                case 2:
                     Lairofthebeast();
                     break;
                 case 3:
@@ -444,9 +444,10 @@ namespace Command_Line_Adventure
                             {
                                 Console.WriteLine("Wrong command");
                             }
-                        }while((temp != "y") || (temp != "n"));
+                        } while ((temp != "y") || (temp != "n"));
                     }
-                    else {
+                    else
+                    {
                         Console.WriteLine("The door is locked. You need the key to open it...");
                         Console.ReadLine();
                         RightHallway();
@@ -481,7 +482,7 @@ namespace Command_Line_Adventure
             Console.WriteLine("The king will pay for this injustice you say to yourself as you prepare to find some of their");
             Console.WriteLine("remains here in the Crematorium");
             Console.WriteLine();
-            
+
             Console.WriteLine("Your options are...");
             Console.WriteLine("- [1] Go backwards");
             Console.WriteLine("- [2] Search the crematorium oven");
@@ -502,7 +503,7 @@ namespace Command_Line_Adventure
                     Console.WriteLine("You find a large pile of ashes in the oven and you notice your deceased father's lucky ring.");
                     Console.WriteLine("Would you like to take your father's ring? 'y' for yes 'n' for no");
                     temp = Console.ReadLine();
-                    if(temp == "y")
+                    if (temp == "y")
                     {
                         Console.WriteLine("You have picked up your fathers lucky ring");
                         //tempItem = "Father's ring";
@@ -526,7 +527,7 @@ namespace Command_Line_Adventure
                     break;
             }
         }
-        
+
         public static void CrematoryB()
         {
 
@@ -539,8 +540,8 @@ namespace Command_Line_Adventure
 
 
         }
-        
-        
+
+
         public static void GuardsChamber()
         {
             string temp;
@@ -568,7 +569,7 @@ namespace Command_Line_Adventure
                     break;
 
                 case 2:
-                    Battle(Scenario,PlaceName);
+                    Battle(Scenario, PlaceName);
                     //tempItem = "Key";
                     // need a number for the key
                     GuardsChamberButton = true;
@@ -803,16 +804,16 @@ namespace Command_Line_Adventure
                 case 2:
 
                     Weapon = 1;
+                    String[] WeaponInfo = weaponString(Weapon);
+                    Console.WriteLine($"{WeaponInfo[0]} \n{WeaponInfo[1]} \n{WeaponInfo[2]}");
 
-                    //stats = weapon(ref Weapon);
-                    
                     for (int i = 0; i < stats.Length; i++)
                     {
                         stats[i] = stats[i] + weapon(ref Weapon)[i];
                     }
 
                     EmptyArmouryButton = true;
-                    
+                    Console.ReadLine();
                     EmptyArmouryB();
                     break;
                 case 3:
@@ -958,8 +959,8 @@ namespace Command_Line_Adventure
         }
 
         public static void BetterArmory()
-            // ROOM CURRENTLY NOT CONNECTED TO ANYTHING
-            // CAN'T BE TESTED UNTIL CONNECTED
+        // ROOM CURRENTLY NOT CONNECTED TO ANYTHING
+        // CAN'T BE TESTED UNTIL CONNECTED
         {
             string temp;
             int input;
@@ -968,7 +969,7 @@ namespace Command_Line_Adventure
             Console.WriteLine();
             Console.WriteLine("Your options are...");
             Console.WriteLine("- [1] Go backwards"); //NEEDS TO BE CONNECTED TO HALLWAY SECOND FLOOR
-            Console.WriteLine("- [2] Check the Chest "); 
+            Console.WriteLine("- [2] Check the Chest ");
             Console.WriteLine("- [3] option3"); // CHECK CHEST?
             Console.WriteLine("- [4] Check Inventory");
 
@@ -980,7 +981,7 @@ namespace Command_Line_Adventure
             switch (input)
             {
                 //case 1:
-  
+
                 case 2:
                     //tempItem = "The King's Sword"; //PLEACEHOLDER
                     // need a number for it
@@ -1126,12 +1127,12 @@ namespace Command_Line_Adventure
             Console.ReadLine();
 
         }
-    
-    
-    
-    
-    
-    
-    
+
+
+
+
+
+
+
     }
 }
