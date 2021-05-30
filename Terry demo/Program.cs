@@ -71,6 +71,17 @@ namespace Command_Line_Adventure
             int[] Null = { 0, 0, 0, 0 };
             return Null;
         }
+        public static int[] other_Items(int itemNumber) // List of other items stats
+        {
+            switch (itemNumber)
+            {
+                case 1:
+                    int[] Level1_key = { 0, 0, 0, 0 };
+                    return Level1_key;
+            }
+            int[] Null = { 0, 0, 0, 0 };
+            return Null;
+        }
 
         public static int[] EnemyStats(int enemyNumber) // List of enemy stats
         {
@@ -552,7 +563,7 @@ namespace Command_Line_Adventure
             Console.WriteLine();
             Console.WriteLine("Your options are...");
             Console.WriteLine("- [1] Go backwards");
-            Console.WriteLine("- [2] Take a chance and fight!");
+            Console.WriteLine("- [2] Try to get the key!");
             Console.WriteLine("- [3] Check Inventory");
             Console.WriteLine();
             temp = Console.ReadLine();
