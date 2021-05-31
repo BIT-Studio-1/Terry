@@ -268,6 +268,7 @@ namespace Command_Line_Adventure
             int[] Stats = StatsCalculation();
             String[] WeaponInfo = weaponString(Weapon);
             String[] ItemInfo = otherItemsString(Item);
+            Console.ForegroundColor = ConsoleColor.Yellow;
             Console.WriteLine();
             Console.WriteLine("~Inventory~");
             Console.WriteLine("-----------");
@@ -284,6 +285,7 @@ namespace Command_Line_Adventure
             Console.WriteLine($"  Health   : {Stats[3]}");
             Console.WriteLine();
             Console.WriteLine("Press Enter to continue...");
+            Console.ForegroundColor = ConsoleColor.Yellow;
             Console.ReadLine();
         }
 
@@ -298,10 +300,12 @@ namespace Command_Line_Adventure
 
                 Console.Clear();
                 Console.WriteLine();
+                Console.ForegroundColor = ConsoleColor.Yellow;
                 Console.WriteLine("Your options are...");
                 Console.WriteLine("- [1] Go Investigate the Hallway");
                 Console.WriteLine("- [2] Stay Imprisoned");
                 Console.WriteLine("- [3] Check Inventory");
+                Console.ForegroundColor = ConsoleColor.Yellow;
                 Console.WriteLine();
 
                 temp = Console.ReadLine();
@@ -323,8 +327,10 @@ namespace Command_Line_Adventure
 
                     default:
                         Console.WriteLine();
+                        Console.ForegroundColor = ConsoleColor.Red;
                         Console.WriteLine("You have entered an invalid input");
                         Console.WriteLine("Press any key to continue...");
+                        Console.ForegroundColor = ConsoleColor.Red;
                         Console.ReadLine();
                         break;
                 }
@@ -368,8 +374,10 @@ namespace Command_Line_Adventure
 
                 default:
                     Console.WriteLine();
+                    Console.ForegroundColor = ConsoleColor.Red;
                     Console.WriteLine("You have entered an invalid input");
                     Console.WriteLine("Press any key to continue...");
+                    Console.ForegroundColor = ConsoleColor.Red;
                     Console.ReadLine();
                     break;
             }
@@ -420,8 +428,10 @@ namespace Command_Line_Adventure
                     break;
                 default:
                     Console.WriteLine();
+                    Console.ForegroundColor = ConsoleColor.Red;
                     Console.WriteLine("You have entered an invalid input");
                     Console.WriteLine("Press any key to continue...");
+                    Console.ForegroundColor = ConsoleColor.Red;
                     Console.ReadLine();
                     break;
             }
@@ -498,8 +508,10 @@ namespace Command_Line_Adventure
 
                 default:
                     Console.WriteLine();
+                    Console.ForegroundColor = ConsoleColor.Red;
                     Console.WriteLine("You have entered an invalid input");
                     Console.WriteLine("Press any key to continue...");
+                    Console.ForegroundColor = ConsoleColor.Red;
                     Console.ReadLine();
                     break;
             }
@@ -554,9 +566,11 @@ namespace Command_Line_Adventure
 
                 default:
                     Console.WriteLine();
+                    Console.ForegroundColor = ConsoleColor.Red;
                     Console.WriteLine("You have entered an invalid input");
                     Console.WriteLine("Press any key to continue...");
-                    Console.ReadLine();
+                    Console.ForegroundColor = ConsoleColor.Red;
+                    Console.ReadLine(); 
                     break;
             }
         }
@@ -633,8 +647,10 @@ namespace Command_Line_Adventure
 
                 default:
                     Console.WriteLine();
+                    Console.ForegroundColor = ConsoleColor.Red;
                     Console.WriteLine("You have entered an invalid input");
                     Console.WriteLine("Press any key to continue...");
+                    Console.ForegroundColor = ConsoleColor.Red;
                     Console.ReadLine();
                     break;
             }
@@ -669,8 +685,10 @@ namespace Command_Line_Adventure
 
                 default:
                     Console.WriteLine();
+                    Console.ForegroundColor = ConsoleColor.Red;
                     Console.WriteLine("You have entered an invalid input");
                     Console.WriteLine("Press any key to continue...");
+                    Console.ForegroundColor = ConsoleColor.Red;
                     Console.ReadLine();
                     break;
             }
@@ -726,8 +744,10 @@ namespace Command_Line_Adventure
 
                 default:
                     Console.WriteLine();
+                    Console.ForegroundColor = ConsoleColor.Red;
                     Console.WriteLine("You have entered an invalid input");
                     Console.WriteLine("Press any key to continue...");
+                    Console.ForegroundColor = ConsoleColor.Red;
                     Console.ReadKey();
                     break;
             }
@@ -767,8 +787,10 @@ namespace Command_Line_Adventure
 
                 default:
                     Console.WriteLine();
+                    Console.ForegroundColor = ConsoleColor.Red;     
                     Console.WriteLine("You have entered an invalid input");
                     Console.WriteLine("Press any key to continue...");
+                    Console.ForegroundColor = ConsoleColor.Red;
                     Console.ReadLine();
                     break;
             }
@@ -819,8 +841,10 @@ namespace Command_Line_Adventure
 
                 default:
                     Console.WriteLine();
+                    Console.ForegroundColor = ConsoleColor.Red;
                     Console.WriteLine("You have entered an invalid input");
                     Console.WriteLine("Press any key to continue...");
+                    Console.ForegroundColor = ConsoleColor.Red;
                     Console.ReadLine();
                     break;
             }
@@ -878,8 +902,10 @@ namespace Command_Line_Adventure
 
                 default:
                     Console.WriteLine();
+                    Console.ForegroundColor = ConsoleColor.Red;
                     Console.WriteLine("You have entered an invalid input");
                     Console.WriteLine("Press any key to continue...");
+                    Console.ForegroundColor = ConsoleColor.Red;
                     Console.ReadLine();
                     break;
             }
@@ -915,8 +941,10 @@ namespace Command_Line_Adventure
 
                 default:
                     Console.WriteLine();
+                    Console.ForegroundColor = ConsoleColor.Red;
                     Console.WriteLine("You have entered an invalid input");
                     Console.WriteLine("Press any key to continue...");
+                    Console.ForegroundColor = ConsoleColor.Red;
                     Console.ReadLine();
                     break;
             }
@@ -959,8 +987,10 @@ namespace Command_Line_Adventure
 
                 default:
                     Console.WriteLine();
+                    Console.ForegroundColor = ConsoleColor.Red;
                     Console.WriteLine("You have entered an invalid input");
                     Console.WriteLine("Press any key to continue...");
+                    Console.ForegroundColor = ConsoleColor.Red;
                     Console.ReadLine();
                     break;
             }
@@ -1047,8 +1077,10 @@ namespace Command_Line_Adventure
 
                 default:
                     Console.WriteLine();
+                    Console.ForegroundColor = ConsoleColor.Red;
                     Console.WriteLine("You have entered an invalid input");
                     Console.WriteLine("Press any key to continue...");
+                    Console.ForegroundColor = ConsoleColor.Red;
                     Console.ReadLine();
                     break;
             }
@@ -1094,8 +1126,10 @@ namespace Command_Line_Adventure
 
                 default:
                     Console.WriteLine();
+                    Console.ForegroundColor = ConsoleColor.Red;
                     Console.WriteLine("You have entered an invalid input");
                     Console.WriteLine("Press any key to continue...");
+                    Console.ForegroundColor = ConsoleColor.Red;
                     Console.ReadLine();
                     break;
             }
@@ -1133,8 +1167,10 @@ namespace Command_Line_Adventure
 
                 default:
                     Console.WriteLine();
+                    Console.ForegroundColor = ConsoleColor.Red;
                     Console.WriteLine("You have entered an invalid input");
                     Console.WriteLine("Press any key to continue...");
+                    Console.ForegroundColor = ConsoleColor.Red;
                     Console.ReadLine();
                     break;
             }
@@ -1172,8 +1208,10 @@ namespace Command_Line_Adventure
 
                 default:
                     Console.WriteLine();
+                    Console.ForegroundColor = ConsoleColor.Red;
                     Console.WriteLine("You have entered an invalid input");
                     Console.WriteLine("Press any key to continue...");
+                    Console.ForegroundColor = ConsoleColor.Red;
                     Console.ReadLine();
                     break;
             }
@@ -1211,8 +1249,10 @@ namespace Command_Line_Adventure
 
                 default:
                     Console.WriteLine();
+                    Console.ForegroundColor = ConsoleColor.Red;
                     Console.WriteLine("You have entered an invalid input");
                     Console.WriteLine("Press any key to continue...");
+                    Console.ForegroundColor = ConsoleColor.Red;
                     Console.ReadLine();
                     break;
             }
@@ -1250,8 +1290,10 @@ namespace Command_Line_Adventure
 
                 default:
                     Console.WriteLine();
+                    Console.ForegroundColor = ConsoleColor.Red;
                     Console.WriteLine("You have entered an invalid input");
                     Console.WriteLine("Press any key to continue...");
+                    Console.ForegroundColor = ConsoleColor.Red;
                     Console.ReadLine();
                     break;
             }
@@ -1289,8 +1331,10 @@ namespace Command_Line_Adventure
 
                 default:
                     Console.WriteLine();
+                    Console.ForegroundColor = ConsoleColor.Red;
                     Console.WriteLine("You have entered an invalid input");
                     Console.WriteLine("Press any key to continue...");
+                    Console.ForegroundColor = ConsoleColor.Red;
                     Console.ReadLine();
                     break;
             }
@@ -1301,6 +1345,7 @@ namespace Command_Line_Adventure
 
             do
             {
+                Console.ForegroundColor = ConsoleColor.Yellow;
                 Console.WriteLine("Choose a character: ");
                 Console.WriteLine("Select: 1 for Strength, 2 for Stealth or 3 for Cunning.");
                 Console.WriteLine();
@@ -1310,6 +1355,7 @@ namespace Command_Line_Adventure
                 Console.WriteLine("Stealth :     1                  4                  1     ");
                 Console.WriteLine("Cunning :     1                  2                  4     ");
                 Console.WriteLine("Health  :     4                  2                  3     ");
+                Console.ForegroundColor = ConsoleColor.Yellow;
 
 
                 temp = Console.ReadLine();
@@ -1346,8 +1392,10 @@ namespace Command_Line_Adventure
 
                     default:
                         Console.WriteLine();
+                        Console.ForegroundColor = ConsoleColor.Red;
                         Console.WriteLine("Wrong command. ");
                         Console.WriteLine("PRESS ENTER");
+                        Console.ForegroundColor = ConsoleColor.Red;
                         Console.ReadLine();
                         Console.Clear();
                         break;
