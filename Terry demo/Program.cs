@@ -731,10 +731,11 @@ namespace Command_Line_Adventure
             int input;
 
             Console.Clear();
-            Console.WriteLine("You are in the Locked Mystery Room");
+            Console.WriteLine("You are in the Mystery Room");
             Console.WriteLine();
             Console.WriteLine("Your options are...");
             Console.WriteLine("- [1] Go backwards");
+            Console.WriteLine("- [2] Go up the stairwell to the Second Floor");
             Console.WriteLine("- [3] Check Inventory");
 
             Console.WriteLine();
@@ -747,7 +748,9 @@ namespace Command_Line_Adventure
                 case 1:
                     RightHallway();
                     break;
-
+                case 2:
+                    Secondfloor_greathall();
+                    break;
                 case 3:
                     Inventory();
                     Console.WriteLine("PRESS ENTER");
@@ -1088,7 +1091,201 @@ namespace Command_Line_Adventure
                     break;
             }
         }
+        public static void Secondfloor_greathall()
+        {
+            string temp;
+            int input;
 
+            Console.Clear();
+            Console.WriteLine("You are in the Great Hall ");
+            Console.WriteLine();
+            Console.WriteLine("Your options are...");
+            Console.WriteLine("- [1] Go down the staircase");
+
+            Console.WriteLine("- [3] Check Inventory");
+
+            Console.WriteLine();
+            temp = Console.ReadLine();
+            input = Convert.ToInt32(temp);
+            Console.Clear();
+
+            switch (input)
+            {
+                case 1:
+                    Lockedmysteryroom();
+                    break;
+                //  case 2:
+                //     break;
+                case 3:
+                    Inventory();
+                    Console.WriteLine("PRESS ENTER");
+                    Heavydungeon();
+                    break;
+
+                default:
+                    Console.WriteLine();
+                    Console.WriteLine("You have entered an invalid input");
+                    Console.WriteLine("Press any key to continue...");
+                    Console.ReadLine();
+                    break;
+            }
+        }
+        public static void Chapel()
+        {
+            string temp;
+            int input;
+
+            Console.Clear();
+            Console.WriteLine("You are in the Chapel ");
+            Console.WriteLine();
+            Console.WriteLine("Your options are...");
+            Console.WriteLine("- [1] Go backwards");
+
+            Console.WriteLine("- [3] Check Inventory");
+
+            Console.WriteLine();
+            temp = Console.ReadLine();
+            input = Convert.ToInt32(temp);
+            Console.Clear();
+
+            switch (input)
+            {
+                case 1:
+                    //();
+                    break;
+                //  case 2:
+                //     break;
+                case 3:
+                    Inventory();
+                    Console.WriteLine("PRESS ENTER");
+                    Heavydungeon();
+                    break;
+
+                default:
+                    Console.WriteLine();
+                    Console.WriteLine("You have entered an invalid input");
+                    Console.WriteLine("Press any key to continue...");
+                    Console.ReadLine();
+                    break;
+            }
+        }
+        public static void Treasureroom()
+        {
+            string temp;
+            int input;
+
+            Console.Clear();
+            Console.WriteLine("You are in the Treasure Room ");
+            Console.WriteLine();
+            Console.WriteLine("Your options are...");
+            Console.WriteLine("- [1] Go backwards");
+
+            Console.WriteLine("- [3] Check Inventory");
+
+            Console.WriteLine();
+            temp = Console.ReadLine();
+            input = Convert.ToInt32(temp);
+            Console.Clear();
+
+            switch (input)
+            {
+                case 1:
+                    //();
+                    break;
+                //  case 2:
+                //     break;
+                case 3:
+                    Inventory();
+                    Console.WriteLine("PRESS ENTER");
+                    Heavydungeon();
+                    break;
+
+                default:
+                    Console.WriteLine();
+                    Console.WriteLine("You have entered an invalid input");
+                    Console.WriteLine("Press any key to continue...");
+                    Console.ReadLine();
+                    break;
+            }
+        }
+        public static void Soldiersquarters()
+        {
+            string temp;
+            int input;
+
+            Console.Clear();
+            Console.WriteLine("You are in the Soldiers Quarters ");
+            Console.WriteLine();
+            Console.WriteLine("Your options are...");
+            Console.WriteLine("- [1] Go backwards");
+
+            Console.WriteLine("- [3] Check Inventory");
+
+            Console.WriteLine();
+            temp = Console.ReadLine();
+            input = Convert.ToInt32(temp);
+            Console.Clear();
+
+            switch (input)
+            {
+                case 1:
+                    // ();
+                    break;
+                //  case 2:
+                //     break;
+                case 3:
+                    Inventory();
+                    Console.WriteLine("PRESS ENTER");
+                    Heavydungeon();
+                    break;
+
+                default:
+                    Console.WriteLine();
+                    Console.WriteLine("You have entered an invalid input");
+                    Console.WriteLine("Press any key to continue...");
+                    Console.ReadLine();
+                    break;
+            }
+        }
+        public static void Kitchen()
+        {
+            string temp;
+            int input;
+
+            Console.Clear();
+            Console.WriteLine("You are in the Castles Kitchen ");
+            Console.WriteLine();
+            Console.WriteLine("Your options are...");
+            Console.WriteLine("- [1] Go backwards");
+
+            Console.WriteLine("- [3] Check Inventory");
+
+            Console.WriteLine();
+            temp = Console.ReadLine();
+            input = Convert.ToInt32(temp);
+            Console.Clear();
+
+            switch (input)
+            {
+                case 1:
+                    //();
+                    break;
+                //  case 2:
+                //     break;
+                case 3:
+                    Inventory();
+                    Console.WriteLine("PRESS ENTER");
+                    Heavydungeon();
+                    break;
+
+                default:
+                    Console.WriteLine();
+                    Console.WriteLine("You have entered an invalid input");
+                    Console.WriteLine("Press any key to continue...");
+                    Console.ReadLine();
+                    break;
+            }
+        }
         public static void Main()
         {
             int Character;
@@ -1160,14 +1357,6 @@ namespace Command_Line_Adventure
             Dungeon();
 
             Console.ReadLine();
-
         }
-
-
-
-
-
-
-
     }
 }
