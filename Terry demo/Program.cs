@@ -7,11 +7,12 @@ namespace Command_Line_Adventure
     {
         // These are universal variables 
         public static string temp;
-        public static string item1 = "Empty", item2 = "Empty", item3 = "Empty";
+        public static string item1 = "Empty", item2 = "~Door Key~", item3 = "Empty";
         public static int[] stats = { 0, 0, 0, 0 };
         public static int strength = stats[0], stealth = stats[1], cunning = stats[2], health = stats[3], Weapon, Clothing, Item;
         public static bool EmptyArmouryButton = false;
         public static bool GuardsChamberButton = false;
+        public static bool LockedmysteryroomButton = false;
 
         public static int[] PlayerStats()
         {
@@ -453,24 +454,30 @@ namespace Command_Line_Adventure
                     break;
                 case 3:
                     if ((item1 == "~Door Key~") || (item2 == "~Door Key~") || (item3 == "~Door Key~"))
-                    {
-                        do
+                    { if ((LockedmysteryroomButton == false))
                         {
-                            Console.WriteLine("The door is locked. Use the key? y/n ");
-                            temp = Console.ReadLine();
-                            if (temp == "y")
+                            do
                             {
-                                Lockedmysteryroom();
-                            }
-                            else if (temp == "n")
-                            {
-                                RightHallway();
-                            }
-                            else
-                            {
-                                Console.WriteLine("Wrong command");
-                            }
-                        } while ((temp != "y") || (temp != "n"));
+                                Console.WriteLine("The door is locked. Use the key? y/n ");
+                                temp = Console.ReadLine();
+                                if (temp == "y")
+                                {
+                                    LockedmysteryroomButton = true;
+                                    Lockedmysteryroom();
+
+                                }
+                                else if (temp == "n")
+                                {
+                                    RightHallway();
+                                }
+                                else
+                                {
+                                    Console.WriteLine("Wrong command");
+                                }
+                            } while ((temp != "y") || (temp != "n"));
+                        }
+                    }if (LockedmysteryroomButton == true) {
+                        Lockedmysteryroom();
                     }
                     else
                     {
@@ -732,6 +739,7 @@ namespace Command_Line_Adventure
 
             Console.Clear();
             Console.WriteLine("You are in the Mystery Room");
+            Console.WriteLine("There is a stairwell in the middle ");
             Console.WriteLine();
             Console.WriteLine("Your options are...");
             Console.WriteLine("- [1] Go backwards");
@@ -765,6 +773,7 @@ namespace Command_Line_Adventure
                     break;
             }
         }
+
         public static void Southeasthallway()
         {
             string temp;
