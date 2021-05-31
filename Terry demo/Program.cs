@@ -67,6 +67,9 @@ namespace Command_Line_Adventure
         {
             switch (clothingNumber)
             {
+                case 2:
+                    int[] Rags = { 0, 0, 0, 0 };
+                    return Rags;
                 case 1:
                     int[] LeatherAmour = { 0, 1, 0, 1 };
                     return LeatherAmour;
@@ -74,6 +77,22 @@ namespace Command_Line_Adventure
             int[] Null = { 0, 0, 0, 0 };
             return Null;
         }
+
+        public static string[] clothingString(int weaponNumber)
+        {
+            switch (weaponNumber)
+            {
+                case 1:
+                    string[] Rags = { "~Rags~", "Worn and tattered, they provide little protection and warmth"};
+                    return Rags;
+                case 2:
+                    string[] LeatherArmour = { "~Leather Amour~", "A sturdy set of leather clothing, it provides a bit of protection while also being light" };
+                    return LeatherArmour;
+            }
+            string[] Null = { "...", "..." };
+            return Null;
+        }
+
         public static int[] other_Items(int itemNumber) // List of other items stats
         {
             switch (itemNumber)
@@ -208,30 +227,25 @@ namespace Command_Line_Adventure
                 if (decision == 2)
                 {
                     int yourRoll = 0, enemyRoll = 0;
-                    Console.WriteLine("You try hide, you use " + playerStats[1] + " dice");
-                    Console.ReadLine();
+                    Console.WriteLine("You try hide, you use " + playerStats[1] + " dice\n");
                     for (int i = 0; i < playerStats[1]; i++)
                     {
                         int dice = randy.Next(1, 7);
                         Console.WriteLine(dice);
                         yourRoll = yourRoll + dice;
                     }
-                    Console.WriteLine("\nThe " + enemyBarks[5] + " checks with " + enemyStats[1] + " dice");
-                    Console.ReadLine();
+                    Console.WriteLine("\nThe " + enemyBarks[5] + " checks with " + enemyStats[1] + " dice\n");
                     for (int i = 0; i < enemyStats[1]; i++)
                     {
                         int dice = randy.Next(1, 7);
                         Console.WriteLine(dice);
                         enemyRoll = enemyRoll + dice;
                     }
-                    Console.ReadLine();
-                    Console.WriteLine("Your total stealth roll is " + yourRoll);
-                    Console.ReadLine();
-                    Console.WriteLine("The " + enemyBarks[5] + "s total stealth is " + enemyRoll);
-                    Console.ReadLine();
+                    Console.WriteLine("\nYour total stealth roll is " + yourRoll);
+                    Console.WriteLine("\nThe " + enemyBarks[5] + "s total stealth is " + enemyRoll);
                     if (yourRoll > enemyRoll)
                     {
-                        Console.WriteLine("You hide from the " + enemyBarks[5]);
+                        Console.WriteLine("\nYou hide from the " + enemyBarks[5]);
                         Console.WriteLine(enemyBarks[5] + ": where did you go?");
                         Console.ReadLine();
                         Console.WriteLine("Do you want to run away?\n1: Yes\n2: No\n");
@@ -266,12 +280,14 @@ namespace Command_Line_Adventure
         public static void Inventory()
         {
             int[] Stats = StatsCalculation();
+            string[] ClothingInfo = clothingString(Clothing);
             String[] WeaponInfo = weaponString(Weapon);
             String[] ItemInfo = otherItemsString(Item);
             Console.WriteLine();
             Console.WriteLine("~Inventory~");
             Console.WriteLine("-----------");
             Console.WriteLine($"  Weapon : {WeaponInfo[0]}");
+            Console.WriteLine($"Cloathing: {ClothingInfo[0]}");
             Console.WriteLine($"  Slot 1 : {ItemInfo[0]}");
             Console.WriteLine($"  Slot 2 : {item2}");
             Console.WriteLine($"  Slot 3 : {item3}");
@@ -1310,7 +1326,7 @@ namespace Command_Line_Adventure
                 Console.WriteLine("Stealth :     1                  4                  1     ");
                 Console.WriteLine("Cunning :     1                  2                  4     ");
                 Console.WriteLine("Health  :     4                  2                  3     ");
-
+                Clothing = 1;
 
                 temp = Console.ReadLine();
                 Character = Convert.ToInt32(temp);
