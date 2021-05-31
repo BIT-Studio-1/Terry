@@ -9,7 +9,7 @@ namespace Command_Line_Adventure
         public static string temp;
         public static string item1 = "Empty", item2 = "Empty", item3 = "Empty";
         public static int[] stats = { 0, 0, 0, 0 };
-        public static int strength = stats[0], stealth = stats[1], cunning = stats[2], health = stats[3], Weapon, Clothing;
+        public static int strength = stats[0], stealth = stats[1], cunning = stats[2], health = stats[3], Weapon, Clothing, Item;
         public static bool EmptyArmouryButton = false;
         public static bool GuardsChamberButton = false;
 
@@ -27,6 +27,8 @@ namespace Command_Line_Adventure
             int[] weaponStats = weapon(ref Weapon);
 
             int[] clothingStats = clothing(Clothing);
+
+            int[] otherItemStats = other_Items(Item);
 
             int[] playerStats = PlayerStats();
             for (int i = 0; i < playerStats.Length; i++)
@@ -80,6 +82,17 @@ namespace Command_Line_Adventure
                     return Level1_key;
             }
             int[] Null = { 0, 0, 0, 0 };
+            return Null;
+        }
+        public static string[] otherItemsString(int weaponNumber)
+        {
+            switch (weaponNumber)
+            {
+                case 1:
+                    string[] Level1_key = { "~Door Key~", "It must be usefull somewhere", "" };
+                    return Level1_key;
+            }
+            string[] Null = { "...", "..." };
             return Null;
         }
 
@@ -185,8 +198,10 @@ namespace Command_Line_Adventure
                     if (enemyStats[3] == 0)
                     {
                         Console.WriteLine(enemyBarks[3]);
+                        Console.WriteLine("You have defeated your enemy!!");
                         Console.ReadLine();
-                        break;
+                        return true;
+
                     }
                 }
                 if (decision == 2)
@@ -247,16 +262,16 @@ namespace Command_Line_Adventure
 
 
 
-
         public static void Inventory()
         {
             int[] Stats = StatsCalculation();
             String[] WeaponInfo = weaponString(Weapon);
+            String[] ItemInfo = otherItemsString(Item);
             Console.WriteLine();
             Console.WriteLine("~Inventory~");
             Console.WriteLine("-----------");
             Console.WriteLine($"  Weapon : {WeaponInfo[0]}");
-            Console.WriteLine($"  Slot 1 : {item1}");
+            Console.WriteLine($"  Slot 1 : {ItemInfo[0]}");
             Console.WriteLine($"  Slot 2 : {item2}");
             Console.WriteLine($"  Slot 3 : {item3}");
             Console.WriteLine();
@@ -437,7 +452,7 @@ namespace Command_Line_Adventure
                     Lairofthebeast();
                     break;
                 case 3:
-                    if ((item1 == "Key") || (item1 == "Key") || (item1 == "Key"))
+                    if ((item1 == "~Door Key~") || (item2 == "~Door Key~") || (item3 == "~Door Key~"))
                     {
                         do
                         {
@@ -580,10 +595,19 @@ namespace Command_Line_Adventure
                     break;
 
                 case 2:
-                    Battle(Scenario, PlaceName);
-                    //tempItem = "Key";
-                    // need a number for the key
-                    GuardsChamberButton = true;
+
+                    bool result = Battle(Scenario, PlaceName);
+                    if (result == true)
+                    {
+                        Item = 1;
+                        item1 = "~Door Key~";
+                        String[] ItemInfo = otherItemsString(Item);
+                        Console.WriteLine($"{ItemInfo[0]} \n{ItemInfo[1]} \n{ItemInfo[2]}");
+                        Console.WriteLine($"You picked up {ItemInfo[0]}");
+                        GuardsChamberButton = true;
+                        Console.ReadLine();
+                    }
+
                     if (GuardsChamberButton == false)
                     {
                         GuardsChamber();
