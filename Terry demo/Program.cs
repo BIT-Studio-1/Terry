@@ -7,7 +7,7 @@ namespace Command_Line_Adventure
     {
         // These are universal variables 
         public static string temp;
-        public static string item1 = "Empty", item2 = "~Door Key~", item3 = "Empty";
+        public static string item1 = "Empty", item2 = "~Door Key~", item3 = "Empty"; //Added key to inventory for convienience
         public static int[] stats = { 0, 0, 0, 0 };
         public static int strength = stats[0], stealth = stats[1], cunning = stats[2], health = stats[3], Weapon, Clothing, Item;
         public static bool EmptyArmouryButton = false;
