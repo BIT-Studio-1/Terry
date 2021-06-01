@@ -34,7 +34,7 @@ namespace Command_Line_Adventure
             int[] playerStats = PlayerStats();
             for (int i = 0; i < playerStats.Length; i++)
             {
-                finalStats[i] = playerStats[i] + weaponStats[i] + clothingStats[i];
+                finalStats[i] = playerStats[i] + weaponStats[i] + clothingStats[i] + otherItemStats[i];
             }
 
             return finalStats;
@@ -83,7 +83,7 @@ namespace Command_Line_Adventure
             switch (weaponNumber)
             {
                 case 1:
-                    string[] Rags = { "~Rags~", "Worn and tattered, they provide little protection and warmth"};
+                    string[] Rags = { "~Rags~", "Worn and tattered, they provide little protection and warmth" };
                     return Rags;
                 case 2:
                     string[] LeatherArmour = { "~Leather Amour~", "A sturdy set of leather clothing, it provides a bit of protection while also being light" };
@@ -100,6 +100,11 @@ namespace Command_Line_Adventure
                 case 1:
                     int[] Level1_key = { 0, 0, 0, 0 };
                     return Level1_key;
+
+                case 2:
+                    int[] Fathers_ring = { 0, 0, 1, 0 };
+                    return Fathers_ring;
+
             }
             int[] Null = { 0, 0, 0, 0 };
             return Null;
@@ -109,8 +114,11 @@ namespace Command_Line_Adventure
             switch (weaponNumber)
             {
                 case 1:
-                    string[] Level1_key = { "~Door Key~", "It must be usefull somewhere", "" };
+                    string[] Level1_key = { "~Door Key~", "It could be useful somewhere", "" };
                     return Level1_key;
+                case 2:
+                    string[] Fathers_ring = { "~Father's ring~", "comment", "Cunning +1" };
+                    return Fathers_ring;
             }
             string[] Null = { "...", "..." };
             return Null;
@@ -480,7 +488,8 @@ namespace Command_Line_Adventure
                     break;
                 case 3:
                     if ((item1 == "~Door Key~") || (item2 == "~Door Key~") || (item3 == "~Door Key~"))
-                    { if ((LockedmysteryroomButton == false))
+                    {
+                        if ((LockedmysteryroomButton == false))
                         {
                             do
                             {
@@ -502,7 +511,9 @@ namespace Command_Line_Adventure
                                 }
                             } while ((temp != "y") || (temp != "n"));
                         }
-                    }if (LockedmysteryroomButton == true) {
+                    }
+                    if (LockedmysteryroomButton == true)
+                    {
                         Lockedmysteryroom();
                     }
                     else
@@ -562,14 +573,28 @@ namespace Command_Line_Adventure
                     break;
                 case 2:
                     Console.WriteLine("You find a large pile of ashes in the oven and you notice your deceased father's lucky ring.");
-                    Console.WriteLine("Would you like to take your father's ring? 'y' for yes 'n' for no");
+                    Console.WriteLine("Would you like to take your father's ring? y/n");
                     temp = Console.ReadLine();
                     if (temp == "y")
                     {
-                        Console.WriteLine("You have picked up your fathers lucky ring");
-                        //tempItem = "Father's ring";
-                        //Need a number for the ring
-                        cunning++;
+                        Item = 2;
+                        String[] ItemInfo = otherItemsString(Item);
+                        Console.WriteLine($"{ItemInfo[0]} \n{ItemInfo[1]} \n{ItemInfo[2]}");
+
+                        for (int i = 0; i < stats.Length; i++)
+                        {
+                            stats[i] = stats[i] + other_Items(Item)[i];
+                        }
+
+                        EmptyArmouryButton = true;
+                        Console.ReadLine();
+                        EmptyArmouryB();
+                        break;
+                    }
+                    else
+                    {
+                        Crematorium();
+
                     }
                     break;
 
@@ -586,7 +611,7 @@ namespace Command_Line_Adventure
                     Console.WriteLine("You have entered an invalid input");
                     Console.WriteLine("Press any key to continue...");
                     Console.ForegroundColor = ConsoleColor.Red;
-                    Console.ReadLine(); 
+                    Console.ReadLine();
                     break;
             }
         }
@@ -803,7 +828,7 @@ namespace Command_Line_Adventure
 
                 default:
                     Console.WriteLine();
-                    Console.ForegroundColor = ConsoleColor.Red;     
+                    Console.ForegroundColor = ConsoleColor.Red;
                     Console.WriteLine("You have entered an invalid input");
                     Console.WriteLine("Press any key to continue...");
                     Console.ForegroundColor = ConsoleColor.Red;
@@ -1371,12 +1396,12 @@ namespace Command_Line_Adventure
                 Console.WriteLine("Stealth :     1                  4                  1     ");
                 Console.WriteLine("Cunning :     1                  2                  4     ");
                 Console.WriteLine("Health  :     4                  2                  3     ");
-<<<<<<< HEAD
+
                 Clothing = 1;
-=======
+
                 Console.ForegroundColor = ConsoleColor.Yellow;
 
->>>>>>> c7f1c31f4720a49660cd81c7533935cdfe81c23e
+
 
                 temp = Console.ReadLine();
                 Character = Convert.ToInt32(temp);
