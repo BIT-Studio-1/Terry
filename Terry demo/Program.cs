@@ -543,7 +543,7 @@ namespace Command_Line_Adventure
                     break;
             }
         }
-        public static void Crematorium()
+        public static void Crematorium()/*one item Lucky ring +1 to cunning*/
         {
             string temp;
             int input;
@@ -616,9 +616,57 @@ namespace Command_Line_Adventure
             }
         }
 
-        public static void CrematoryB()
+        public static void CrematoriumB()
         {
+            string temp;
+            int input;
+            
+            Console.Clear();
+            Console.WriteLine("You are in the Crematorium, It is dark and gloomy and you cough because of all the ash.");
+            Console.WriteLine("Memories of your parents come back to you, they met a cruel demise at the hands of the king.");
+            Console.WriteLine("The king will pay for this injustice you say to yourself as you prepare to find some of their");
+            Console.WriteLine("remains here in the Crematorium");
+            Console.WriteLine();
 
+            Console.WriteLine("Your options are...");
+            Console.WriteLine("- [1] Go backwards");
+            Console.WriteLine("- [2] Search the crematorium oven");
+            Console.WriteLine("- [3] Check Inventory");
+            Console.WriteLine();
+            Thread.Sleep(1000);
+            Console.WriteLine();
+            temp = Console.ReadLine();
+            input = Convert.ToInt32(temp);
+            Console.Clear();
+
+            switch (input)
+            {
+                case 1:
+                    LeftHallway();
+                    break;
+                case 2:
+                    Console.WriteLine("You find a large pile of ashes in the oven, there is nothing here put scorched remains.");
+                    Console.WriteLine("PRESS ENTER to exit the oven");
+                    Console.ReadLine();
+                    CrematoriumB();
+                    break;
+
+
+                case 3:
+                    Inventory();
+                    Console.WriteLine("PRESS ENTER");
+                    CrematoriumB();
+                    break;
+
+                default:
+                    Console.WriteLine();
+                    Console.ForegroundColor = ConsoleColor.Red;
+                    Console.WriteLine("You have entered an invalid input");
+                    Console.WriteLine("Press any key to continue...");
+                    Console.ForegroundColor = ConsoleColor.Red;
+                    Console.ReadLine();
+                    break;
+            }
 
 
 
@@ -628,7 +676,6 @@ namespace Command_Line_Adventure
 
 
         }
-
 
         public static void GuardsChamber()
         {
