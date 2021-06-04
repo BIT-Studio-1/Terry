@@ -588,7 +588,7 @@ namespace Command_Line_Adventure
 
                         EmptyArmouryButton = true;
                         Console.ReadLine();
-                        EmptyArmouryB();
+                        CrematoriumB();
                         break;
                     }
                     else
