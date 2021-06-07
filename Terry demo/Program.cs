@@ -1427,6 +1427,21 @@ namespace Command_Line_Adventure
                     break;
             }
         }
+        public static void Introduction()
+        {
+            Console.WriteLine("Terry is an orphan fruit merchant in the town of Studiojuan, he spends his days selling fruit");
+            Console.WriteLine("and minding his own business at his fruit stall in the town square. Terry dislikes trouble and");
+            Console.WriteLine("avoids confrontation at every turn. Trouble is what got his parents killed.");
+            Console.WriteLine();
+            Console.WriteLine();
+            Console.WriteLine("It is just another boring saturday morning in StudioJuan and Terry is sitting in his fruit stall");
+            Console.WriteLine("minding his own business. 'What a lovely day' he says to himself as he spit shines the last few");
+            Console.WriteLine("remaining apples from the morning rush. A woman approches his stall through the thinning crowd,");
+            Console.WriteLine("she is dressed fancily and is wearing a vail that is covering her face. 'Nice day for an apple");
+            Console.WriteLine("is it not?' she asks Terry. 'Yes maddam' replied terry.");
+            Console.WriteLine();
+            Console.WriteLine("Suddenly Terry is hit on the head and he falls to the ground.");
+        }
         public static void Main()
         {
             int Character;
