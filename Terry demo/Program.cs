@@ -110,7 +110,7 @@ namespace Command_Line_Adventure
             switch (weaponNumber)
             {
                 case 1:
-                    string[] Fathers_ring = { "~Father's ring~", "comment", "Cunning +1" };
+                    string[] Fathers_ring = { "~Father's ring~", "Your father was a gifted speaker this will improve your cunning.", "Cunning +1" };
                     return Fathers_ring;
             }
             string[] Null = { "...", "..." };
