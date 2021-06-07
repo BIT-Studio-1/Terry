@@ -7,8 +7,8 @@ namespace Command_Line_Adventure
     {
         // These are universal variables 
         public static string temp;
-        public static string item1 = "Empty", item2 = "~Door Key~", item3 = "Empty"; //Added key to inventory for convienience
         public static int[] stats = { 0, 0, 0, 0 };
+        public static string keySlot;
         public static int strength = stats[0], stealth = stats[1], cunning = stats[2], health = stats[3], Weapon, Clothing, Item;
         public static bool EmptyArmouryButton = false;
         public static bool GuardsChamberButton = false;
@@ -98,10 +98,6 @@ namespace Command_Line_Adventure
             switch (itemNumber)
             {
                 case 1:
-                    int[] Level1_key = { 0, 0, 0, 0 };
-                    return Level1_key;
-
-                case 2:
                     int[] Fathers_ring = { 0, 0, 1, 0 };
                     return Fathers_ring;
 
@@ -114,16 +110,12 @@ namespace Command_Line_Adventure
             switch (weaponNumber)
             {
                 case 1:
-                    string[] Level1_key = { "~Door Key~", "It could be useful somewhere", "" };
-                    return Level1_key;
-                case 2:
-                    string[] Fathers_ring = { "~Father's ring~", "Your father was a gifted speaker this will improve your cunning", "Cunning +1" };
+                    string[] Fathers_ring = { "~Father's ring~", "comment", "Cunning +1" };
                     return Fathers_ring;
             }
             string[] Null = { "...", "..." };
             return Null;
         }
-
         public static int[] EnemyStats(int enemyNumber) // List of enemy stats
         {
             switch (enemyNumber)
@@ -295,11 +287,10 @@ namespace Command_Line_Adventure
             Console.WriteLine();
             Console.WriteLine("~Inventory~");
             Console.WriteLine("-----------");
-            Console.WriteLine($"  Weapon : {WeaponInfo[0]}");
-            Console.WriteLine($"Cloathing: {ClothingInfo[0]}");
-            Console.WriteLine($"  Slot 1 : {ItemInfo[0]}");
-            Console.WriteLine($"  Slot 2 : {item2}");
-            Console.WriteLine($"  Slot 3 : {item3}");
+            Console.WriteLine($"  Weapon   : {WeaponInfo[0]}");
+            Console.WriteLine($"  Cloathing: {ClothingInfo[0]}");
+            Console.WriteLine($"  Slot 1   : {ItemInfo[0]}");
+            Console.WriteLine($"             {keySlot}");
             Console.WriteLine();
             Console.WriteLine("~Statistics~");
             Console.WriteLine("------------");
@@ -487,7 +478,7 @@ namespace Command_Line_Adventure
                     Lairofthebeast();
                     break;
                 case 3:
-                    if ((item1 == "~Door Key~") || (item2 == "~Door Key~") || (item3 == "~Door Key~"))
+                    if (keySlot == "~Door Key~")
                     {
                         if ((LockedmysteryroomButton == false))
                         {
@@ -577,7 +568,7 @@ namespace Command_Line_Adventure
                     temp = Console.ReadLine();
                     if (temp == "y")
                     {
-                        Item = 2;
+                        Item = 1;
                         String[] ItemInfo = otherItemsString(Item);
                         Console.WriteLine($"{ItemInfo[0]} \n{ItemInfo[1]} \n{ItemInfo[2]}");
 
@@ -620,7 +611,7 @@ namespace Command_Line_Adventure
         {
             string temp;
             int input;
-            
+
             Console.Clear();
             Console.WriteLine("You are in the Crematorium, It is dark and gloomy and you cough because of all the ash.");
             Console.WriteLine("Memories of your parents come back to you, they met a cruel demise at the hands of the king.");
@@ -708,11 +699,9 @@ namespace Command_Line_Adventure
                     bool result = Battle(Scenario, PlaceName);
                     if (result == true)
                     {
-                        Item = 1;
-                        item1 = "~Door Key~";
-                        String[] ItemInfo = otherItemsString(Item);
-                        Console.WriteLine($"{ItemInfo[0]} \n{ItemInfo[1]} \n{ItemInfo[2]}");
-                        Console.WriteLine($"You picked up {ItemInfo[0]}");
+                        keySlot = "~Door Key~";
+                        Console.WriteLine($"You picked up {keySlot}");
+                        Console.WriteLine($"It could be usefull somewhere...");
                         GuardsChamberButton = true;
                         Console.ReadLine();
                     }
