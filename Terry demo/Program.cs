@@ -1431,6 +1431,57 @@ namespace Command_Line_Adventure
         }
         public static void Introduction()
         {
+            Console.WriteLine("                                                                  ");
+            Console.WriteLine("                                                                  ");
+            Console.WriteLine("      ██████████  █████████  ████████   ████████   ██      ██     ");
+            Console.WriteLine("          ██      ██         ██     ██  ██     ██   ██    ██      ");
+            Console.WriteLine("          ██      ██         ██     ██  ██     ██    ██  ██       ");
+            Console.WriteLine("          ██      █████      ████████   ████████      ████        ");
+            Console.WriteLine("          ██      ██         ██   ██    ██   ██        ██         ");
+            Console.WriteLine("          ██      ██         ██    ██   ██    ██       ██         ");
+            Console.WriteLine("          ██      ██         ██     ██  ██     ██      ██         ");
+            Console.WriteLine("          ██      █████████  ██     ██  ██     ██      ██         ");
+            Console.WriteLine("                                                                  ");
+            Console.WriteLine("                                                                  ");
+            Console.WriteLine("  The Adventure Game By:                                          ");
+            Console.WriteLine("                                                                  ");
+            Console.WriteLine("  Miguel, Mace, Te Awa, Lewis and Francis                         ");
+            Console.WriteLine("                                                                  ");
+            Console.WriteLine("  ©2021                                                           ");
+            Thread.Sleep(2000);
+            Console.Clear();
+
+            onsole.WriteLine(@"                                                                          ");
+            Console.WriteLine(@"                                                                          ");
+            Console.WriteLine(@"            o                                                             ");
+            Console.WriteLine(@"           <|                                                             ");
+            Console.WriteLine(@"            |                                                             ");
+            Console.WriteLine(@"           / \                                                            ");
+            Console.WriteLine(@"          /   \                                                           ");
+            Console.WriteLine(@"         /     \            o                o          //\\              ");
+            Console.WriteLine(@"        /_______\          <|               <|         //^^\\             ");
+            Console.WriteLine(@"       (_|_|_|_|_)          |                |        //^^^^\\            ");
+            Console.WriteLine(@"       |         |         /^\              /^\      //^^^^^^\\           ");
+            Console.WriteLine(@"       |[|][|][|]|        /^^^\            /^^^\    //^^^^^^^^\\          ");
+            Console.WriteLine(@"      _|_________|_      /^^^^^\          /^^^^^\  //__________\\         ");
+            Console.WriteLine(@"      |           |     (_|_|_|_)        (_|_|_|_)  | /^\  /^\ |          ");
+            Console.WriteLine(@"       \_\_|_|_/_/       |     |IIIIIIIIII|     |   | |*|  |*| |          ");
+            Console.WriteLine(@"        |       |        |  []               [] | __|_ ___ ___ |_         ");
+            Console.WriteLine(@"        |   I   |        |         + + +        | |-|_|-|_|-|_|-|         ");
+            Console.WriteLine(@"        |       |        |  []      |_|      [] |  \           /          ");
+            Console.WriteLine(@"        |   I   |________|______________________|__|     II    |          ");
+            Console.WriteLine(@"        |        |_|-|_|-|_|-|_|-|_|-|_|-|_|-|_|-|_|           |          ");
+            Console.WriteLine(@"        |                                                      |          ");
+            Console.WriteLine(@"       /    +      +      +    //////\\\\\\     +     +   II    \         ");
+            Console.WriteLine(@"      |                        |          |                      |         ");
+            Console.WriteLine(@"      |                        |          |                      |         ");
+            Console.WriteLine(@"      |........................|          |......................|         ");
+            Console.WriteLine("                                                                           ");
+            Console.WriteLine("                          PLEASE PRESS ENTER TO PLAY                       ");
+            Console.WriteLine("                                                                           ");
+            Console.WriteLine("                                                                           ");
+            Console.ReadLine();
+
             Console.WriteLine("Terry is an orphan fruit merchant in the town of Studiojuan, he spends his days selling fruit");
             Console.WriteLine("and minding his own business at his fruit stall in the town square. Terry dislikes trouble and");
             Console.WriteLine("avoids confrontation at every turn. Trouble is what got his parents killed.");
