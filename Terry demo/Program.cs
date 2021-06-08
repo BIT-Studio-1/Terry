@@ -13,6 +13,7 @@ namespace Command_Line_Adventure
         public static bool EmptyArmouryButton = false;
         public static bool GuardsChamberButton = false;
         public static bool LockedmysteryroomButton = false;
+        public static bool CrematoriumButton = false;
 
         public static int[] PlayerStats()
         {
@@ -431,7 +432,13 @@ namespace Command_Line_Adventure
                     }
                     break;
                 case 3:
-                    Crematorium();
+                    if (CrematoriumButton == false)
+                    {
+                        Crematorium();
+                    }
+                    else {
+                        CrematoriumB();
+                    }
                     break;
                 case 4:
                     Southwesthallway();
@@ -577,7 +584,7 @@ namespace Command_Line_Adventure
                             stats[i] = stats[i] + other_Items(Item)[i];
                         }
 
-                        EmptyArmouryButton = true;
+                        CrematoriumButton = true;
                         Console.ReadLine();
                         CrematoriumB();
                         break;
@@ -593,7 +600,13 @@ namespace Command_Line_Adventure
                 case 3:
                     Inventory();
                     Console.WriteLine("PRESS ENTER");
-                    Crematorium();
+                    if (CrematoriumButton == false)
+                    {
+                        Crematorium();
+                    }
+                    else {
+                        CrematoriumB();
+                    }
                     break;
 
                 default:
