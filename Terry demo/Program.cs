@@ -1451,7 +1451,7 @@ namespace Command_Line_Adventure
             Thread.Sleep(2000);
             Console.Clear();
 
-            onsole.WriteLine(@"                                                                          ");
+            Console.WriteLine(@"                                                                          ");
             Console.WriteLine(@"                                                                          ");
             Console.WriteLine(@"            o                                                             ");
             Console.WriteLine(@"           <|                                                             ");
