@@ -8,12 +8,12 @@ namespace Command_Line_Adventure
         // These are universal variables 
         public static string temp;
         public static int[] stats = { 0, 0, 0, 0 };
-        public static string keySlot;
+        public static string keySlot = "...";
         public static int strength = stats[0], stealth = stats[1], cunning = stats[2], health = stats[3], Weapon, Clothing, Item;
         public static bool EmptyArmouryButton = false;
         public static bool GuardsChamberButton = false;
         public static bool LockedmysteryroomButton = false;
-        public static bool CrematoriumButton = false;
+        public static bool GreatHallButton = false;
 
         public static int[] PlayerStats()
         {
@@ -111,7 +111,7 @@ namespace Command_Line_Adventure
             switch (weaponNumber)
             {
                 case 1:
-                    string[] Fathers_ring = { "~Father's ring~", "Your father was a gifted speaker this will improve your cunning.", "Cunning +1" };
+                    string[] Fathers_ring = { "~Father's ring~", "comment", "Cunning +1" };
                     return Fathers_ring;
             }
             string[] Null = { "...", "..." };
@@ -288,10 +288,10 @@ namespace Command_Line_Adventure
             Console.WriteLine();
             Console.WriteLine("~Inventory~");
             Console.WriteLine("-----------");
-            Console.WriteLine($"  Weapon   : {WeaponInfo[0]}");
-            Console.WriteLine($"  Cloathing: {ClothingInfo[0]}");
-            Console.WriteLine($"  Slot 1   : {ItemInfo[0]}");
-            Console.WriteLine($"             {keySlot}");
+            Console.WriteLine($"  Weapon    : {WeaponInfo[0]}");
+            Console.WriteLine($"  Cloathing : {ClothingInfo[0]}");
+            Console.WriteLine($"  Accesories: {ItemInfo[0]}");
+            Console.WriteLine($"  Key       : {keySlot}");
             Console.WriteLine();
             Console.WriteLine("~Statistics~");
             Console.WriteLine("------------");
@@ -432,13 +432,7 @@ namespace Command_Line_Adventure
                     }
                     break;
                 case 3:
-                    if (CrematoriumButton == false)
-                    {
-                        Crematorium();
-                    }
-                    else {
-                        CrematoriumB();
-                    }
+                    Crematorium();
                     break;
                 case 4:
                     Southwesthallway();
@@ -485,30 +479,30 @@ namespace Command_Line_Adventure
                     Lairofthebeast();
                     break;
                 case 3:
-                    if (keySlot == "~Door Key~")
+                    if ((LockedmysteryroomButton == false) && (keySlot == "~Door Key~"))
                     {
-                        if ((LockedmysteryroomButton == false))
-                        {
-                            do
-                            {
-                                Console.WriteLine("The door is locked. Use the key? y/n ");
-                                temp = Console.ReadLine();
-                                if (temp == "y")
-                                {
-                                    LockedmysteryroomButton = true;
-                                    Lockedmysteryroom();
 
-                                }
-                                else if (temp == "n")
-                                {
-                                    RightHallway();
-                                }
-                                else
-                                {
-                                    Console.WriteLine("Wrong command");
-                                }
-                            } while ((temp != "y") || (temp != "n"));
-                        }
+                        do
+                        {
+                            Console.WriteLine("The door is locked. Use the key? y/n ");
+                            temp = Console.ReadLine();
+                            if (temp == "y")
+                            {
+                                LockedmysteryroomButton = true;
+                                keySlot = "...";
+                                Lockedmysteryroom();
+
+                            }
+                            else if (temp == "n")
+                            {
+                                RightHallway();
+                            }
+                            else
+                            {
+                                Console.WriteLine("Wrong command");
+                            }
+                        } while ((temp != "y") || (temp != "n"));
+
                     }
                     if (LockedmysteryroomButton == true)
                     {
@@ -584,7 +578,7 @@ namespace Command_Line_Adventure
                             stats[i] = stats[i] + other_Items(Item)[i];
                         }
 
-                        CrematoriumButton = true;
+                        EmptyArmouryButton = true;
                         Console.ReadLine();
                         CrematoriumB();
                         break;
@@ -600,13 +594,7 @@ namespace Command_Line_Adventure
                 case 3:
                     Inventory();
                     Console.WriteLine("PRESS ENTER");
-                    if (CrematoriumButton == false)
-                    {
-                        Crematorium();
-                    }
-                    else {
-                        CrematoriumB();
-                    }
+                    Crematorium();
                     break;
 
                 default:
@@ -871,6 +859,7 @@ namespace Command_Line_Adventure
                     Console.WriteLine("You have escaped the Dungeon, But what do you do now?");
                     Console.WriteLine("Get Revenge or Run like hell and hide for the rest of your life");
                     Console.WriteLine("Maybe revenge isn't the best thing to do....yet");
+                    Secondfloor_greathall();
                     break;
                 case 3:
                     Inventory();
@@ -1234,28 +1223,79 @@ namespace Command_Line_Adventure
 
             Console.Clear();
             Console.WriteLine("You are in the Great Hall ");
+            Console.WriteLine("To your left you see a very fancy door, next to it, a horrendous creature sleeps unaware of your presence.");
+            Console.WriteLine("It seems to be one of those ogres you heard about in the old stories.");
+            Console.WriteLine("To your right there is a big gate which looks like the way to your freedom.");
             Console.WriteLine();
             Console.WriteLine("Your options are...");
             Console.WriteLine("- [1] Go down the staircase");
-
-            Console.WriteLine("- [3] Check Inventory");
+            Console.WriteLine("- [2] Go towards the gate");
+            Console.WriteLine("- [3] Go towards the fancy door");
+            Console.WriteLine("- [4] Check Inventory");
 
             Console.WriteLine();
             temp = Console.ReadLine();
             input = Convert.ToInt32(temp);
             Console.Clear();
 
+            int Scenario = 2;
+            string PlaceName = "Great Hall";
+
             switch (input)
             {
                 case 1:
                     Lockedmysteryroom();
                     break;
-                //  case 2:
-                //     break;
+                case 2:
+                    if ((GreatHallButton == false) && (keySlot == "~Gate Key~"))
+                    {
+
+                        do
+                        {
+                            Console.WriteLine("The door is locked. Use the key? y/n ");
+                            temp = Console.ReadLine();
+                            if (temp == "y")
+                            {
+                                LockedmysteryroomButton = true;
+                                keySlot = "Empty";
+                                //Outside();
+
+                            }
+                            else if (temp == "n")
+                            {
+                                Secondfloor_greathall();
+                            }
+                            else
+                            {
+                                Console.WriteLine("Wrong command");
+                            }
+                        } while ((temp != "y") || (temp != "n"));
+                    }
+                    else
+                    {
+                        Console.WriteLine("You try to open desperately but the gate is locked. ");
+                        Console.WriteLine("It seems you will need to look for the key to open it...");
+                        Console.ReadLine();
+                        Secondfloor_greathall();
+
+                    }
+                    break;
                 case 3:
+                    bool result = Battle(Scenario, PlaceName);
+                    if (result == true)
+                    {
+                        keySlot = "~Gate Key~";
+                        Console.WriteLine($"You picked up {keySlot}");
+                        Console.WriteLine($"It migth take you out of here...");
+                        GreatHallButton = true;
+                        Console.ReadLine();
+                        //Secondfloor_greathallB();
+                    }
+                    break;
+                case 4:
                     Inventory();
                     Console.WriteLine("PRESS ENTER");
-                    Heavydungeon();
+                    Secondfloor_greathall();
                     break;
 
                 default:
