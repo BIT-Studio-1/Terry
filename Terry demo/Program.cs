@@ -7,12 +7,13 @@ namespace Command_Line_Adventure
     {
         // These are universal variables 
         public static string temp;
-        public static string item1 = "Empty", item2 = "~Door Key~", item3 = "Empty"; //Added key to inventory for convienience
         public static int[] stats = { 0, 0, 0, 0 };
+        public static string keySlot = "...";
         public static int strength = stats[0], stealth = stats[1], cunning = stats[2], health = stats[3], Weapon, Clothing, Item;
         public static bool EmptyArmouryButton = false;
         public static bool GuardsChamberButton = false;
         public static bool LockedmysteryroomButton = false;
+        public static bool GreatHallButton = false;
 
         public static int[] PlayerStats()
         {
@@ -34,7 +35,7 @@ namespace Command_Line_Adventure
             int[] playerStats = PlayerStats();
             for (int i = 0; i < playerStats.Length; i++)
             {
-                finalStats[i] = playerStats[i] + weaponStats[i] + clothingStats[i];
+                finalStats[i] = playerStats[i] + weaponStats[i] + clothingStats[i] + otherItemStats[i];
             }
 
             return finalStats;
@@ -83,7 +84,7 @@ namespace Command_Line_Adventure
             switch (weaponNumber)
             {
                 case 1:
-                    string[] Rags = { "~Rags~", "Worn and tattered, they provide little protection and warmth"};
+                    string[] Rags = { "~Rags~", "Worn and tattered, they provide little protection and warmth" };
                     return Rags;
                 case 2:
                     string[] LeatherArmour = { "~Leather Amour~", "A sturdy set of leather clothing, it provides a bit of protection while also being light" };
@@ -98,8 +99,9 @@ namespace Command_Line_Adventure
             switch (itemNumber)
             {
                 case 1:
-                    int[] Level1_key = { 0, 0, 0, 0 };
-                    return Level1_key;
+                    int[] Fathers_ring = { 0, 0, 1, 0 };
+                    return Fathers_ring;
+
             }
             int[] Null = { 0, 0, 0, 0 };
             return Null;
@@ -109,13 +111,12 @@ namespace Command_Line_Adventure
             switch (weaponNumber)
             {
                 case 1:
-                    string[] Level1_key = { "~Door Key~", "It must be usefull somewhere", "" };
-                    return Level1_key;
+                    string[] Fathers_ring = { "~Father's ring~", "comment", "Cunning +1" };
+                    return Fathers_ring;
             }
             string[] Null = { "...", "..." };
             return Null;
         }
-
         public static int[] EnemyStats(int enemyNumber) // List of enemy stats
         {
             switch (enemyNumber)
@@ -287,11 +288,10 @@ namespace Command_Line_Adventure
             Console.WriteLine();
             Console.WriteLine("~Inventory~");
             Console.WriteLine("-----------");
-            Console.WriteLine($"  Weapon : {WeaponInfo[0]}");
-            Console.WriteLine($"Cloathing: {ClothingInfo[0]}");
-            Console.WriteLine($"  Slot 1 : {ItemInfo[0]}");
-            Console.WriteLine($"  Slot 2 : {item2}");
-            Console.WriteLine($"  Slot 3 : {item3}");
+            Console.WriteLine($"  Weapon    : {WeaponInfo[0]}");
+            Console.WriteLine($"  Cloathing : {ClothingInfo[0]}");
+            Console.WriteLine($"  Accesories: {ItemInfo[0]}");
+            Console.WriteLine($"  Key       : {keySlot}");
             Console.WriteLine();
             Console.WriteLine("~Statistics~");
             Console.WriteLine("------------");
@@ -479,30 +479,33 @@ namespace Command_Line_Adventure
                     Lairofthebeast();
                     break;
                 case 3:
-                    if ((item1 == "~Door Key~") || (item2 == "~Door Key~") || (item3 == "~Door Key~"))
-                    { if ((LockedmysteryroomButton == false))
-                        {
-                            do
-                            {
-                                Console.WriteLine("The door is locked. Use the key? y/n ");
-                                temp = Console.ReadLine();
-                                if (temp == "y")
-                                {
-                                    LockedmysteryroomButton = true;
-                                    Lockedmysteryroom();
+                    if ((LockedmysteryroomButton == false) && (keySlot == "~Door Key~"))
+                    {
 
-                                }
-                                else if (temp == "n")
-                                {
-                                    RightHallway();
-                                }
-                                else
-                                {
-                                    Console.WriteLine("Wrong command");
-                                }
-                            } while ((temp != "y") || (temp != "n"));
-                        }
-                    }if (LockedmysteryroomButton == true) {
+                        do
+                        {
+                            Console.WriteLine("The door is locked. Use the key? y/n ");
+                            temp = Console.ReadLine();
+                            if (temp == "y")
+                            {
+                                LockedmysteryroomButton = true;
+                                keySlot = "...";
+                                Lockedmysteryroom();
+
+                            }
+                            else if (temp == "n")
+                            {
+                                RightHallway();
+                            }
+                            else
+                            {
+                                Console.WriteLine("Wrong command");
+                            }
+                        } while ((temp != "y") || (temp != "n"));
+
+                    }
+                    if (LockedmysteryroomButton == true)
+                    {
                         Lockedmysteryroom();
                     }
                     else
@@ -532,7 +535,7 @@ namespace Command_Line_Adventure
                     break;
             }
         }
-        public static void Crematorium()
+        public static void Crematorium()/*one item Lucky ring +1 to cunning*/
         {
             string temp;
             int input;
@@ -562,14 +565,28 @@ namespace Command_Line_Adventure
                     break;
                 case 2:
                     Console.WriteLine("You find a large pile of ashes in the oven and you notice your deceased father's lucky ring.");
-                    Console.WriteLine("Would you like to take your father's ring? 'y' for yes 'n' for no");
+                    Console.WriteLine("Would you like to take your father's ring? y/n");
                     temp = Console.ReadLine();
                     if (temp == "y")
                     {
-                        Console.WriteLine("You have picked up your fathers lucky ring");
-                        //tempItem = "Father's ring";
-                        //Need a number for the ring
-                        cunning++;
+                        Item = 1;
+                        String[] ItemInfo = otherItemsString(Item);
+                        Console.WriteLine($"{ItemInfo[0]} \n{ItemInfo[1]} \n{ItemInfo[2]}");
+
+                        for (int i = 0; i < stats.Length; i++)
+                        {
+                            stats[i] = stats[i] + other_Items(Item)[i];
+                        }
+
+                        EmptyArmouryButton = true;
+                        Console.ReadLine();
+                        CrematoriumB();
+                        break;
+                    }
+                    else
+                    {
+                        Crematorium();
+
                     }
                     break;
 
@@ -586,14 +603,62 @@ namespace Command_Line_Adventure
                     Console.WriteLine("You have entered an invalid input");
                     Console.WriteLine("Press any key to continue...");
                     Console.ForegroundColor = ConsoleColor.Red;
-                    Console.ReadLine(); 
+                    Console.ReadLine();
                     break;
             }
         }
 
-        public static void CrematoryB()
+        public static void CrematoriumB()
         {
+            string temp;
+            int input;
 
+            Console.Clear();
+            Console.WriteLine("You are in the Crematorium, It is dark and gloomy and you cough because of all the ash.");
+            Console.WriteLine("Memories of your parents come back to you, they met a cruel demise at the hands of the king.");
+            Console.WriteLine("The king will pay for this injustice you say to yourself as you prepare to find some of their");
+            Console.WriteLine("remains here in the Crematorium");
+            Console.WriteLine();
+
+            Console.WriteLine("Your options are...");
+            Console.WriteLine("- [1] Go backwards");
+            Console.WriteLine("- [2] Search the crematorium oven");
+            Console.WriteLine("- [3] Check Inventory");
+            Console.WriteLine();
+            Thread.Sleep(1000);
+            Console.WriteLine();
+            temp = Console.ReadLine();
+            input = Convert.ToInt32(temp);
+            Console.Clear();
+
+            switch (input)
+            {
+                case 1:
+                    LeftHallway();
+                    break;
+                case 2:
+                    Console.WriteLine("You find a large pile of ashes in the oven, there is nothing here put scorched remains.");
+                    Console.WriteLine("PRESS ENTER to exit the oven");
+                    Console.ReadLine();
+                    CrematoriumB();
+                    break;
+
+
+                case 3:
+                    Inventory();
+                    Console.WriteLine("PRESS ENTER");
+                    CrematoriumB();
+                    break;
+
+                default:
+                    Console.WriteLine();
+                    Console.ForegroundColor = ConsoleColor.Red;
+                    Console.WriteLine("You have entered an invalid input");
+                    Console.WriteLine("Press any key to continue...");
+                    Console.ForegroundColor = ConsoleColor.Red;
+                    Console.ReadLine();
+                    break;
+            }
 
 
 
@@ -603,7 +668,6 @@ namespace Command_Line_Adventure
 
 
         }
-
 
         public static void GuardsChamber()
         {
@@ -636,11 +700,9 @@ namespace Command_Line_Adventure
                     bool result = Battle(Scenario, PlaceName);
                     if (result == true)
                     {
-                        Item = 1;
-                        item1 = "~Door Key~";
-                        String[] ItemInfo = otherItemsString(Item);
-                        Console.WriteLine($"{ItemInfo[0]} \n{ItemInfo[1]} \n{ItemInfo[2]}");
-                        Console.WriteLine($"You picked up {ItemInfo[0]}");
+                        keySlot = "~Door Key~";
+                        Console.WriteLine($"You picked up {keySlot}");
+                        Console.WriteLine($"It could be usefull somewhere...");
                         GuardsChamberButton = true;
                         Console.ReadLine();
                     }
@@ -803,7 +865,7 @@ namespace Command_Line_Adventure
 
                 default:
                     Console.WriteLine();
-                    Console.ForegroundColor = ConsoleColor.Red;     
+                    Console.ForegroundColor = ConsoleColor.Red;
                     Console.WriteLine("You have entered an invalid input");
                     Console.WriteLine("Press any key to continue...");
                     Console.ForegroundColor = ConsoleColor.Red;
@@ -1157,28 +1219,161 @@ namespace Command_Line_Adventure
 
             Console.Clear();
             Console.WriteLine("You are in the Great Hall ");
+            Console.WriteLine("To your left you see a very fancy door, next to it, a horrendous creature sleeps unaware of your presence.");
+            Console.WriteLine("It seems to be one of those ogres you heard about in the old stories.");
+            Console.WriteLine("To your right there is a big gate which looks like the way to your freedom.");
             Console.WriteLine();
             Console.WriteLine("Your options are...");
             Console.WriteLine("- [1] Go down the staircase");
-
-            Console.WriteLine("- [3] Check Inventory");
+            Console.WriteLine("- [2] Go towards the gate");
+            Console.WriteLine("- [3] Go towards the fancy door");
+            Console.WriteLine("- [4] Check Inventory");
 
             Console.WriteLine();
             temp = Console.ReadLine();
             input = Convert.ToInt32(temp);
             Console.Clear();
 
+            int Scenario = 2;
+            string PlaceName = "Great Hall";
+
             switch (input)
             {
                 case 1:
                     Lockedmysteryroom();
                     break;
-                //  case 2:
-                //     break;
+                case 2:
+                    if ((GreatHallButton == false) && (keySlot == "~Gate Key~"))
+                    {
+
+                        do
+                        {
+                            Console.WriteLine("The door is locked. Use the key? y/n ");
+                            temp = Console.ReadLine();
+                            if (temp == "y")
+                            {
+                                LockedmysteryroomButton = true;
+                                keySlot = "Empty";
+                                //Outside();
+
+                            }
+                            else if (temp == "n")
+                            {
+                                Secondfloor_greathall();
+                            }
+                            else
+                            {
+                                Console.WriteLine("Wrong command");
+                            }
+                        } while ((temp != "y") || (temp != "n"));
+                    }
+                    else
+                    {
+                        Console.WriteLine("You try to open desperately but the gate is locked. ");
+                        Console.WriteLine("It seems you will need to look for the key to open it...");
+                        Console.ReadLine();
+                        Secondfloor_greathall();
+
+                    }
+                    break;
                 case 3:
+                    bool result = Battle(Scenario, PlaceName);
+                    if (result == true)
+                    {
+                        keySlot = "~Gate Key~";
+                        Console.WriteLine($"You picked up {keySlot}");
+                        Console.WriteLine($"It migth take you out of here...");
+                        GreatHallButton = true;
+                        Console.ReadLine();
+                        //Secondfloor_greathallB();
+                    }
+                    break;
+                case 4:
                     Inventory();
                     Console.WriteLine("PRESS ENTER");
-                    Heavydungeon();
+                    Secondfloor_greathall();
+                    break;
+
+                default:
+                    Console.WriteLine();
+                    Console.ForegroundColor = ConsoleColor.Red;
+                    Console.WriteLine("You have entered an invalid input");
+                    Console.WriteLine("Press any key to continue...");
+                    Console.ForegroundColor = ConsoleColor.Red;
+                    Console.ReadLine();
+                    break;
+            }
+        }
+        public static void Secondfloor_greathallB()
+        {
+            string temp;
+            int input;
+
+            Console.Clear();
+            Console.WriteLine("You are in the Great Hall ");
+            Console.WriteLine("To your left you see a very fancy door, next to it, a horrendous creature sleeps unaware of your presence.");
+            Console.WriteLine("It seems to be one of those ogres you heard about in the old stories.");
+            Console.WriteLine("To your right there is a big gate which looks like the way to your freedom.");
+            Console.WriteLine();
+            Console.WriteLine("Your options are...");
+            Console.WriteLine("- [1] Go down the staircase");
+            Console.WriteLine("- [2] Go towards the gate");
+            Console.WriteLine("- [3] Enter the fancy door");
+            Console.WriteLine("- [4] Check Inventory");
+
+            Console.WriteLine();
+            temp = Console.ReadLine();
+            input = Convert.ToInt32(temp);
+            Console.Clear();
+
+         
+
+            switch (input)
+            {
+                case 1:
+                    Lockedmysteryroom();
+                    break;
+                case 2:
+                    if ((GreatHallButton == false) && (keySlot == "~Gate Key~"))
+                    {
+
+                        do
+                        {
+                            Console.WriteLine("The door is locked. Use the key? y/n ");
+                            temp = Console.ReadLine();
+                            if (temp == "y")
+                            {
+                                LockedmysteryroomButton = true;
+                                keySlot = "Empty";
+                                //Outside();
+
+                            }
+                            else if (temp == "n")
+                            {
+                                Secondfloor_greathall();
+                            }
+                            else
+                            {
+                                Console.WriteLine("Wrong command");
+                            }
+                        } while ((temp != "y") || (temp != "n"));
+                    }
+                    else
+                    {
+                        Console.WriteLine("You try to open desperately but the gate is locked. ");
+                        Console.WriteLine("It seems you will need to look for the key to open it...");
+                        Console.ReadLine();
+                        Secondfloor_greathall();
+
+                    }
+                    break;
+                case 3:
+                    
+                    break;
+                case 4:
+                    Inventory();
+                    Console.WriteLine("PRESS ENTER");
+                    Secondfloor_greathall();
                     break;
 
                 default:
@@ -1355,6 +1550,72 @@ namespace Command_Line_Adventure
                     break;
             }
         }
+        public static void Introduction()
+        {
+            Console.WriteLine("                                                                  ");
+            Console.WriteLine("                                                                  ");
+            Console.WriteLine("      ██████████  █████████  ████████   ████████   ██      ██     ");
+            Console.WriteLine("          ██      ██         ██     ██  ██     ██   ██    ██      ");
+            Console.WriteLine("          ██      ██         ██     ██  ██     ██    ██  ██       ");
+            Console.WriteLine("          ██      █████      ████████   ████████      ████        ");
+            Console.WriteLine("          ██      ██         ██   ██    ██   ██        ██         ");
+            Console.WriteLine("          ██      ██         ██    ██   ██    ██       ██         ");
+            Console.WriteLine("          ██      ██         ██     ██  ██     ██      ██         ");
+            Console.WriteLine("          ██      █████████  ██     ██  ██     ██      ██         ");
+            Console.WriteLine("                                                                  ");
+            Console.WriteLine("                                                                  ");
+            Console.WriteLine("  The Adventure Game By:                                          ");
+            Console.WriteLine("                                                                  ");
+            Console.WriteLine("  Miguel, Mace, Te Awa, Lewis and Francis                         ");
+            Console.WriteLine("                                                                  ");
+            Console.WriteLine("  ©2021                                                           ");
+            Thread.Sleep(2000);
+            Console.Clear();
+
+            Console.WriteLine(@"                                                                          ");
+            Console.WriteLine(@"                                                                          ");
+            Console.WriteLine(@"            o                                                             ");
+            Console.WriteLine(@"           <|                                                             ");
+            Console.WriteLine(@"            |                                                             ");
+            Console.WriteLine(@"           / \                                                            ");
+            Console.WriteLine(@"          /   \                                                           ");
+            Console.WriteLine(@"         /     \            o                o          //\\              ");
+            Console.WriteLine(@"        /_______\          <|               <|         //^^\\             ");
+            Console.WriteLine(@"       (_|_|_|_|_)          |                |        //^^^^\\            ");
+            Console.WriteLine(@"       |         |         /^\              /^\      //^^^^^^\\           ");
+            Console.WriteLine(@"       |[|][|][|]|        /^^^\            /^^^\    //^^^^^^^^\\          ");
+            Console.WriteLine(@"      _|_________|_      /^^^^^\          /^^^^^\  //__________\\         ");
+            Console.WriteLine(@"      |           |     (_|_|_|_)        (_|_|_|_)  | /^\  /^\ |          ");
+            Console.WriteLine(@"       \_\_|_|_/_/       |     |IIIIIIIIII|     |   | |*|  |*| |          ");
+            Console.WriteLine(@"        |       |        |  []               [] | __|_ ___ ___ |_         ");
+            Console.WriteLine(@"        |   I   |        |         + + +        | |-|_|-|_|-|_|-|         ");
+            Console.WriteLine(@"        |       |        |  []      |_|      [] |  \           /          ");
+            Console.WriteLine(@"        |   I   |________|______________________|__|     II    |          ");
+            Console.WriteLine(@"        |        |_|-|_|-|_|-|_|-|_|-|_|-|_|-|_|-|_|           |          ");
+            Console.WriteLine(@"        |                                                      |          ");
+            Console.WriteLine(@"       /    +      +      +    //////\\\\\\     +     +   II    \         ");
+            Console.WriteLine(@"      |                        |          |                      |         ");
+            Console.WriteLine(@"      |                        |          |                      |         ");
+            Console.WriteLine(@"      |........................|          |......................|         ");
+            Console.WriteLine("                                                                           ");
+            Console.WriteLine("                          PLEASE PRESS ENTER TO PLAY                       ");
+            Console.WriteLine("                                                                           ");
+            Console.WriteLine("                                                                           ");
+            Console.ReadLine();
+
+            Console.WriteLine("Terry is an orphan fruit merchant in the town of Studiojuan, he spends his days selling fruit");
+            Console.WriteLine("and minding his own business at his fruit stall in the town square. Terry dislikes trouble and");
+            Console.WriteLine("avoids confrontation at every turn. Trouble is what got his parents killed.");
+            Console.WriteLine();
+            Console.WriteLine();
+            Console.WriteLine("It is just another boring saturday morning in StudioJuan and Terry is sitting in his fruit stall");
+            Console.WriteLine("minding his own business. 'What a lovely day' he says to himself as he spit shines the last few");
+            Console.WriteLine("remaining apples from the morning rush. A woman approches his stall through the thinning crowd,");
+            Console.WriteLine("she is dressed fancily and is wearing a vail that is covering her face. 'Nice day for an apple");
+            Console.WriteLine("is it not?' she asks Terry. 'Yes maddam' replied terry.");
+            Console.WriteLine();
+            Console.WriteLine("Suddenly Terry is hit on the head and he falls to the ground.");
+        }
         public static void Main()
         {
             int Character;
@@ -1371,7 +1632,11 @@ namespace Command_Line_Adventure
                 Console.WriteLine("Stealth :     1                  4                  1     ");
                 Console.WriteLine("Cunning :     1                  2                  4     ");
                 Console.WriteLine("Health  :     4                  2                  3     ");
+
+                Clothing = 1;
+
                 Console.ForegroundColor = ConsoleColor.Yellow;
+
 
 
                 temp = Console.ReadLine();
