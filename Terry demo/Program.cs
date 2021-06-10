@@ -1079,12 +1079,13 @@ namespace Command_Line_Adventure
             int input;
 
             Console.Clear();
-            Console.WriteLine("You are in the Heavy Dungeon");
+            Console.WriteLine("You are in the Prison");
+            Console.WriteLine("A big number of miserables are imprisoned here begging for help. Probably victims of King's unfair tirany. ");
+            Console.WriteLine("The same king that ordered your detention here. Your feelings for revenge are rising.  ");
             Console.WriteLine();
             Console.WriteLine("Your options are...");
             Console.WriteLine("- [1] Go backwards");
-
-            Console.WriteLine("- [3] Check Inventory");
+            Console.WriteLine("- [2] Check Inventory");
 
             Console.WriteLine();
             temp = Console.ReadLine();
@@ -1096,9 +1097,8 @@ namespace Command_Line_Adventure
                 case 1:
                     Southwesthallway();
                     break;
-                //  case 2:
-                //     break;
-                case 3:
+
+                case 2:
                     Inventory();
                     Console.WriteLine("PRESS ENTER");
                     Heavydungeon();
@@ -1283,7 +1283,7 @@ namespace Command_Line_Adventure
                         Console.WriteLine($"It migth take you out of here...");
                         GreatHallButton = true;
                         Console.ReadLine();
-                        //Secondfloor_greathallB();
+                        Secondfloor_greathallB();
                     }
                     break;
                 case 4:
