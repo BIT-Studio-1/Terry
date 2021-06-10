@@ -14,6 +14,7 @@ namespace Command_Line_Adventure
         public static bool GuardsChamberButton = false;
         public static bool LockedmysteryroomButton = false;
         public static bool GreatHallButton = false;
+        public static bool BetterArmoryButton = false;
 
         public static int[] PlayerStats()
         {
@@ -1133,11 +1134,24 @@ namespace Command_Line_Adventure
 
             switch (input)
             {
-                //case 1:
+                case 1:
+                    Secondfloor_greathallB();
+                    break;
 
                 case 2:
-                    //tempItem = "The King's Sword"; 
-                    // need a number for it
+                    Weapon = 2;
+                    String[] WeaponInfo = weaponString(Weapon);
+                    Console.WriteLine($"{WeaponInfo[0]} \n{WeaponInfo[1]} \n{WeaponInfo[2]}");
+                    for (int i=0; i < stats.Length; i++)
+                    {
+                        stats[i] = stats[i] + weapon(ref Weapon)[i];
+                    }
+                    BetterArmoryButton = true;
+                    Console.ReadLine();
+                    BetterArmoryB();
+                    break;
+
+
                     strength = strength + 2;
                     Console.WriteLine("You have picked up The King's Sword");
                     break;
@@ -1163,9 +1177,7 @@ namespace Command_Line_Adventure
         }
 
         public static void BetterArmoryB()
-        // ROOM CURRENTLY NOT CONNECTED TO ANYTHING
-        // CAN'T BE TESTED UNTIL CONNECTED
-        // EMPTY ROOM!!!!!!!!!!
+
         {
             string temp;
             int input;
