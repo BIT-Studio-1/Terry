@@ -382,6 +382,14 @@ namespace Command_Line_Adventure
                 Console.WriteLine();
 
                 temp = Console.ReadLine();
+                if (string.IsNullOrEmpty(temp))
+                {
+                    Console.Clear();
+                    Console.WriteLine("Please Enter a valid input...");
+                    Console.ReadLine();
+                    Console.Clear();
+                    Dungeon();
+                }
                 input = Convert.ToInt32(temp);
                 Console.Clear();
 
@@ -424,6 +432,14 @@ namespace Command_Line_Adventure
             Console.WriteLine("- [4] Check Inventory");
             Console.WriteLine();
             temp = Console.ReadLine();
+            if (string.IsNullOrEmpty(temp))
+            {
+                Console.Clear();
+                Console.WriteLine("Please Enter a valid input...");
+                Console.ReadLine();
+                Console.Clear();
+                NorthMiddleHallway();
+            }
             input = Convert.ToInt32(temp);
             Console.Clear();
 
@@ -470,6 +486,14 @@ namespace Command_Line_Adventure
             Console.WriteLine("- [5] Check Inventory");
             Console.WriteLine();
             temp = Console.ReadLine();
+            if (string.IsNullOrEmpty(temp))
+            {
+                Console.Clear();
+                Console.WriteLine("Please Enter a valid input...");
+                Console.ReadLine();
+                Console.Clear();
+                LeftHallway();
+            }
             input = Convert.ToInt32(temp);
             Console.Clear();
 
@@ -524,6 +548,14 @@ namespace Command_Line_Adventure
             Console.WriteLine("- [5] Check Inventory");
             Console.WriteLine();
             temp = Console.ReadLine();
+            if (string.IsNullOrEmpty(temp))
+            {
+                Console.Clear();
+                Console.WriteLine("Please Enter a valid input...");
+                Console.ReadLine();
+                Console.Clear();
+                RightHallway();
+            }
             input = Convert.ToInt32(temp);
             Console.Clear();
 
@@ -612,6 +644,14 @@ namespace Command_Line_Adventure
             Thread.Sleep(1000);
             Console.WriteLine();
             temp = Console.ReadLine();
+            if (string.IsNullOrEmpty(temp))
+            {
+                Console.Clear();
+                Console.WriteLine("Please Enter a valid input...");
+                Console.ReadLine();
+                Console.Clear();
+                Crematorium();
+            }
             input = Convert.ToInt32(temp);
             Console.Clear();
 
@@ -685,6 +725,14 @@ namespace Command_Line_Adventure
             Thread.Sleep(1000);
             Console.WriteLine();
             temp = Console.ReadLine();
+            if (string.IsNullOrEmpty(temp))
+            {
+                Console.Clear();
+                Console.WriteLine("Please Enter a valid input...");
+                Console.ReadLine();
+                Console.Clear();
+                CrematoriumB();
+            }
             input = Convert.ToInt32(temp);
             Console.Clear();
 
@@ -740,6 +788,14 @@ namespace Command_Line_Adventure
             Console.WriteLine("- [3] Check Inventory");
             Console.WriteLine();
             temp = Console.ReadLine();
+            if (string.IsNullOrEmpty(temp))
+            {
+                Console.Clear();
+                Console.WriteLine("Please Enter a valid input...");
+                Console.ReadLine();
+                Console.Clear();
+                GuardsChamber();
+            }
             input = Convert.ToInt32(temp);
             Console.Clear();
 
@@ -803,6 +859,14 @@ namespace Command_Line_Adventure
             Console.WriteLine("- [2] Check Inventory");
             Console.WriteLine();
             temp = Console.ReadLine();
+            if (string.IsNullOrEmpty(temp))
+            {
+                Console.Clear();
+                Console.WriteLine("Please Enter a valid input...");
+                Console.ReadLine();
+                Console.Clear();
+                GuardsChamberB();
+            }
             input = Convert.ToInt32(temp);
             Console.Clear();
 
@@ -848,6 +912,14 @@ namespace Command_Line_Adventure
 
             Console.WriteLine();
             temp = Console.ReadLine();
+            if (string.IsNullOrEmpty(temp))
+            {
+                Console.Clear();
+                Console.WriteLine("Please Enter a valid input...");
+                Console.ReadLine();
+                Console.Clear();
+                Lairofthebeast();
+            }
             input = Convert.ToInt32(temp);
             Console.Clear();
 
@@ -903,6 +975,14 @@ namespace Command_Line_Adventure
 
             Console.WriteLine();
             temp = Console.ReadLine();
+            if (string.IsNullOrEmpty(temp))
+            {
+                Console.Clear();
+                Console.WriteLine("Please Enter a valid input...");
+                Console.ReadLine();
+                Console.Clear();
+                Lockedmysteryroom();
+            }
             input = Convert.ToInt32(temp);
             Console.Clear();
 
@@ -947,6 +1027,14 @@ namespace Command_Line_Adventure
 
             Console.WriteLine();
             temp = Console.ReadLine();
+            if (string.IsNullOrEmpty(temp))
+            {
+                Console.Clear();
+                Console.WriteLine("Please Enter a valid input...");
+                Console.ReadLine();
+                Console.Clear();
+                Southeasthallway();
+            }
             input = Convert.ToInt32(temp);
             Console.Clear();
 
@@ -999,6 +1087,14 @@ namespace Command_Line_Adventure
 
             Console.WriteLine();
             temp = Console.ReadLine();
+            if (string.IsNullOrEmpty(temp))
+            {
+                Console.Clear();
+                Console.WriteLine("Please Enter a valid input...");
+                Console.ReadLine();
+                Console.Clear();
+                EmptyArmoury();
+            }
             input = Convert.ToInt32(temp);
             Console.Clear();
 
@@ -1059,6 +1155,14 @@ namespace Command_Line_Adventure
 
             Console.WriteLine();
             temp = Console.ReadLine();
+            if (string.IsNullOrEmpty(temp))
+            {
+                Console.Clear();
+                Console.WriteLine("Please Enter a valid input...");
+                Console.ReadLine();
+                Console.Clear();
+                EmptyArmouryB();
+            }
             input = Convert.ToInt32(temp);
             Console.Clear();
 
@@ -1100,6 +1204,14 @@ namespace Command_Line_Adventure
 
             Console.WriteLine();
             temp = Console.ReadLine();
+            if (string.IsNullOrEmpty(temp))
+            {
+                Console.Clear();
+                Console.WriteLine("Please Enter a valid input...");
+                Console.ReadLine();
+                Console.Clear();
+                Southwesthallway();
+            }
             input = Convert.ToInt32(temp);
             Console.Clear();
 
@@ -1145,6 +1257,14 @@ namespace Command_Line_Adventure
 
             Console.WriteLine();
             temp = Console.ReadLine();
+            if (string.IsNullOrEmpty(temp))
+            {
+                Console.Clear();
+                Console.WriteLine("Please Enter a valid input...");
+                Console.ReadLine();
+                Console.Clear();
+                Heavydungeon();
+            }
             input = Convert.ToInt32(temp);
             Console.Clear();
 
@@ -1185,6 +1305,14 @@ namespace Command_Line_Adventure
 
             Console.WriteLine();
             temp = Console.ReadLine();
+            if (string.IsNullOrEmpty(temp))
+            {
+                Console.Clear();
+                Console.WriteLine("Please Enter a valid input...");
+                Console.ReadLine();
+                Console.Clear();
+                BetterArmory();
+            }
             input = Convert.ToInt32(temp);
             Console.Clear();
 
@@ -1248,6 +1376,14 @@ namespace Command_Line_Adventure
 
             Console.WriteLine();
             temp = Console.ReadLine();
+            if (string.IsNullOrEmpty(temp))
+            {
+                Console.Clear();
+                Console.WriteLine("Please Enter a valid input...");
+                Console.ReadLine();
+                Console.Clear();
+                BetterArmoryB();
+            }
             input = Convert.ToInt32(temp);
             Console.Clear();
 
@@ -1297,6 +1433,14 @@ namespace Command_Line_Adventure
 
             Console.WriteLine();
             temp = Console.ReadLine();
+            if (string.IsNullOrEmpty(temp))
+            {
+                Console.Clear();
+                Console.WriteLine("Please Enter a valid input...");
+                Console.ReadLine();
+                Console.Clear();
+                Secondfloor_greathall();
+            }
             input = Convert.ToInt32(temp);
             Console.Clear();
 
@@ -1389,6 +1533,14 @@ namespace Command_Line_Adventure
 
             Console.WriteLine();
             temp = Console.ReadLine();
+            if (string.IsNullOrEmpty(temp))
+            {
+                Console.Clear();
+                Console.WriteLine("Please Enter a valid input...");
+                Console.ReadLine();
+                Console.Clear();
+                Secondfloor_greathallB();
+            }
             input = Convert.ToInt32(temp);
             Console.Clear();
 
@@ -1708,6 +1860,14 @@ namespace Command_Line_Adventure
 
 
                 temp = Console.ReadLine();
+                if (string.IsNullOrEmpty(temp))
+                {
+                    Console.Clear();
+                    Console.WriteLine("Please Enter a valid input...");
+                    Console.ReadLine();
+                    Console.Clear();
+                    Main();
+                }
                 Character = Convert.ToInt32(temp);
                 Console.WriteLine();
                 switch (Character)
