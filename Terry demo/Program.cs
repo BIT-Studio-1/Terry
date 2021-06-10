@@ -1114,8 +1114,6 @@ namespace Command_Line_Adventure
         }
 
         public static void BetterArmory()
-        // ROOM CURRENTLY NOT CONNECTED TO ANYTHING
-        // CAN'T BE TESTED UNTIL CONNECTED
         {
             string temp;
             int input;
@@ -1123,7 +1121,7 @@ namespace Command_Line_Adventure
             Console.WriteLine("You are in the Better Armory");
             Console.WriteLine();
             Console.WriteLine("Your options are...");
-            Console.WriteLine("- [1] Go backwards"); //NEEDS TO BE CONNECTED TO HALLWAY SECOND FLOOR
+            Console.WriteLine("- [1] Go backwards"); 
             Console.WriteLine("- [2] Check the Chest ");
             Console.WriteLine("- [3] option3"); // CHECK CHEST?
             Console.WriteLine("- [4] Check Inventory");
@@ -1138,7 +1136,7 @@ namespace Command_Line_Adventure
                 //case 1:
 
                 case 2:
-                    //tempItem = "The King's Sword"; //PLEACEHOLDER
+                    //tempItem = "The King's Sword"; 
                     // need a number for it
                     strength = strength + 2;
                     Console.WriteLine("You have picked up The King's Sword");
@@ -1367,9 +1365,11 @@ namespace Command_Line_Adventure
 
                     }
                     break;
+
                 case 3:
-                    
+                    BetterArmory();
                     break;
+
                 case 4:
                     Inventory();
                     Console.WriteLine("PRESS ENTER");
