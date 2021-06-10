@@ -855,10 +855,6 @@ namespace Command_Line_Adventure
                     RightHallway();
                     break;
                 case 2:
-                    //placeholder
-                    Console.WriteLine("You have escaped the Dungeon, But what do you do now?");
-                    Console.WriteLine("Get Revenge or Run like hell and hide for the rest of your life");
-                    Console.WriteLine("Maybe revenge isn't the best thing to do....yet");
                     Secondfloor_greathall();
                     break;
                 case 3:
