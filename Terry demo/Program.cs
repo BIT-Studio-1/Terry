@@ -173,6 +173,20 @@ namespace Command_Line_Adventure
                 temp1 = Console.ReadLine();
                 decision = Convert.ToInt32(temp1);
                 Console.Clear();
+
+                if (playerStats[3] == 0)
+                {
+                    Console.WriteLine(enemyBarks[4]);
+                    Console.ReadLine();
+                }
+                if (enemyStats[3] == 0)
+                {
+                    Console.WriteLine(enemyBarks[3]);
+                    Console.WriteLine("You have defeated your enemy!!");
+                    Console.ReadLine();
+                    return true;
+                }
+
                 if (decision == 1)
                 {
                     int yourRoll = 0, enemyRoll = 0;
@@ -183,6 +197,7 @@ namespace Command_Line_Adventure
                         int dice = randy.Next(1, 7);
                         Console.WriteLine(dice);
                         yourRoll = yourRoll + dice;
+        
                     }
                     Console.WriteLine("\nThe " + enemyBarks[5] + " attacks with " + enemyStats[0] + " dice");
                     Console.ReadLine();
@@ -197,6 +212,8 @@ namespace Command_Line_Adventure
                     Console.ReadLine();
                     Console.WriteLine("The " + enemyBarks[5] + "s total strength is " + enemyRoll);
                     Console.ReadLine();
+                    Console.Clear();
+
                     if (yourRoll > enemyRoll)
                     {
                         enemyStats[3] = enemyStats[3] - 1;
@@ -211,19 +228,6 @@ namespace Command_Line_Adventure
                         Console.WriteLine(enemyBarks[2]);
                         Console.ReadLine();
                     }
-                    if (playerStats[3] == 0)
-                    {
-                        Console.WriteLine(enemyBarks[4]);
-                        Console.ReadLine();
-                    }
-                    if (enemyStats[3] == 0)
-                    {
-                        Console.WriteLine(enemyBarks[3]);
-                        Console.WriteLine("You have defeated your enemy!!");
-                        Console.ReadLine();
-                        return true;
-
-                    }
                 }
                 if (decision == 2)
                 {
@@ -235,6 +239,7 @@ namespace Command_Line_Adventure
                         Console.WriteLine(dice);
                         yourRoll = yourRoll + dice;
                     }
+                    Console.ReadLine();
                     Console.WriteLine("\nThe " + enemyBarks[5] + " checks with " + enemyStats[1] + " dice\n");
                     for (int i = 0; i < enemyStats[1]; i++)
                     {
@@ -242,20 +247,71 @@ namespace Command_Line_Adventure
                         Console.WriteLine(dice);
                         enemyRoll = enemyRoll + dice;
                     }
+                    Console.ReadLine();
                     Console.WriteLine("\nYour total stealth roll is " + yourRoll);
+                    Console.ReadLine();
                     Console.WriteLine("\nThe " + enemyBarks[5] + "s total stealth is " + enemyRoll);
+                    Console.ReadLine();
+                    Console.Clear();
                     if (yourRoll > enemyRoll)
                     {
-                        Console.WriteLine("\nYou hide from the " + enemyBarks[5]);
+                        Console.WriteLine("\nYou hide from the " + enemyBarks[5] + "\n");
                         Console.WriteLine(enemyBarks[5] + ": where did you go?");
                         Console.ReadLine();
-                        Console.WriteLine("Do you want to run away?\n1: Yes\n2: No\n");
+                        Console.Clear();
+                        Console.WriteLine("Your options are...");
+                        Console.WriteLine("- [1] Run from the " + enemyBarks[5]);
+                        Console.WriteLine("- [2] Backstab the " + enemyBarks[5]);
                         temp1 = Console.ReadLine();
                         decision = Convert.ToInt32(temp1);
+                        Console.Clear();
+
                         if (decision == 1)
                         {
                             Console.WriteLine("You escape the " + placeName);
-                            return true;
+                            Console.ReadLine();
+                            return false;
+                        }
+                        if (decision == 2)
+                        {
+                            Console.WriteLine("You try backstab the " + enemyBarks[5] + ", you use " + playerStats[1] + " dice\n");
+                            for (int i = 0; i < playerStats[1]; i++)
+                            {
+                                int dice = randy.Next(1, 7);
+                                Console.WriteLine(dice);
+                                yourRoll = yourRoll + dice;
+                            }
+                            Console.ReadLine();
+                            Console.WriteLine("\nThe " + enemyBarks[5] + " checks with " + enemyStats[1] + " dice\n");
+                            for (int i = 0; i < enemyStats[1]; i++)
+                            {
+                                int dice = randy.Next(1, 7);
+                                Console.WriteLine(dice);
+                                enemyRoll = enemyRoll + dice;
+                            }
+                            Console.ReadLine();
+                            Console.WriteLine("\nYour total stealth roll is " + yourRoll);
+                            Console.ReadLine();
+                            Console.WriteLine("\nThe " + enemyBarks[5] + "s total stealth is " + enemyRoll);
+                            Console.ReadLine();
+                            Console.Clear();
+
+                            if (yourRoll > enemyRoll)
+                            {
+                                Console.WriteLine("You backstab the " + enemyBarks[5]);
+                                enemyStats[3] = enemyStats[3] - 2;
+                                Console.WriteLine(enemyBarks[1]);
+                                Console.ReadLine();
+                                Console.Clear();
+                            }
+                            if (yourRoll < enemyRoll)
+                            {
+                                Console.WriteLine("The " + enemyBarks[5] + " sees you coming and hits you");
+                                playerStats[3] = playerStats[3] - 1;
+                                Console.WriteLine(enemyBarks[2]);
+                                Console.ReadLine();
+                                Console.Clear();
+                            }
                         }
                     }
                     if (yourRoll < enemyRoll)
@@ -268,7 +324,7 @@ namespace Command_Line_Adventure
                 }
                 if (decision == 3)
                 {
-                    // something happens, not yet implimented
+                    
                 }
             }
             Console.Clear();
