@@ -14,6 +14,7 @@ namespace Command_Line_Adventure
         public static bool GuardsChamberButton = false;
         public static bool LockedmysteryroomButton = false;
         public static bool GreatHallButton = false;
+        public static bool BetterArmoryButton = false;
 
         public static int[] PlayerStats()
         {
@@ -1170,8 +1171,6 @@ namespace Command_Line_Adventure
         }
 
         public static void BetterArmory()
-        // ROOM CURRENTLY NOT CONNECTED TO ANYTHING
-        // CAN'T BE TESTED UNTIL CONNECTED
         {
             string temp;
             int input;
@@ -1179,7 +1178,7 @@ namespace Command_Line_Adventure
             Console.WriteLine("You are in the Better Armory");
             Console.WriteLine();
             Console.WriteLine("Your options are...");
-            Console.WriteLine("- [1] Go backwards"); //NEEDS TO BE CONNECTED TO HALLWAY SECOND FLOOR
+            Console.WriteLine("- [1] Go backwards"); 
             Console.WriteLine("- [2] Check the Chest ");
             Console.WriteLine("- [3] option3"); // CHECK CHEST?
             Console.WriteLine("- [4] Check Inventory");
@@ -1191,11 +1190,24 @@ namespace Command_Line_Adventure
 
             switch (input)
             {
-                //case 1:
+                case 1:
+                    Secondfloor_greathallB();
+                    break;
 
                 case 2:
-                    //tempItem = "The King's Sword"; //PLEACEHOLDER
-                    // need a number for it
+                    Weapon = 2;
+                    String[] WeaponInfo = weaponString(Weapon);
+                    Console.WriteLine($"{WeaponInfo[0]} \n{WeaponInfo[1]} \n{WeaponInfo[2]}");
+                    for (int i=0; i < stats.Length; i++)
+                    {
+                        stats[i] = stats[i] + weapon(ref Weapon)[i];
+                    }
+                    BetterArmoryButton = true;
+                    Console.ReadLine();
+                    BetterArmoryB();
+                    break;
+
+
                     strength = strength + 2;
                     Console.WriteLine("You have picked up The King's Sword");
                     break;
@@ -1221,9 +1233,7 @@ namespace Command_Line_Adventure
         }
 
         public static void BetterArmoryB()
-        // ROOM CURRENTLY NOT CONNECTED TO ANYTHING
-        // CAN'T BE TESTED UNTIL CONNECTED
-        // EMPTY ROOM!!!!!!!!!!
+
         {
             string temp;
             int input;
@@ -1423,9 +1433,11 @@ namespace Command_Line_Adventure
 
                     }
                     break;
+
                 case 3:
-                    
+                    BetterArmory();
                     break;
+
                 case 4:
                     Inventory();
                     Console.WriteLine("PRESS ENTER");
