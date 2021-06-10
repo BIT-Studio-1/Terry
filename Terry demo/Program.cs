@@ -1304,6 +1304,88 @@ namespace Command_Line_Adventure
                     break;
             }
         }
+        public static void Secondfloor_greathallB()
+        {
+            string temp;
+            int input;
+
+            Console.Clear();
+            Console.WriteLine("You are in the Great Hall ");
+            Console.WriteLine("To your left you see a very fancy door, next to it, a horrendous creature sleeps unaware of your presence.");
+            Console.WriteLine("It seems to be one of those ogres you heard about in the old stories.");
+            Console.WriteLine("To your right there is a big gate which looks like the way to your freedom.");
+            Console.WriteLine();
+            Console.WriteLine("Your options are...");
+            Console.WriteLine("- [1] Go down the staircase");
+            Console.WriteLine("- [2] Go towards the gate");
+            Console.WriteLine("- [3] Enter the fancy door");
+            Console.WriteLine("- [4] Check Inventory");
+
+            Console.WriteLine();
+            temp = Console.ReadLine();
+            input = Convert.ToInt32(temp);
+            Console.Clear();
+
+         
+
+            switch (input)
+            {
+                case 1:
+                    Lockedmysteryroom();
+                    break;
+                case 2:
+                    if ((GreatHallButton == false) && (keySlot == "~Gate Key~"))
+                    {
+
+                        do
+                        {
+                            Console.WriteLine("The door is locked. Use the key? y/n ");
+                            temp = Console.ReadLine();
+                            if (temp == "y")
+                            {
+                                LockedmysteryroomButton = true;
+                                keySlot = "Empty";
+                                //Outside();
+
+                            }
+                            else if (temp == "n")
+                            {
+                                Secondfloor_greathall();
+                            }
+                            else
+                            {
+                                Console.WriteLine("Wrong command");
+                            }
+                        } while ((temp != "y") || (temp != "n"));
+                    }
+                    else
+                    {
+                        Console.WriteLine("You try to open desperately but the gate is locked. ");
+                        Console.WriteLine("It seems you will need to look for the key to open it...");
+                        Console.ReadLine();
+                        Secondfloor_greathall();
+
+                    }
+                    break;
+                case 3:
+                    
+                    break;
+                case 4:
+                    Inventory();
+                    Console.WriteLine("PRESS ENTER");
+                    Secondfloor_greathall();
+                    break;
+
+                default:
+                    Console.WriteLine();
+                    Console.ForegroundColor = ConsoleColor.Red;
+                    Console.WriteLine("You have entered an invalid input");
+                    Console.WriteLine("Press any key to continue...");
+                    Console.ForegroundColor = ConsoleColor.Red;
+                    Console.ReadLine();
+                    break;
+            }
+        }
         public static void Chapel()
         {
             string temp;
