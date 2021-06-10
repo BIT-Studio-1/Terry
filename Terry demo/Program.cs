@@ -1371,12 +1371,8 @@ namespace Command_Line_Adventure
                 Console.WriteLine("Stealth :     1                  4                  1     ");
                 Console.WriteLine("Cunning :     1                  2                  4     ");
                 Console.WriteLine("Health  :     4                  2                  3     ");
-<<<<<<< HEAD
-                Clothing = 1;
-=======
                 Console.ForegroundColor = ConsoleColor.Yellow;
 
->>>>>>> c7f1c31f4720a49660cd81c7533935cdfe81c23e
 
                 temp = Console.ReadLine();
                 Character = Convert.ToInt32(temp);
