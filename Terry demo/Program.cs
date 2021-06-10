@@ -122,8 +122,8 @@ namespace Command_Line_Adventure
         {
             switch (enemyNumber)
             {
-                case 1:
-                    int[] GuardStats = { 2, 2, 1, 3 };
+                case 1:       //Strength - Stealth - cunning - Health - SeduceRoll - IntimidateRoll - PersuadeRoll - TrickRoll 
+                    int[] GuardStats = { 2, 2, 2, 3, 4, 3, 3, 2};
                     return GuardStats;
                 case 2:
                     int[] OgreStats = { 4, 1, 1, 4 };
@@ -168,9 +168,9 @@ namespace Command_Line_Adventure
                 Console.Clear();
                 Console.WriteLine("Your Health: " + playerStats[3]);
                 Console.WriteLine(enemyBarks[5] + " Health: " + enemyStats[3] + "\n");
-                Console.WriteLine("1: Attack the " + enemyBarks[5]);
-                Console.WriteLine("2: Hide from the " + enemyBarks[5]);
-                Console.WriteLine("3: something to do with cunning (leads nowhere)\n");
+                Console.WriteLine("- [1] Attack the " + enemyBarks[5]);
+                Console.WriteLine("- [2] Hide from the " + enemyBarks[5]);
+                Console.WriteLine("- [3] Talk to the " + enemyBarks[5] + "\n");
                 temp1 = Console.ReadLine();
                 decision = Convert.ToInt32(temp1);
                 Console.Clear();
@@ -325,11 +325,204 @@ namespace Command_Line_Adventure
                 }
                 if (decision == 3)
                 {
+                    bool Knowing = false;
+                    if (Knowing == false)
+                    {
+                        Console.WriteLine("You attempt to talk to the " + enemyBarks[5]);
+                        Console.WriteLine("- [1] Seduce");
+                        Console.WriteLine("- [2] Intimedate");
+                        Console.WriteLine("- [3] Persuade");
+                        Console.WriteLine("- [4] Trick");
+                        temp1 = Console.ReadLine();
+                        decision = Convert.ToInt32(temp1);
+                        if (decision == 1)
+                        {
+                            Console.WriteLine("You try seducing the " + enemyBarks[5]);
+                            Console.ReadLine();
+                            Console.Clear();
+
+                            int yourRoll = 0, enemyRoll = 0;
+                            Console.WriteLine("You seduce with " + playerStats[0] + " dice");
+                            Console.ReadLine();
+                            for (int i = 0; i < playerStats[2]; i++)
+                            {
+                                int dice = randy.Next(1, 7);
+                                Console.WriteLine(dice);
+                                yourRoll = yourRoll + dice;
+                            }
+                            Console.ReadLine();
+                            Console.WriteLine("\nThe " + enemyBarks[5] + " checks with " + enemyStats[0] + " dice");
+                            Console.ReadLine();
+                            for (int i = 0; i < enemyStats[2]; i++)
+                            {
+                                int dice = randy.Next(1, 7);
+                                Console.WriteLine(dice);
+                                enemyRoll = enemyRoll + dice;
+                            }
+                            Console.ReadLine();
+                            Console.WriteLine("\nYour total cunning roll is " + yourRoll);
+                            Console.ReadLine();
+                            Console.WriteLine("\nThe " + enemyBarks[5] + "s total check roll is " + enemyRoll);
+                            Console.ReadLine();
+                            Console.Clear();
+
+                            if (yourRoll > enemyRoll)
+                            {
+                                Console.WriteLine("You succsefully seduce the " + enemyBarks[5] + " and you after a while, the " + enemyBarks[5] + " is fast asleep on the floor");
+                                Console.ReadLine();
+                                return true;
+                            }
+                            if (yourRoll < enemyRoll)
+                            {
+                                Console.WriteLine("The " + enemyBarks[5] + " catchs on");
+                                Console.ReadLine();
+                                Console.Clear();
+                                Knowing = true;
+                                playerStats[3] = playerStats[3] - 1; 
+                            }
+                            if (decision == 2)
+                            {
+                                Console.WriteLine("You try Intimidating the " + enemyBarks[5]);
+                                Console.ReadLine();
+                                Console.Clear();
+
+                                Console.WriteLine("You intimidate with " + playerStats[0] + " dice");
+                                Console.ReadLine();
+                                for (int i = 0; i < playerStats[2]; i++)
+                                {
+                                    int dice = randy.Next(1, 7);
+                                    Console.WriteLine(dice);
+                                    yourRoll = yourRoll + dice;
+                                }
+                                Console.ReadLine();
+                                Console.WriteLine("\nThe " + enemyBarks[5] + " checks with " + enemyStats[0] + " dice");
+                                Console.ReadLine();
+                                for (int i = 0; i < enemyStats[2] + 1; i++)
+                                {
+                                    int dice = randy.Next(1, 7);
+                                    Console.WriteLine(dice);
+                                    enemyRoll = enemyRoll + dice;
+                                }
+                                Console.ReadLine();
+                                Console.WriteLine("\nYour total cunning roll is " + yourRoll);
+                                Console.ReadLine();
+                                Console.WriteLine("\nThe " + enemyBarks[5] + "s total check roll is " + enemyRoll);
+                                Console.ReadLine();
+                                Console.Clear();
+
+                                if (yourRoll > enemyRoll)
+                                {
+                                    Console.WriteLine("You succsefully intimidate the " + enemyBarks[5] + ", he promises not to bother you anymore and runs away");
+                                    Console.ReadLine();
+                                    return true;
+                                }
+                                if (yourRoll < enemyRoll)
+                                {
+                                    Console.WriteLine("The " + enemyBarks[5] + " scofs at you attempt to intimidate and hits you");
+                                    Console.ReadLine();
+                                    Console.Clear();
+                                    Knowing = true;
+                                    playerStats[3] = playerStats[3] - 1;
+                                }
+                            }
+                            if (decision == 3)
+                            {
+                                Console.WriteLine("You try persuading the " + enemyBarks[5]);
+                                Console.ReadLine();
+                                Console.Clear();
+
+                                Console.WriteLine("You persuade with " + playerStats[0] + " dice");
+                                Console.ReadLine();
+                                for (int i = 0; i < playerStats[2]; i++)
+                                {
+                                    int dice = randy.Next(1, 7);
+                                    Console.WriteLine(dice);
+                                    yourRoll = yourRoll + dice;
+                                }
+                                Console.ReadLine();
+                                Console.WriteLine("\nThe " + enemyBarks[5] + " checks with " + enemyStats[0] + " dice");
+                                Console.ReadLine();
+                                for (int i = 0; i < enemyStats[2] + 1; i++)
+                                {
+                                    int dice = randy.Next(1, 7);
+                                    Console.WriteLine(dice);
+                                    enemyRoll = enemyRoll + dice;
+                                }
+                                Console.ReadLine();
+                                Console.WriteLine("\nYour total cunning roll is " + yourRoll);
+                                Console.ReadLine();
+                                Console.WriteLine("\nThe " + enemyBarks[5] + "s total check roll is " + enemyRoll);
+                                Console.ReadLine();
+                                Console.Clear();
+
+                                if (yourRoll > enemyRoll)
+                                {
+                                    Console.WriteLine("You succsefully persuade the " + enemyBarks[5] + ",you him just to let you do whatever");
+                                    Console.ReadLine();
+                                    return true;
+                                }
+                                if (yourRoll < enemyRoll)
+                                {
+                                    Console.WriteLine("The " + enemyBarks[5] + " is not persuaded and hits you");
+                                    Console.ReadLine();
+                                    Console.Clear();
+                                    Knowing = true;
+                                    playerStats[3] = playerStats[3] - 1;
+                                }
+                            }
+                            if (decision == 4)
+                            {
+                                Console.WriteLine("You try tricking the " + enemyBarks[5]);
+                                Console.ReadLine();
+                                Console.Clear();
+
+                                Console.WriteLine("You trick with " + playerStats[0] + " dice");
+                                Console.ReadLine();
+                                for (int i = 0; i < playerStats[2]; i++)
+                                {
+                                    int dice = randy.Next(1, 7);
+                                    Console.WriteLine(dice);
+                                    yourRoll = yourRoll + dice;
+                                }
+                                Console.ReadLine();
+                                Console.WriteLine("\nThe " + enemyBarks[5] + " checks with " + enemyStats[0] + " dice");
+                                Console.ReadLine();
+                                for (int i = 0; i < enemyStats[2] + 1; i++)
+                                {
+                                    int dice = randy.Next(1, 7);
+                                    Console.WriteLine(dice);
+                                    enemyRoll = enemyRoll + dice;
+                                }
+                                Console.ReadLine();
+                                Console.WriteLine("\nYour total cunning roll is " + yourRoll);
+                                Console.ReadLine();
+                                Console.WriteLine("\nThe " + enemyBarks[5] + "s total check roll is " + enemyRoll);
+                                Console.ReadLine();
+                                Console.Clear();
+
+                                if (yourRoll > enemyRoll)
+                                {
+                                    Console.WriteLine("You succsefully trick the " + enemyBarks[5] + ", and the " + enemyBarks[5] + " leaves");
+                                    Console.ReadLine();
+                                    return true;
+                                }
+                                if (yourRoll < enemyRoll)
+                                {
+                                    Console.WriteLine("The " + enemyBarks[5] + " is not persuaded and hits you");
+                                    Console.ReadLine();
+                                    Console.Clear();
+                                    Knowing = true;
+                                    playerStats[3] = playerStats[3] - 1;
+                                }
+                            }
+                        }
+                    }
                     
+                    Console.Clear();
                 }
             }
             Console.Clear();
-            return true; // this means nothing right now
+            return true;
         }
 
 
