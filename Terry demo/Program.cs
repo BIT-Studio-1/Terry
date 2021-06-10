@@ -14,6 +14,7 @@ namespace Command_Line_Adventure
         public static bool GuardsChamberButton = false;
         public static bool LockedmysteryroomButton = false;
         public static bool GreatHallButton = false;
+        public static bool BetterArmoryButton = false;
 
         public static int[] PlayerStats()
         {
@@ -173,6 +174,20 @@ namespace Command_Line_Adventure
                 temp1 = Console.ReadLine();
                 decision = Convert.ToInt32(temp1);
                 Console.Clear();
+
+                if (playerStats[3] == 0)
+                {
+                    Console.WriteLine(enemyBarks[4]);
+                    Console.ReadLine();
+                }
+                if (enemyStats[3] == 0)
+                {
+                    Console.WriteLine(enemyBarks[3]);
+                    Console.WriteLine("You have defeated your enemy!!");
+                    Console.ReadLine();
+                    return true;
+                }
+
                 if (decision == 1)
                 {
                     int yourRoll = 0, enemyRoll = 0;
@@ -183,6 +198,7 @@ namespace Command_Line_Adventure
                         int dice = randy.Next(1, 7);
                         Console.WriteLine(dice);
                         yourRoll = yourRoll + dice;
+        
                     }
                     Console.WriteLine("\nThe " + enemyBarks[5] + " attacks with " + enemyStats[0] + " dice");
                     Console.ReadLine();
@@ -197,6 +213,8 @@ namespace Command_Line_Adventure
                     Console.ReadLine();
                     Console.WriteLine("The " + enemyBarks[5] + "s total strength is " + enemyRoll);
                     Console.ReadLine();
+                    Console.Clear();
+
                     if (yourRoll > enemyRoll)
                     {
                         enemyStats[3] = enemyStats[3] - 1;
@@ -211,19 +229,6 @@ namespace Command_Line_Adventure
                         Console.WriteLine(enemyBarks[2]);
                         Console.ReadLine();
                     }
-                    if (playerStats[3] == 0)
-                    {
-                        Console.WriteLine(enemyBarks[4]);
-                        Console.ReadLine();
-                    }
-                    if (enemyStats[3] == 0)
-                    {
-                        Console.WriteLine(enemyBarks[3]);
-                        Console.WriteLine("You have defeated your enemy!!");
-                        Console.ReadLine();
-                        return true;
-
-                    }
                 }
                 if (decision == 2)
                 {
@@ -235,6 +240,7 @@ namespace Command_Line_Adventure
                         Console.WriteLine(dice);
                         yourRoll = yourRoll + dice;
                     }
+                    Console.ReadLine();
                     Console.WriteLine("\nThe " + enemyBarks[5] + " checks with " + enemyStats[1] + " dice\n");
                     for (int i = 0; i < enemyStats[1]; i++)
                     {
@@ -242,20 +248,71 @@ namespace Command_Line_Adventure
                         Console.WriteLine(dice);
                         enemyRoll = enemyRoll + dice;
                     }
+                    Console.ReadLine();
                     Console.WriteLine("\nYour total stealth roll is " + yourRoll);
+                    Console.ReadLine();
                     Console.WriteLine("\nThe " + enemyBarks[5] + "s total stealth is " + enemyRoll);
+                    Console.ReadLine();
+                    Console.Clear();
                     if (yourRoll > enemyRoll)
                     {
-                        Console.WriteLine("\nYou hide from the " + enemyBarks[5]);
+                        Console.WriteLine("\nYou hide from the " + enemyBarks[5] + "\n");
                         Console.WriteLine(enemyBarks[5] + ": where did you go?");
                         Console.ReadLine();
-                        Console.WriteLine("Do you want to run away?\n1: Yes\n2: No\n");
+                        Console.Clear();
+                        Console.WriteLine("Your options are...");
+                        Console.WriteLine("- [1] Run from the " + enemyBarks[5]);
+                        Console.WriteLine("- [2] Backstab the " + enemyBarks[5]);
                         temp1 = Console.ReadLine();
                         decision = Convert.ToInt32(temp1);
+                        Console.Clear();
+
                         if (decision == 1)
                         {
                             Console.WriteLine("You escape the " + placeName);
-                            return true;
+                            Console.ReadLine();
+                            return false;
+                        }
+                        if (decision == 2)
+                        {
+                            Console.WriteLine("You try backstab the " + enemyBarks[5] + ", you use " + playerStats[1] + " dice\n");
+                            for (int i = 0; i < playerStats[1]; i++)
+                            {
+                                int dice = randy.Next(1, 7);
+                                Console.WriteLine(dice);
+                                yourRoll = yourRoll + dice;
+                            }
+                            Console.ReadLine();
+                            Console.WriteLine("\nThe " + enemyBarks[5] + " checks with " + enemyStats[1] + " dice\n");
+                            for (int i = 0; i < enemyStats[1]; i++)
+                            {
+                                int dice = randy.Next(1, 7);
+                                Console.WriteLine(dice);
+                                enemyRoll = enemyRoll + dice;
+                            }
+                            Console.ReadLine();
+                            Console.WriteLine("\nYour total stealth roll is " + yourRoll);
+                            Console.ReadLine();
+                            Console.WriteLine("\nThe " + enemyBarks[5] + "s total stealth is " + enemyRoll);
+                            Console.ReadLine();
+                            Console.Clear();
+
+                            if (yourRoll > enemyRoll)
+                            {
+                                Console.WriteLine("You backstab the " + enemyBarks[5]);
+                                enemyStats[3] = enemyStats[3] - 2;
+                                Console.WriteLine(enemyBarks[1]);
+                                Console.ReadLine();
+                                Console.Clear();
+                            }
+                            if (yourRoll < enemyRoll)
+                            {
+                                Console.WriteLine("The " + enemyBarks[5] + " sees you coming and hits you");
+                                playerStats[3] = playerStats[3] - 1;
+                                Console.WriteLine(enemyBarks[2]);
+                                Console.ReadLine();
+                                Console.Clear();
+                            }
                         }
                     }
                     if (yourRoll < enemyRoll)
@@ -268,7 +325,7 @@ namespace Command_Line_Adventure
                 }
                 if (decision == 3)
                 {
-                    // something happens, not yet implimented
+                    
                 }
             }
             Console.Clear();
@@ -325,6 +382,14 @@ namespace Command_Line_Adventure
                 Console.WriteLine();
 
                 temp = Console.ReadLine();
+                if (string.IsNullOrEmpty(temp))
+                {
+                    Console.Clear();
+                    Console.WriteLine("Please Enter a valid input...");
+                    Console.ReadLine();
+                    Console.Clear();
+                    Dungeon();
+                }
                 input = Convert.ToInt32(temp);
                 Console.Clear();
 
@@ -367,6 +432,14 @@ namespace Command_Line_Adventure
             Console.WriteLine("- [4] Check Inventory");
             Console.WriteLine();
             temp = Console.ReadLine();
+            if (string.IsNullOrEmpty(temp))
+            {
+                Console.Clear();
+                Console.WriteLine("Please Enter a valid input...");
+                Console.ReadLine();
+                Console.Clear();
+                NorthMiddleHallway();
+            }
             input = Convert.ToInt32(temp);
             Console.Clear();
 
@@ -413,6 +486,14 @@ namespace Command_Line_Adventure
             Console.WriteLine("- [5] Check Inventory");
             Console.WriteLine();
             temp = Console.ReadLine();
+            if (string.IsNullOrEmpty(temp))
+            {
+                Console.Clear();
+                Console.WriteLine("Please Enter a valid input...");
+                Console.ReadLine();
+                Console.Clear();
+                LeftHallway();
+            }
             input = Convert.ToInt32(temp);
             Console.Clear();
 
@@ -467,6 +548,14 @@ namespace Command_Line_Adventure
             Console.WriteLine("- [5] Check Inventory");
             Console.WriteLine();
             temp = Console.ReadLine();
+            if (string.IsNullOrEmpty(temp))
+            {
+                Console.Clear();
+                Console.WriteLine("Please Enter a valid input...");
+                Console.ReadLine();
+                Console.Clear();
+                RightHallway();
+            }
             input = Convert.ToInt32(temp);
             Console.Clear();
 
@@ -555,6 +644,14 @@ namespace Command_Line_Adventure
             Thread.Sleep(1000);
             Console.WriteLine();
             temp = Console.ReadLine();
+            if (string.IsNullOrEmpty(temp))
+            {
+                Console.Clear();
+                Console.WriteLine("Please Enter a valid input...");
+                Console.ReadLine();
+                Console.Clear();
+                Crematorium();
+            }
             input = Convert.ToInt32(temp);
             Console.Clear();
 
@@ -628,6 +725,14 @@ namespace Command_Line_Adventure
             Thread.Sleep(1000);
             Console.WriteLine();
             temp = Console.ReadLine();
+            if (string.IsNullOrEmpty(temp))
+            {
+                Console.Clear();
+                Console.WriteLine("Please Enter a valid input...");
+                Console.ReadLine();
+                Console.Clear();
+                CrematoriumB();
+            }
             input = Convert.ToInt32(temp);
             Console.Clear();
 
@@ -683,6 +788,14 @@ namespace Command_Line_Adventure
             Console.WriteLine("- [3] Check Inventory");
             Console.WriteLine();
             temp = Console.ReadLine();
+            if (string.IsNullOrEmpty(temp))
+            {
+                Console.Clear();
+                Console.WriteLine("Please Enter a valid input...");
+                Console.ReadLine();
+                Console.Clear();
+                GuardsChamber();
+            }
             input = Convert.ToInt32(temp);
             Console.Clear();
 
@@ -746,6 +859,14 @@ namespace Command_Line_Adventure
             Console.WriteLine("- [2] Check Inventory");
             Console.WriteLine();
             temp = Console.ReadLine();
+            if (string.IsNullOrEmpty(temp))
+            {
+                Console.Clear();
+                Console.WriteLine("Please Enter a valid input...");
+                Console.ReadLine();
+                Console.Clear();
+                GuardsChamberB();
+            }
             input = Convert.ToInt32(temp);
             Console.Clear();
 
@@ -791,6 +912,14 @@ namespace Command_Line_Adventure
 
             Console.WriteLine();
             temp = Console.ReadLine();
+            if (string.IsNullOrEmpty(temp))
+            {
+                Console.Clear();
+                Console.WriteLine("Please Enter a valid input...");
+                Console.ReadLine();
+                Console.Clear();
+                Lairofthebeast();
+            }
             input = Convert.ToInt32(temp);
             Console.Clear();
 
@@ -846,6 +975,14 @@ namespace Command_Line_Adventure
 
             Console.WriteLine();
             temp = Console.ReadLine();
+            if (string.IsNullOrEmpty(temp))
+            {
+                Console.Clear();
+                Console.WriteLine("Please Enter a valid input...");
+                Console.ReadLine();
+                Console.Clear();
+                Lockedmysteryroom();
+            }
             input = Convert.ToInt32(temp);
             Console.Clear();
 
@@ -890,6 +1027,14 @@ namespace Command_Line_Adventure
 
             Console.WriteLine();
             temp = Console.ReadLine();
+            if (string.IsNullOrEmpty(temp))
+            {
+                Console.Clear();
+                Console.WriteLine("Please Enter a valid input...");
+                Console.ReadLine();
+                Console.Clear();
+                Southeasthallway();
+            }
             input = Convert.ToInt32(temp);
             Console.Clear();
 
@@ -942,6 +1087,14 @@ namespace Command_Line_Adventure
 
             Console.WriteLine();
             temp = Console.ReadLine();
+            if (string.IsNullOrEmpty(temp))
+            {
+                Console.Clear();
+                Console.WriteLine("Please Enter a valid input...");
+                Console.ReadLine();
+                Console.Clear();
+                EmptyArmoury();
+            }
             input = Convert.ToInt32(temp);
             Console.Clear();
 
@@ -1002,6 +1155,14 @@ namespace Command_Line_Adventure
 
             Console.WriteLine();
             temp = Console.ReadLine();
+            if (string.IsNullOrEmpty(temp))
+            {
+                Console.Clear();
+                Console.WriteLine("Please Enter a valid input...");
+                Console.ReadLine();
+                Console.Clear();
+                EmptyArmouryB();
+            }
             input = Convert.ToInt32(temp);
             Console.Clear();
 
@@ -1043,6 +1204,14 @@ namespace Command_Line_Adventure
 
             Console.WriteLine();
             temp = Console.ReadLine();
+            if (string.IsNullOrEmpty(temp))
+            {
+                Console.Clear();
+                Console.WriteLine("Please Enter a valid input...");
+                Console.ReadLine();
+                Console.Clear();
+                Southwesthallway();
+            }
             input = Convert.ToInt32(temp);
             Console.Clear();
 
@@ -1089,6 +1258,14 @@ namespace Command_Line_Adventure
 
             Console.WriteLine();
             temp = Console.ReadLine();
+            if (string.IsNullOrEmpty(temp))
+            {
+                Console.Clear();
+                Console.WriteLine("Please Enter a valid input...");
+                Console.ReadLine();
+                Console.Clear();
+                Heavydungeon();
+            }
             input = Convert.ToInt32(temp);
             Console.Clear();
 
@@ -1128,16 +1305,37 @@ namespace Command_Line_Adventure
 
             Console.WriteLine();
             temp = Console.ReadLine();
+            if (string.IsNullOrEmpty(temp))
+            {
+                Console.Clear();
+                Console.WriteLine("Please Enter a valid input...");
+                Console.ReadLine();
+                Console.Clear();
+                BetterArmory();
+            }
             input = Convert.ToInt32(temp);
             Console.Clear();
 
             switch (input)
             {
-                //case 1:
+                case 1:
+                    Secondfloor_greathallB();
+                    break;
 
                 case 2:
-                    //tempItem = "The King's Sword"; 
-                    // need a number for it
+                    Weapon = 2;
+                    String[] WeaponInfo = weaponString(Weapon);
+                    Console.WriteLine($"{WeaponInfo[0]} \n{WeaponInfo[1]} \n{WeaponInfo[2]}");
+                    for (int i=0; i < stats.Length; i++)
+                    {
+                        stats[i] = stats[i] + weapon(ref Weapon)[i];
+                    }
+                    BetterArmoryButton = true;
+                    Console.ReadLine();
+                    BetterArmoryB();
+                    break;
+
+
                     strength = strength + 2;
                     Console.WriteLine("You have picked up The King's Sword");
                     break;
@@ -1163,9 +1361,7 @@ namespace Command_Line_Adventure
         }
 
         public static void BetterArmoryB()
-        // ROOM CURRENTLY NOT CONNECTED TO ANYTHING
-        // CAN'T BE TESTED UNTIL CONNECTED
-        // EMPTY ROOM!!!!!!!!!!
+
         {
             string temp;
             int input;
@@ -1180,6 +1376,14 @@ namespace Command_Line_Adventure
 
             Console.WriteLine();
             temp = Console.ReadLine();
+            if (string.IsNullOrEmpty(temp))
+            {
+                Console.Clear();
+                Console.WriteLine("Please Enter a valid input...");
+                Console.ReadLine();
+                Console.Clear();
+                BetterArmoryB();
+            }
             input = Convert.ToInt32(temp);
             Console.Clear();
 
@@ -1229,6 +1433,14 @@ namespace Command_Line_Adventure
 
             Console.WriteLine();
             temp = Console.ReadLine();
+            if (string.IsNullOrEmpty(temp))
+            {
+                Console.Clear();
+                Console.WriteLine("Please Enter a valid input...");
+                Console.ReadLine();
+                Console.Clear();
+                Secondfloor_greathall();
+            }
             input = Convert.ToInt32(temp);
             Console.Clear();
 
@@ -1321,6 +1533,14 @@ namespace Command_Line_Adventure
 
             Console.WriteLine();
             temp = Console.ReadLine();
+            if (string.IsNullOrEmpty(temp))
+            {
+                Console.Clear();
+                Console.WriteLine("Please Enter a valid input...");
+                Console.ReadLine();
+                Console.Clear();
+                Secondfloor_greathallB();
+            }
             input = Convert.ToInt32(temp);
             Console.Clear();
 
@@ -1640,6 +1860,14 @@ namespace Command_Line_Adventure
 
 
                 temp = Console.ReadLine();
+                if (string.IsNullOrEmpty(temp))
+                {
+                    Console.Clear();
+                    Console.WriteLine("Please Enter a valid input...");
+                    Console.ReadLine();
+                    Console.Clear();
+                    Main();
+                }
                 Character = Convert.ToInt32(temp);
                 Console.WriteLine();
                 switch (Character)
