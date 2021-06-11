@@ -89,14 +89,17 @@ namespace Command_Line_Adventure
                 case 1:
                     int[] LeatherAmour = { 0, 1, 0, 1 };
                     return LeatherAmour;
+                case 3:
+                    int[] GuardsArmour = { 0, 0, 0, 2 };
+                    return GuardsArmour;
             }
             int[] Null = { 0, 0, 0, 0 };
             return Null;
         }
 
-        public static string[] clothingString(int weaponNumber)
+        public static string[] clothingString(int clothingNumber)
         {
-            switch (weaponNumber)
+            switch (clothingNumber)
             {
                 case 1:
                     string[] Rags = { "~Rags~", "Worn and tattered, they provide little protection and warmth" };
@@ -104,6 +107,9 @@ namespace Command_Line_Adventure
                 case 2:
                     string[] LeatherArmour = { "~Leather Amour~", "A sturdy set of leather clothing, it provides a bit of protection while also being light" };
                     return LeatherArmour;
+                case 3:
+                    string[] GuardsArmour = { "~Guard's Armor~", "Nice quality steel armor, it will protect you in your way out of here", "Health +2" };
+                    return GuardsArmour;
             }
             string[] Null = { "...", "..." };
             return Null;
@@ -1031,6 +1037,14 @@ namespace Command_Line_Adventure
                         keySlot = "~Door Key~";
                         Console.WriteLine($"You picked up {keySlot}");
                         Console.WriteLine($"It could be usefull somewhere...");
+                        Clothing = 3;
+                        String[] clothingInfo = clothingString(Clothing);
+                        Console.WriteLine($"{clothingInfo[0]} \n{clothingInfo[1]} \n{clothingInfo[2]}");
+
+                        for (int i = 0; i < stats.Length; i++)
+                        {
+                            stats[i] = stats[i] + clothing(Clothing)[i];
+                        }
                         GuardsChamberButton = true;
                         Console.ReadLine();
                     }
