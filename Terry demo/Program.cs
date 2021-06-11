@@ -65,6 +65,9 @@ namespace Command_Line_Adventure
                 case 1:
                     int[] rustySword = { 1, 0, 0, 0 };
                     return rustySword;
+                case 2:
+                    int[] KingSword = { 2, 0, 0, 0 };
+                    return KingSword;
             }
             int[] Null = { 0, 0, 0, 0 };
             return Null;
@@ -76,6 +79,9 @@ namespace Command_Line_Adventure
                 case 1:
                     string[] rustySword = { "~Rusty Sword~", "Old and rusted but still effective", "Strength +1" };
                     return rustySword;
+                case 2:
+                    string[] KingSword = { "~King's Sword~", "King's personal sword, one of the most valuable relics int the kingdom", "Strength +2" };
+                    return KingSword;
             }
             string[] Null = { "...", "..." };
             return Null;
