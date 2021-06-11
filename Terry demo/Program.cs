@@ -161,7 +161,7 @@ namespace Command_Line_Adventure
                     string[] OgreBarks = { "Before you stands an Ogre. Huge and threating, the Ogre yells \n\nOgre: Im gonna eat you!", "Ogre: Ourghhh! you hit me!", "Ogre: hehe get in me belly", "Ogre: ARGGHH *thud*\nThe Ogre falls, shacking the ground you stand on, \nthe bigger they are the harder they fall\nYou find a very sharp blade on his belt\nYour strength is increased", "Ogre: Finaly! Dinner\nThe Ogre drags you to his lair where he prepares his dinner\nYou are eaten, luckily you bled to death before that happened", "Ogre" };
                     return OgreBarks;
                 case 3:
-                    string[] ChefBarks = { "An angry Chef appears from the larder, he is brandishing a knife and rolling pin. He looks mighty angry. \nChef: Get out of here or I'll add you to this suculent Chinese meal!", "Chef: Is that all you've got", "Chef: Haha Take that", "Chef: You have some knife skills...\n You have Defeated the Chef", "Chef: You will go nicely in this dish! \n You have died \n You're on the menu tonight", "Chef" };
+                    string[] ChefBarks = { "An angry Chef appears from the larder, he is brandishing a knife and a rolling pin. He looks mighty angry. \nChef: Get out of here or I'll add you to this succulent Chinese meal!", "Chef: Is that all you've got", "Chef: Haha Take that", "Chef: You have some knife skills...\n You have Defeated the Chef", "Chef: You will go nicely in this dish! \n You have died \n You're on the menu tonight", "Chef" };
                     return ChefBarks;
                 default:
                     break;
