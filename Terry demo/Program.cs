@@ -15,6 +15,7 @@ namespace Command_Line_Adventure
         public static bool LockedmysteryroomButton = false;
         public static bool GreatHallButton = false;
         public static bool BetterArmoryButton = false;
+        public static bool CrematoriumButton = false;
 
         public static void GameOver()
         {
@@ -734,7 +735,13 @@ namespace Command_Line_Adventure
                     }
                     break;
                 case 3:
-                    Crematorium();
+                    if (CrematoriumButton == false)
+                    {
+                        Crematorium();
+                    }
+                    else {
+                        CrematoriumB();
+                    }
                     break;
                 case 4:
                     Southwesthallway();
@@ -885,7 +892,7 @@ namespace Command_Line_Adventure
                     Console.WriteLine("You find a large pile of ashes in the oven and you notice your deceased father's lucky ring.");
                     Console.WriteLine("Would you like to take your father's ring? y/n");
                     temp = Console.ReadLine();
-                    if (temp == "y")
+                    if (temp == "y") 
                     {
                         Item = 1;
                         String[] ItemInfo = otherItemsString(Item);
@@ -896,7 +903,7 @@ namespace Command_Line_Adventure
                             stats[i] = stats[i] + other_Items(Item)[i];
                         }
 
-                        EmptyArmouryButton = true;
+                        CrematoriumButton = true;
                         Console.ReadLine();
                         CrematoriumB();
                         break;
