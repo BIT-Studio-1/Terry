@@ -80,7 +80,7 @@ namespace Command_Line_Adventure
                     string[] rustySword = { "~Rusty Sword~", "Old and rusted but still effective", "Strength +1" };
                     return rustySword;
                 case 2:
-                    string[] KingSword = { "~King's Sword~", "King's personal sword, one of the most valuable relics int the kingdom", "Strength +2" };
+                    string[] KingSword = { "~King's Sword~", "King's personal sword, one of the most valuable relics in the kingdom", "Strength +2" };
                     return KingSword;
             }
             string[] Null = { "...", "..." };
@@ -113,10 +113,10 @@ namespace Command_Line_Adventure
                     string[] Rags = { "~Rags~", "Worn and tattered, they provide little protection and warmth" };
                     return Rags;
                 case 2:
-                    string[] LeatherArmour = { "~Leather Amour~", "A sturdy set of leather clothing, it provides a bit of protection while also being light" };
+                    string[] LeatherArmour = { "~Leather Armour~", "A sturdy set of leather clothing, it provides a bit of protection while also being light" };
                     return LeatherArmour;
                 case 3:
-                    string[] GuardsArmour = { "~Guard's Armor~", "Nice quality steel armor, it will protect you in your way out of here", "Health +2" };
+                    string[] GuardsArmour = { "~Guard's Armour~", "Nice quality steel armour, it will protect you on your way out of here", "Health +2" };
                     return GuardsArmour;
             }
             string[] Null = { "...", "..." };
@@ -140,7 +140,7 @@ namespace Command_Line_Adventure
             switch (weaponNumber)
             {
                 case 1:
-                    string[] Fathers_ring = { "~Father's ring~", "Your father had a way with words your cunning increases.", "Cunning +1" };
+                    string[] Fathers_ring = { "~Father's ring~", "Your father had a way with words, your cunning increases.", "Cunning +1" };
                     return Fathers_ring;
             }
             string[] Null = { "...", "..." };
@@ -169,13 +169,13 @@ namespace Command_Line_Adventure
             switch (enemyNumber)
             {
                 case 1:                  // slot 1 = Introduction: slot 2 = if you hit the guard: slot 3 = if the guard hits you: slot 4 = if you beat the guard: slot 5 = if the guard beats you: slot 6 = name
-                    string[] GuardBarks = { "The Guard spots you!\n\nGuard: Stop! in the name of the law, your under arest", "Guard: Bastard!", "Guard: Take that", "Guard: I . need .. back up ...", "Guard: Its back to the cell for you", "Guard" };
+                    string[] GuardBarks = { "The Guard spots you!\n\nGuard: Stop! in the name of the law, you are under arest", "Guard: Bastard!", "Guard: Take that", "Guard: I . need .. back up ...", "Guard: It's back to the cell for you", "Guard" };
                     return GuardBarks;
                 case 2:
-                    string[] OgreBarks = { "Before you stands an Ogre. Huge and threating, the Ogre yells \n\nOgre: Im gonna eat you!", "Ogre: Ourghhh! you hit me!", "Ogre: hehe get in me belly", "Ogre: ARGGHH *thud*\nThe Ogre falls, shacking the ground you stand on, \nthe bigger they are the harder they fall\nYou find a very sharp blade on his belt\nYour strength is increased", "Ogre: Finaly! Dinner\nThe Ogre drags you to his lair where he prepares his dinner\nYou are eaten, luckily you bled to death before that happened", "Ogre" };
+                    string[] OgreBarks = { "Before you stands an Ogre. Huge and threatening, the Ogre yells \n\nOgre: I'm gonna eat you!", "Ogre: Ourghhh! You hit me!", "Ogre: hehe get in me belly", "Ogre: ARGGHH *thud*\nThe Ogre falls, shaking the ground you stand on, \nthe bigger they are the harder they fall\nYou find a very sharp blade on his belt\nYour strength is increased", "Ogre: Finaly! Dinner\nThe Ogre drags you to his lair where he prepares his dinner\nYou are eaten, luckily you bled to death before that happened", "Ogre" };
                     return OgreBarks;
                 case 3:
-                    string[] ChefBarks = { "An angry Chef appears from the larder, he is brandishing a knife and a rolling pin. He looks mighty angry. \nChef: Get out of here or I'll add you to this succulent Chinese meal!", "Chef: Is that all you've got", "Chef: Haha Take that", "Chef: You have some knife skills...\n You have Defeated the Chef", "Chef: You will go nicely in this dish! \n You have died \n You're on the menu tonight", "Chef" };
+                    string[] ChefBarks = { "An angry Chef appears from the larder, he is brandishing a knife and a rolling pin. He looks mighty angry. \nChef: Get out of here or I'll add you to this succulent Chinese meal!", "Chef: Is that all you've got?", "Chef: Haha Take that", "Chef: You have some knife skills...\n You have Defeated the Chef", "Chef: You will go nicely in this dish! \n You have died \n You're on the menu tonight", "Chef" };
                     return ChefBarks;
                 default:
                     break;
@@ -402,13 +402,13 @@ namespace Command_Line_Adventure
 
                             if (yourRoll > enemyRoll)
                             {
-                                Console.WriteLine("You succsefully seduce the " + enemyBarks[5] + " and you after a while, the " + enemyBarks[5] + " is fast asleep on the floor");
+                                Console.WriteLine("You successfully seduce the " + enemyBarks[5] + " and you see after a while, the " + enemyBarks[5] + " is fast asleep on the floor");
                                 Console.ReadLine();
                                 return true;
                             }
                             if (yourRoll < enemyRoll)
                             {
-                                Console.WriteLine("The " + enemyBarks[5] + " catchs on");
+                                Console.WriteLine("The " + enemyBarks[5] + " catches on");
                                 Console.ReadLine();
                                 Console.Clear();
                                 Knowing = true;
@@ -416,7 +416,7 @@ namespace Command_Line_Adventure
                             }
                             if (decision == 2)
                             {
-                                Console.WriteLine("You try Intimidating the " + enemyBarks[5]);
+                                Console.WriteLine("You try intimidating the " + enemyBarks[5]);
                                 Console.ReadLine();
                                 Console.Clear();
 
@@ -446,13 +446,13 @@ namespace Command_Line_Adventure
 
                                 if (yourRoll > enemyRoll)
                                 {
-                                    Console.WriteLine("You succsefully intimidate the " + enemyBarks[5] + ", he promises not to bother you anymore and runs away");
+                                    Console.WriteLine("You successfully intimidate the " + enemyBarks[5] + ", he promises not to bother you anymore and runs away");
                                     Console.ReadLine();
                                     return true;
                                 }
                                 if (yourRoll < enemyRoll)
                                 {
-                                    Console.WriteLine("The " + enemyBarks[5] + " scofs at you attempt to intimidate and hits you");
+                                    Console.WriteLine("The " + enemyBarks[5] + " scoffs at your attempt to intimidate him. He hits you");
                                     Console.ReadLine();
                                     Console.Clear();
                                     Knowing = true;
@@ -491,7 +491,7 @@ namespace Command_Line_Adventure
 
                                 if (yourRoll > enemyRoll)
                                 {
-                                    Console.WriteLine("You succsefully persuade the " + enemyBarks[5] + ",you him just to let you do whatever");
+                                    Console.WriteLine("You successfully persuade the " + enemyBarks[5] + ", he allows you to do whatever");
                                     Console.ReadLine();
                                     return true;
                                 }
@@ -628,7 +628,7 @@ namespace Command_Line_Adventure
                         NorthMiddleHallway();
                         break;
                     case 2:
-                        Console.WriteLine("You chose to stay. And with that your, only chance of escape is gone. The Guards walk into the dungeon \nYou die later that night");
+                        Console.WriteLine("You choose to stay. And with that your, only chance of escape is gone. The Guards walk into the dungeon \nYou die later that night");
                         Console.ReadLine();
                         break;
                     case 3:
@@ -865,9 +865,9 @@ namespace Command_Line_Adventure
             int input;
 
             Console.Clear();
-            Console.WriteLine("You are in the Crematorium, It is dark and gloomy and you cough because of all the ash.");
-            Console.WriteLine("Memories of your parents come back to you, they met a cruel demise at the hands of the king.");
-            Console.WriteLine("The king will pay for this injustice you say to yourself as you prepare to find some of their");
+            Console.WriteLine("You are in the Crematorium. It is dark and gloomy and you cough because of all the ash.");
+            Console.WriteLine("Memories of your parents come back to you, they met a cruel demise at the hands of the King.");
+            Console.WriteLine("The King will pay for this injustice you say to yourself as you prepare to find some of their");
             Console.WriteLine("remains here in the Crematorium");
             Console.WriteLine();
 
@@ -946,9 +946,9 @@ namespace Command_Line_Adventure
             int input;
 
             Console.Clear();
-            Console.WriteLine("You are in the Crematorium, It is dark and gloomy and you cough because of all the ash.");
-            Console.WriteLine("Memories of your parents come back to you, they met a cruel demise at the hands of the king.");
-            Console.WriteLine("The king will pay for this injustice you say to yourself as you prepare to find some of their");
+            Console.WriteLine("You are in the Crematorium. It is dark and gloomy and you cough because of all the ash.");
+            Console.WriteLine("Memories of your parents come back to you, they met a cruel demise at the hands of the King.");
+            Console.WriteLine("The King will pay for this injustice you say to yourself as you prepare to find some of their");
             Console.WriteLine("remains here in the Crematorium");
             Console.WriteLine();
 
@@ -1015,7 +1015,7 @@ namespace Command_Line_Adventure
             int input;
 
             Console.Clear();
-            Console.WriteLine("You are in the Guards chamber. It seems like only one guard is here. You see a key hanging from his belt.");
+            Console.WriteLine("You are in the Guards' chamber. It seems like only one guard is here. You see a key hanging from his belt.");
             Console.WriteLine();
             Console.WriteLine("Your options are...");
             Console.WriteLine("- [1] Go backwards");
@@ -1050,7 +1050,7 @@ namespace Command_Line_Adventure
                     {
                         keySlot = "~Door Key~";
                         Console.WriteLine($"You picked up {keySlot}");
-                        Console.WriteLine($"It could be usefull somewhere...");
+                        Console.WriteLine($"It could be useful somewhere...");
                         Clothing = 3;
                         String[] clothingInfo = clothingString(Clothing);
                         Console.WriteLine($"{clothingInfo[0]} \n{clothingInfo[1]} \n{clothingInfo[2]}");
@@ -1095,7 +1095,7 @@ namespace Command_Line_Adventure
             int input;
 
             Console.Clear();
-            Console.WriteLine("You are in the Guards chamber. The room is empty.");
+            Console.WriteLine("You are in the Guards' chamber. The room is empty.");
             Console.WriteLine();
             Console.WriteLine("Your options are...");
             Console.WriteLine("- [1] Go backwards");
@@ -1135,7 +1135,7 @@ namespace Command_Line_Adventure
                     break;
             }
         }
-        public static void Lairofthebeast()
+        public static void Lairofthebeast() //Change health
         {
             string temp;
             int input;
@@ -1179,7 +1179,7 @@ namespace Command_Line_Adventure
                     RightHallway();
                     break;
                 case 3:
-                    Console.WriteLine("You reach inside the basket grab a juicy thigh piece and throw it to the hungry BEAST...");
+                    Console.WriteLine("You reach inside the basket, grab a juicy thigh piece and throw it to the hungry BEAST...");
                     Thread.Sleep(1000);
                     Console.WriteLine("He grabs it, swallows it whole and is hungry for some more...\n");
                     Console.WriteLine("Press Any Key To Continue");
@@ -1539,13 +1539,13 @@ namespace Command_Line_Adventure
             string temp;
             int input;
             Console.Clear();
-            Console.WriteLine("You are in the Better Armory");
+            Console.WriteLine("You are in the Royal Armoury, there is all sort of armour of the best quality in here. ");
+            Console.WriteLine("At the end of the room, a nice ornamental chest catches your attention.");
             Console.WriteLine();
             Console.WriteLine("Your options are...");
             Console.WriteLine("- [1] Go backwards"); 
             Console.WriteLine("- [2] Check the Chest ");
-            Console.WriteLine("- [3] option3"); // CHECK CHEST?
-            Console.WriteLine("- [4] Check Inventory");
+            Console.WriteLine("- [3] Check Inventory");
 
             Console.WriteLine();
             temp = Console.ReadLine();
@@ -1567,6 +1567,8 @@ namespace Command_Line_Adventure
                     break;
 
                 case 2:
+                    Console.WriteLine("The chest contains a sword that looks familiar to you. ");
+                    Console.WriteLine("Could it be the Royal sword itself? ");
                     Weapon = 2;
                     String[] WeaponInfo = weaponString(Weapon);
                     Console.WriteLine($"{WeaponInfo[0]} \n{WeaponInfo[1]} \n{WeaponInfo[2]}");
@@ -1579,11 +1581,7 @@ namespace Command_Line_Adventure
                     BetterArmoryB();
                     break;
 
-
-                // case 3:
-                //empty 
-
-                case 4:
+                case 3:
                     Inventory();
                     Console.WriteLine("PRESS ENTER");
                     BetterArmory();
@@ -1606,13 +1604,12 @@ namespace Command_Line_Adventure
             string temp;
             int input;
             Console.Clear();
-            Console.WriteLine("You are in the Better Armory");
+            Console.WriteLine("You are in the Royal Armoury");
             Console.WriteLine();
             Console.WriteLine("Your options are...");
-            Console.WriteLine("- [1] Go backwards"); //NEEDS TO BE CONNECTED TO HALLWAY SECOND FLOOR
+            Console.WriteLine("- [1] Go backwards"); 
             Console.WriteLine("- [2] Check the Chest ");
-            Console.WriteLine("- [3] option3"); // CHECK CHEST?
-            Console.WriteLine("- [4] Check Inventory");
+            Console.WriteLine("- [3] Check Inventory");
 
             Console.WriteLine();
             temp = Console.ReadLine();
@@ -1629,16 +1626,15 @@ namespace Command_Line_Adventure
 
             switch (input)
             {
-                //case 1:
+                case 1:
+                    Secondfloor_greathallB();
+                    break;
 
                 case 2:
                     Console.WriteLine("The Chest is empty");
                     break;
 
-                // case 3:
-                //empty 
-
-                case 4:
+                case 3:
                     Inventory();
                     Console.WriteLine("PRESS ENTER");
                     BetterArmoryB();
@@ -1719,7 +1715,7 @@ namespace Command_Line_Adventure
                     }
                     else
                     {
-                        Console.WriteLine("You try to open desperately but the gate is locked. ");
+                        Console.WriteLine("You try desperately to open it, but the gate is locked. ");
                         Console.WriteLine("It seems you will need to look for the key to open it...");
                         Console.ReadLine();
                         Secondfloor_greathall();
@@ -1732,7 +1728,7 @@ namespace Command_Line_Adventure
                     {
                         keySlot = "~Gate Key~";
                         Console.WriteLine($"You picked up {keySlot}");
-                        Console.WriteLine($"It migth take you out of here...");
+                        Console.WriteLine($"It might take you out of here...");
                         GreatHallButton = true;
                         Console.ReadLine();
                         Secondfloor_greathallB();
@@ -2074,11 +2070,11 @@ namespace Command_Line_Adventure
             Console.WriteLine("avoids confrontation at every turn. Trouble is what got his parents killed.");
             Console.WriteLine();
             Console.WriteLine();
-            Console.WriteLine("It is just another boring saturday morning in StudioJuan and Terry is sitting in his fruit stall");
+            Console.WriteLine("It is just another boring Saturday morning in StudioJuan and Terry is sitting in his fruit stall");
             Console.WriteLine("minding his own business. 'What a lovely day' he says to himself as he spit shines the last few");
             Console.WriteLine("remaining apples from the morning rush. A woman approches his stall through the thinning crowd,");
-            Console.WriteLine("she is dressed fancily and is wearing a vail that is covering her face. 'Nice day for an apple");
-            Console.WriteLine("is it not?' she asks Terry. 'Yes maddam' replied terry.");
+            Console.WriteLine("she is dressed fancily and is wearing a veil that is covering her face. 'Nice day for an apple");
+            Console.WriteLine("is it not?' she asks Terry. 'Yes maddam' replies Terry.");
             Console.WriteLine();
             Console.WriteLine("Suddenly Terry is hit on the head and he falls to the ground.");
         }
@@ -2164,7 +2160,7 @@ namespace Command_Line_Adventure
                 Inventory();
             }
             Console.Clear();
-            Console.WriteLine("You wake up in a dark and dilapidated Dungeon, With no idea how you got here. \nYou hear the screams of other prisoners echoing the halls\nHowever you see a faint light in the distance and notice that the door is slightly open.  ");
+            Console.WriteLine("You wake up in a dark and dilapidated Dungeon, with no idea how you got here. \nYou hear the screams of other prisoners echoing the halls.\nHowever, you see a faint light in the distance and notice that the door is slightly open.  ");
             Console.ReadLine();
             Dungeon();
 
