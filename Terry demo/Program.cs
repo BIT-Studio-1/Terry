@@ -16,6 +16,20 @@ namespace Command_Line_Adventure
         public static bool GreatHallButton = false;
         public static bool BetterArmoryButton = false;
 
+        public static void GameOver()
+        {
+            Console.WriteLine("You have been fatally wounded. You bleed out on the floor.");
+            Console.WriteLine(@" 
+
+
+ ██████   █████  ███    ███ ███████      ██████  ██    ██ ███████ ██████  
+██       ██   ██ ████  ████ ██          ██    ██ ██    ██ ██      ██   ██ 
+██   ███ ███████ ██ ████ ██ █████       ██    ██ ██    ██ █████   ██████  
+██    ██ ██   ██ ██  ██  ██ ██          ██    ██  ██  ██  ██      ██   ██ 
+ ██████  ██   ██ ██      ██ ███████      ██████    ████   ███████ ██   ██ ");
+            Console.ReadLine();
+            Main();
+        }
         public static int[] PlayerStats()
         {
             // slot 1 = Strength: slot 2 = Stealth: slot 3 = Cunning: slot 4 = Health;
@@ -528,7 +542,9 @@ namespace Command_Line_Adventure
                 }
             }
             Console.Clear();
-            return true;
+            GameOver();
+            return false;
+           
         }
 
 
@@ -1534,10 +1550,6 @@ namespace Command_Line_Adventure
                     BetterArmoryB();
                     break;
 
-
-                    strength = strength + 2;
-                    Console.WriteLine("You have picked up The King's Sword");
-                    break;
 
                 // case 3:
                 //empty 
