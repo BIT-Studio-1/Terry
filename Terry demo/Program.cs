@@ -1946,7 +1946,7 @@ namespace Command_Line_Adventure
             int input;
 
             Console.Clear();
-            Console.WriteLine("You are in the Castles Kitchen ");
+            Console.WriteLine("You are in the Castle's Kitchen ");
             Console.WriteLine();
             Console.WriteLine("Your options are...");
             Console.WriteLine("- [1] Go backwards");
@@ -1958,12 +1958,18 @@ namespace Command_Line_Adventure
             input = Convert.ToInt32(temp);
             Console.Clear();
 
+            int Scenario = 3;
+            string PlaceName = "Kitchen";
+
             switch (input)
             {
                 case 1:
                     //();
                     break;
-                //  case 2:
+                case 2:
+                bool result = Battle(Scenario, PlaceName);
+
+                    break;
                 //     break;
                 case 3:
                     Inventory();
