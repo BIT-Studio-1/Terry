@@ -29,6 +29,7 @@ namespace Command_Line_Adventure
 ██    ██ ██   ██ ██  ██  ██ ██          ██    ██  ██  ██  ██      ██   ██ 
  ██████  ██   ██ ██      ██ ███████      ██████    ████   ███████ ██   ██ ");
             Console.ReadLine();
+            Console.Clear();
             Main();
         }
         public static int[] PlayerStats()
@@ -1435,7 +1436,7 @@ namespace Command_Line_Adventure
             Console.WriteLine("Your options are...");
             Console.WriteLine("- [1] Go  Up (North)");
             Console.WriteLine("- [2] Go  Right -->");
-            Console.WriteLine("- [3] Enter the Main Prisoon");
+            Console.WriteLine("- [3] Enter the Main Prison");
             Console.WriteLine("- [4] Check Inventory");
 
             Console.WriteLine();
@@ -1485,8 +1486,9 @@ namespace Command_Line_Adventure
 
             Console.Clear();
             Console.WriteLine("You are in the Prison");
-            Console.WriteLine("A big number of miserable-looking peasants are imprisoned here begging for help. Probably victims of King's unfair tirany. ");
-            Console.WriteLine("The same king that ordered your detention here. Your feelings for revenge are rising.  ");
+            Console.WriteLine("A big number of miserable-looking peasants are imprisoned here begging for help. ");
+            Console.WriteLine("Probably victims of King's unfair tirany. ");
+            Console.WriteLine("The same king that ordered your detention here. Your feelings for revenge are rising. ");
             Console.WriteLine();
             Console.WriteLine("Your options are...");
             Console.WriteLine("- [1] Go backwards");
