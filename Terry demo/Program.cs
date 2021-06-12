@@ -243,7 +243,7 @@ namespace Command_Line_Adventure
                     Console.WriteLine("Please Enter a valid input...");
                     Console.ReadLine();
                     Console.Clear();
-                    GuardsChamber();
+                    
                 }
 
                 if (decision == 1)
@@ -331,7 +331,7 @@ namespace Command_Line_Adventure
                             Console.WriteLine("Please Enter a valid input...");
                             Console.ReadLine();
                             Console.Clear();
-                            GuardsChamber();
+                            
                         }
 
                         if (decision == 1)
@@ -413,7 +413,7 @@ namespace Command_Line_Adventure
                             Console.WriteLine("Please Enter a valid input...");
                             Console.ReadLine();
                             Console.Clear();
-                            GuardsChamber();
+                            
                         }
 
                         if (decision == 1)
@@ -1390,7 +1390,7 @@ namespace Command_Line_Adventure
                 Console.WriteLine("Please Enter a valid input...");
                 Console.ReadLine();
                 Console.Clear();
-                Southeasthallway();
+                SoutheasthallwayB();
             }
             input = Convert.ToInt32(temp);
             Console.Clear();
@@ -2065,7 +2065,7 @@ namespace Command_Line_Adventure
                 Console.WriteLine("Please Enter a valid input...");
                 Console.ReadLine();
                 Console.Clear();
-                GuardsChamber();
+                KitchenB();
             }
             input = Convert.ToInt32(temp);
             Console.Clear();
@@ -2120,7 +2120,7 @@ namespace Command_Line_Adventure
                 Console.WriteLine("Please Enter a valid input...");
                 Console.ReadLine();
                 Console.Clear();
-                GuardsChamber();
+                kitchenB();
             }
             input = Convert.ToInt32(temp);
             Console.Clear();
