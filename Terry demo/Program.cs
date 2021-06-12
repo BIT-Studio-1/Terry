@@ -212,7 +212,7 @@ namespace Command_Line_Adventure
             int[] playerStats = StatsCalculation();
             Console.WriteLine(enemyBarks[0]);
             Console.ReadLine();
-            while (playerStats[3] != 0)
+            while (playerStats[3] > 0)
             {
                 if (enemyStats[3] <= 0)
                 {
@@ -221,6 +221,7 @@ namespace Command_Line_Adventure
                     Console.ReadLine();
                     return true;
                 }
+
                 Console.Clear();
                 Console.WriteLine("Your Health: " + playerStats[3]);
                 Console.WriteLine(enemyBarks[5] + " Health: " + enemyStats[3] + "\n");
@@ -235,7 +236,6 @@ namespace Command_Line_Adventure
                     Console.WriteLine("Please Enter a valid input...");
                     Console.ReadLine();
                     Console.Clear();
-
                 }
                 decision = Convert.ToInt32(temp1);
                 Console.Clear();
