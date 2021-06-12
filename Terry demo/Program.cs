@@ -2065,7 +2065,7 @@ namespace Command_Line_Adventure
                 Console.WriteLine("Please Enter a valid input...");
                 Console.ReadLine();
                 Console.Clear();
-                KitchenB();
+                kitchenB();
             }
             input = Convert.ToInt32(temp);
             Console.Clear();
