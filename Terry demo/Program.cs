@@ -676,7 +676,7 @@ namespace Command_Line_Adventure
                         NorthMiddleHallway();
                         break;
                     case 2:
-                        Console.WriteLine("You choose to stay. And with that your, only chance of escape is gone. The Guards walk into the dungeon \nYou die later that night");
+                        Console.WriteLine("You choose to stay. And with that your, only chance of escape is gone. The Guards walk into the dungeon and execute you. ");
                         Console.ReadLine();
                         GameOver();
                         break;
