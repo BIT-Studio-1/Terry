@@ -16,6 +16,7 @@ namespace Command_Line_Adventure
         public static bool GreatHallButton = false;
         public static bool BetterArmoryButton = false;
         public static bool CrematoriumButton = false;
+        public static bool KitchenButton = false;
 
         public static void GameOver()
         {
@@ -1659,13 +1660,15 @@ namespace Command_Line_Adventure
             Console.WriteLine("You are in the Great Hall ");
             Console.WriteLine("To your left you see a very fancy door, next to it, a horrendous creature sleeps unaware of your presence.");
             Console.WriteLine("It seems to be one of those ogres you heard about in the old stories.");
+            Console.WriteLine("In front of you, it is the castle's kitchen. ");
             Console.WriteLine("To your right there is a big gate which looks like the way to your freedom.");
             Console.WriteLine();
             Console.WriteLine("Your options are...");
             Console.WriteLine("- [1] Go down the staircase");
             Console.WriteLine("- [2] Go towards the gate");
-            Console.WriteLine("- [3] Go towards the fancy door");
-            Console.WriteLine("- [4] Check Inventory");
+            Console.WriteLine("- [3] Enter the kitchen");
+            Console.WriteLine("- [4] Go towards the fancy door");
+            Console.WriteLine("- [5] Check Inventory");
 
             Console.WriteLine();
             temp = Console.ReadLine();
@@ -1723,6 +1726,15 @@ namespace Command_Line_Adventure
                     }
                     break;
                 case 3:
+                    if (KitchenButton == false)
+                    {
+                        Kitchen();
+                    }
+                    else {
+                        kitchenB();
+                    }
+                    break;
+                case 4:
                     bool result = Battle(Scenario, PlaceName);
                     if (result == true)
                     {
@@ -1734,7 +1746,7 @@ namespace Command_Line_Adventure
                         Secondfloor_greathallB();
                     }
                     break;
-                case 4:
+                case 5:
                     Inventory();
                     Console.WriteLine("PRESS ENTER");
                     Secondfloor_greathall();
@@ -1764,8 +1776,9 @@ namespace Command_Line_Adventure
             Console.WriteLine("Your options are...");
             Console.WriteLine("- [1] Go down the staircase");
             Console.WriteLine("- [2] Go towards the gate");
-            Console.WriteLine("- [3] Enter the fancy door");
-            Console.WriteLine("- [4] Check Inventory");
+            Console.WriteLine("- [3] Enter the kitchen");
+            Console.WriteLine("- [4] Go towards the fancy door");
+            Console.WriteLine("- [5] Check Inventory");
 
             Console.WriteLine();
             temp = Console.ReadLine();
@@ -1797,9 +1810,9 @@ namespace Command_Line_Adventure
                             temp = Console.ReadLine();
                             if (temp == "y")
                             {
-                                LockedmysteryroomButton = true;
+                               
                                 keySlot = "Empty";
-                                //Outside();
+                                //Exterior();
 
                             }
                             else if (temp == "n")
@@ -1821,12 +1834,21 @@ namespace Command_Line_Adventure
 
                     }
                     break;
-
                 case 3:
+                    if (KitchenButton == false)
+                    {
+                        Kitchen();
+                    }
+                    else
+                    {
+                        kitchenB();
+                    }
+                    break;
+                case 4:
                     BetterArmory();
                     break;
 
-                case 4:
+                case 5:
                     Inventory();
                     Console.WriteLine("PRESS ENTER");
                     Secondfloor_greathall();
@@ -1842,164 +1864,46 @@ namespace Command_Line_Adventure
                     break;
             }
         }
-        public static void Chapel()
-        {
-            string temp;
-            int input;
-
-            Console.Clear();
-            Console.WriteLine("You are in the Chapel ");
-            Console.WriteLine();
-            Console.WriteLine("Your options are...");
-            Console.WriteLine("- [1] Go backwards");
-
-            Console.WriteLine("- [3] Check Inventory");
-
-            Console.WriteLine();
-            temp = Console.ReadLine();
-            input = Convert.ToInt32(temp);
-            Console.Clear();
-
-            switch (input)
-            {
-                case 1:
-                    //();
-                    break;
-                //  case 2:
-                //     break;
-                case 3:
-                    Inventory();
-                    Console.WriteLine("PRESS ENTER");
-                    Heavydungeon();
-                    break;
-
-                default:
-                    Console.WriteLine();
-                    Console.ForegroundColor = ConsoleColor.Red;
-                    Console.WriteLine("You have entered an invalid input");
-                    Console.WriteLine("Press any key to continue...");
-                    Console.ForegroundColor = ConsoleColor.Red;
-                    Console.ReadLine();
-                    break;
-            }
-        }
-        public static void Treasureroom()
-        {
-            string temp;
-            int input;
-
-            Console.Clear();
-            Console.WriteLine("You are in the Treasure Room ");
-            Console.WriteLine();
-            Console.WriteLine("Your options are...");
-            Console.WriteLine("- [1] Go backwards");
-
-            Console.WriteLine("- [3] Check Inventory");
-
-            Console.WriteLine();
-            temp = Console.ReadLine();
-            input = Convert.ToInt32(temp);
-            Console.Clear();
-
-            switch (input)
-            {
-                case 1:
-                    //();
-                    break;
-                //  case 2:
-                //     break;
-                case 3:
-                    Inventory();
-                    Console.WriteLine("PRESS ENTER");
-                    Heavydungeon();
-                    break;
-
-                default:
-                    Console.WriteLine();
-                    Console.ForegroundColor = ConsoleColor.Red;
-                    Console.WriteLine("You have entered an invalid input");
-                    Console.WriteLine("Press any key to continue...");
-                    Console.ForegroundColor = ConsoleColor.Red;
-                    Console.ReadLine();
-                    break;
-            }
-        }
-        public static void Soldiersquarters()
-        {
-            string temp;
-            int input;
-
-            Console.Clear();
-            Console.WriteLine("You are in the Soldiers Quarters ");
-            Console.WriteLine();
-            Console.WriteLine("Your options are...");
-            Console.WriteLine("- [1] Go backwards");
-
-            Console.WriteLine("- [3] Check Inventory");
-
-            Console.WriteLine();
-            temp = Console.ReadLine();
-            input = Convert.ToInt32(temp);
-            Console.Clear();
-
-            switch (input)
-            {
-                case 1:
-                    // ();
-                    break;
-                //  case 2:
-                //     break;
-                case 3:
-                    Inventory();
-                    Console.WriteLine("PRESS ENTER");
-                    Heavydungeon();
-                    break;
-
-                default:
-                    Console.WriteLine();
-                    Console.ForegroundColor = ConsoleColor.Red;
-                    Console.WriteLine("You have entered an invalid input");
-                    Console.WriteLine("Press any key to continue...");
-                    Console.ForegroundColor = ConsoleColor.Red;
-                    Console.ReadLine();
-                    break;
-            }
-        }
+       
+        
+        
         public static void Kitchen()
         {
             string temp;
             int input;
 
             Console.Clear();
-            Console.WriteLine("You are in the Castle's Kitchen ");
+            int Scenario = 3;
+            string PlaceName = "Kitchen";
+            Console.WriteLine("You are in the Castle's Kitchen. The royal family's chef spots you and attacks you with his sharpest butcher knife!! ");
             Console.WriteLine();
+            bool result = Battle(Scenario, PlaceName);
             Console.WriteLine("Your options are...");
             Console.WriteLine("- [1] Go backwards");
-
-            Console.WriteLine("- [3] Check Inventory");
+            Console.WriteLine("- [2] Check Inventory");
 
             Console.WriteLine();
             temp = Console.ReadLine();
             input = Convert.ToInt32(temp);
             Console.Clear();
 
-            int Scenario = 3;
-            string PlaceName = "Kitchen";
-
             switch (input)
             {
                 case 1:
-                    //();
+                    if (GreatHallButton == false)
+                    {
+                        Secondfloor_greathall();
+                    }
+                    else
+                    {
+                        Secondfloor_greathallB();
+                    }
                     break;
+ 
                 case 2:
-                bool result = Battle(Scenario, PlaceName);
-
-                    break;
-                //     break;
-                case 3:
                     Inventory();
                     Console.WriteLine("PRESS ENTER");
-                    Heavydungeon();
+                    kitchenB();
                     break;
 
                 default:
@@ -2012,6 +1916,53 @@ namespace Command_Line_Adventure
                     break;
             }
         }
+        public static void kitchenB() {
+            string temp;
+            int input;
+
+            Console.Clear();
+            
+            Console.WriteLine("You are in the Castle's Kitchen. ");
+            Console.WriteLine();  
+            Console.WriteLine("Your options are...");
+            Console.WriteLine("- [1] Go backwards");
+            Console.WriteLine("- [2] Check Inventory");
+
+            Console.WriteLine();
+            temp = Console.ReadLine();
+            input = Convert.ToInt32(temp);
+            Console.Clear();
+
+            switch (input)
+            {
+                case 1:
+                    if (GreatHallButton == false)
+                    {
+                        Secondfloor_greathall();
+                    }
+                    else
+                    {
+                        Secondfloor_greathallB();
+                    }
+                    break;
+
+                case 2:
+                    Inventory();
+                    Console.WriteLine("PRESS ENTER");
+                    kitchenB();
+                    break;
+
+                default:
+                    Console.WriteLine();
+                    Console.ForegroundColor = ConsoleColor.Red;
+                    Console.WriteLine("You have entered an invalid input");
+                    Console.WriteLine("Press any key to continue...");
+                    Console.ForegroundColor = ConsoleColor.Red;
+                    Console.ReadLine();
+                    break;
+            }
+        }
+
         public static void Introduction()
         {
             Console.WriteLine("                                                                  ");
