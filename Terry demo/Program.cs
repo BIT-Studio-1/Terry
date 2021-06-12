@@ -468,7 +468,7 @@ namespace Command_Line_Adventure
 
                             if (yourRoll > enemyRoll)
                             {
-                                Console.WriteLine("You successfully intimidate the " + enemyBarks[5] + ", the " + enemyBarks[5] + " is extremely scared and propbaly pooped itself");
+                                Console.WriteLine("You successfully intimidate the " + enemyBarks[5] + ", the " + enemyBarks[5] + " is extremely scared and probably pooped himself");
                                 Console.ReadLine();
                                 return true;
                             }
@@ -558,7 +558,7 @@ namespace Command_Line_Adventure
 
                             if (yourRoll > enemyRoll)
                             {
-                                Console.WriteLine("You succsefully trick the " + enemyBarks[5] + ", and the " + enemyBarks[5] + " is throughly bambozeled");
+                                Console.WriteLine("You succsefully trick the " + enemyBarks[5] + ", and the " + enemyBarks[5] + " is thoroughly bamboozled");
                                 Console.ReadLine();
                                 return true;
                             }
