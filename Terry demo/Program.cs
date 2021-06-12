@@ -237,6 +237,14 @@ namespace Command_Line_Adventure
                     Console.ReadLine();
                 }
 
+                if (string.IsNullOrEmpty(temp))
+                {
+                    Console.Clear();
+                    Console.WriteLine("Please Enter a valid input...");
+                    Console.ReadLine();
+                    Console.Clear();
+                    GuardsChamber();
+                }
 
                 if (decision == 1)
                 {
@@ -317,6 +325,15 @@ namespace Command_Line_Adventure
                         decision = Convert.ToInt32(temp1);
                         Console.Clear();
 
+                        if (string.IsNullOrEmpty(temp))
+                        {
+                            Console.Clear();
+                            Console.WriteLine("Please Enter a valid input...");
+                            Console.ReadLine();
+                            Console.Clear();
+                            GuardsChamber();
+                        }
+
                         if (decision == 1)
                         {
                             Console.WriteLine("You escape the " + placeName);
@@ -389,6 +406,16 @@ namespace Command_Line_Adventure
                         Console.WriteLine("- [4] Trick");
                         temp1 = Console.ReadLine();
                         decision = Convert.ToInt32(temp1);
+
+                        if (string.IsNullOrEmpty(temp))
+                        {
+                            Console.Clear();
+                            Console.WriteLine("Please Enter a valid input...");
+                            Console.ReadLine();
+                            Console.Clear();
+                            GuardsChamber();
+                        }
+
                         if (decision == 1)
                         {
                             Console.WriteLine("You try seducing the " + enemyBarks[5]);
@@ -586,14 +613,6 @@ namespace Command_Line_Adventure
         }
 
 
-
-
-
-
-
-
-
-
         public static void Inventory()
         {
             int[] Stats = StatsCalculation();
@@ -628,7 +647,6 @@ namespace Command_Line_Adventure
 
             do
             {
-
 
                 Console.Clear();
                 Console.WriteLine();
@@ -1039,13 +1057,6 @@ namespace Command_Line_Adventure
                     Console.ReadLine();
                     break;
             }
-
-
-
-
-
-
-
 
         }
 
@@ -2039,12 +2050,22 @@ namespace Command_Line_Adventure
             Console.WriteLine("You are in the Castle's Kitchen, it smells great here, yum yum. Someone in the kitchen notices your presence and comes\nrunning towards you!  ");
             Console.WriteLine();
             bool result = Battle(Scenario, PlaceName);
+            KitchenButton = true;
             Console.WriteLine("Your options are...");
             Console.WriteLine("- [1] Go backwards");
             Console.WriteLine("- [2] Check Inventory");
 
             Console.WriteLine();
+
             temp = Console.ReadLine();
+            if (string.IsNullOrEmpty(temp))
+            {
+                Console.Clear();
+                Console.WriteLine("Please Enter a valid input...");
+                Console.ReadLine();
+                Console.Clear();
+                GuardsChamber();
+            }
             input = Convert.ToInt32(temp);
             Console.Clear();
 
@@ -2092,6 +2113,14 @@ namespace Command_Line_Adventure
 
             Console.WriteLine();
             temp = Console.ReadLine();
+            if (string.IsNullOrEmpty(temp))
+            {
+                Console.Clear();
+                Console.WriteLine("Please Enter a valid input...");
+                Console.ReadLine();
+                Console.Clear();
+                GuardsChamber();
+            }
             input = Convert.ToInt32(temp);
             Console.Clear();
 
