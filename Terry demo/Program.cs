@@ -160,7 +160,9 @@ namespace Command_Line_Adventure
                 case 3:
                     int[] ChefStats = { 3, 3, 4, 4 };
                     return ChefStats;
-
+                case 4:
+                    int[] KingStats = { 5, 5, 5, 5 };
+                    return KingStats;
             }
             int[] Null = { 0, 0, 0, 0 };
             return Null;
@@ -178,6 +180,8 @@ namespace Command_Line_Adventure
                 case 3:
                     string[] ChefBarks = { "An angry Chef appears from the larder, he is brandishing a knife and a rolling pin. He looks mighty angry. \nChef: Get out of here or I'll add you to this succulent Chinese meal!", "Chef: Is that all you've got?", "Chef: Haha Take that", "Chef: You have some knife skills...\n You have Defeated the Chef", "Chef: You will go nicely in this dish! \n You have died \n You're on the menu tonight", "Chef" };
                     return ChefBarks;
+                    case4:
+                    string[] KingBarks = { "Before you stands the mighty and imposing King itself", ""}
                 default:
                     break;
             }
@@ -1703,7 +1707,7 @@ namespace Command_Line_Adventure
                             {
                                 LockedmysteryroomButton = true;
                                 keySlot = "Empty";
-                                //Outside();
+                                Exterior();
 
                             }
                             else if (temp == "n")
@@ -1801,18 +1805,18 @@ namespace Command_Line_Adventure
                     Lockedmysteryroom();
                     break;
                 case 2:
-                    if ((GreatHallButton == false) && (keySlot == "~Gate Key~"))
+                    if (keySlot == "~Gate Key~")
                     {
 
                         do
                         {
-                            Console.WriteLine("The door is locked. Use the key? y/n ");
+                            Console.WriteLine("The gate is locked. Use the key? y/n ");
                             temp = Console.ReadLine();
                             if (temp == "y")
                             {
                                
                                 keySlot = "Empty";
-                                //Exterior();
+                                Exterior();
 
                             }
                             else if (temp == "n")
@@ -1864,9 +1868,36 @@ namespace Command_Line_Adventure
                     break;
             }
         }
-       
-        
-        
+
+
+        public static void Exterior() {
+            Console.Clear();
+            Console.WriteLine("Fresh air at last! You managed to get out of the castle and you reached your freedom but, who is that?");
+            Console.WriteLine("An imposing figure stands before you, it seems like the King himself has come.");
+            Console.WriteLine("King: You, I don't know how you did it, but you scaped Terry. ");
+            Console.WriteLine("King: I was hoping you could have a slow and painfull death in my dungeon, but it seems like I will have to deal with you right here, right now.");
+            int Scenario = 4;
+            string PlaceName = "Exterior";
+            bool result = Battle(Scenario, PlaceName);
+            if (result == true)
+            {
+                
+                Console.WriteLine($"The King is dead and you avenged your family. You get back home and have a nice and long sleep.");
+                Console.WriteLine("Tomorrow is market day, and your fruit stall won't set up itself.");
+                Console.Clear();
+                Console.WriteLine(@"
+████████ ██   ██ ███████     ███████ ███    ██ ██████  
+   ██    ██   ██ ██          ██      ████   ██ ██   ██ 
+   ██    ███████ █████       █████   ██ ██  ██ ██   ██ 
+   ██    ██   ██ ██          ██      ██  ██ ██ ██   ██ 
+   ██    ██   ██ ███████     ███████ ██   ████ ██████  
+                                                      ");
+
+                Console.ReadLine();
+            }
+
+
+        }
         public static void Kitchen()
         {
             string temp;
