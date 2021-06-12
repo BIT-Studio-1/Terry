@@ -1446,7 +1446,14 @@ namespace Command_Line_Adventure
             switch (input)
             {
                 case 1:
-                    Southeasthallway();
+                    if (SouthEastButton == false)
+                    {
+                        Southeasthallway();
+                    }
+                    else 
+                    {
+                        SoutheasthallwayB();
+                    }
                     break;
                 case 2:
 
@@ -1514,9 +1521,15 @@ namespace Command_Line_Adventure
             switch (input)
             {
                 case 1:
-                    Southeasthallway();
+                    if (SouthEastButton == false)
+                    {
+                        Southeasthallway();
+                    }
+                    else
+                    {
+                        SoutheasthallwayB();
+                    }
                     break;
-
                 case 2:
                     Inventory();
                     Console.WriteLine("PRESS ENTER");
