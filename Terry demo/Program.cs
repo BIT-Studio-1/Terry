@@ -2226,12 +2226,8 @@ namespace Command_Line_Adventure
             Console.ReadLine();
             Console.Clear();
         }
-        public static void Main()
-        {
+        public static void Menu() {
             int Character;
-
-            Introduction();
-
             do
             {
                 Console.ForegroundColor = ConsoleColor.Yellow;
@@ -2258,7 +2254,7 @@ namespace Command_Line_Adventure
                     Console.WriteLine("Please Enter a valid input...");
                     Console.ReadLine();
                     Console.Clear();
-                    Main();
+                    Menu();
                 }
                 Character = Convert.ToInt32(temp);
                 Console.WriteLine();
@@ -2315,6 +2311,13 @@ namespace Command_Line_Adventure
             Dungeon();
 
             Console.ReadLine();
+        }
+        public static void Main()
+        {
+
+            Introduction();
+            Menu();
+            
         }
     }
 }
