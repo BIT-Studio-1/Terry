@@ -180,8 +180,9 @@ namespace Command_Line_Adventure
                 case 3:
                     string[] ChefBarks = { "An angry Chef appears from the larder, he is brandishing a knife and a rolling pin. He looks mighty angry. \nChef: Get out of here or I'll add you to this succulent Chinese meal!", "Chef: Is that all you've got?", "Chef: Haha Take that", "Chef: You have some knife skills...\n You have Defeated the Chef", "Chef: You will go nicely in this dish! \n You have died \n You're on the menu tonight", "Chef" };
                     return ChefBarks;
-                    case4:
-                    string[] KingBarks = { "Before you stands the mighty and imposing King itself", ""}
+                case 4:
+                    string[] KingBarks = { "The final battle with the King begins, here we decide the Kingdom's future.", "King: Ourghhh! I will send you with your father Terry!, ", "King: Hahaha. Die now!", "King: But how could you...? This is... impossible. \n You managed to defeat the king!", "The king stabs you fatally \n King: Say hello to your father, HA HA HA", "King" };
+                    return KingBarks;
                 default:
                     break;
             }
@@ -1637,6 +1638,7 @@ namespace Command_Line_Adventure
 
                 case 2:
                     Console.WriteLine("The Chest is empty");
+                    BetterArmoryB();
                     break;
 
                 case 3:
@@ -1875,17 +1877,23 @@ namespace Command_Line_Adventure
             Console.WriteLine("Fresh air at last! You managed to get out of the castle and you reached your freedom but, who is that?");
             Console.WriteLine("An imposing figure stands before you, it seems like the King himself has come.");
             Console.WriteLine("King: You, I don't know how you did it, but you scaped Terry. ");
-            Console.WriteLine("King: I was hoping you could have a slow and painfull death in my dungeon, but it seems like I will have to deal with you right here, right now.");
+            Console.WriteLine("I was hoping you could have a slow and painfull death in my dungeon, \nbut it seems like I will have to deal with you right here, right now.");
+            Console.WriteLine();
+            Console.ReadLine();
             int Scenario = 4;
             string PlaceName = "Exterior";
             bool result = Battle(Scenario, PlaceName);
+
             if (result == true)
             {
                 
                 Console.WriteLine($"The King is dead and you avenged your family. You get back home and have a nice and long sleep.");
                 Console.WriteLine("Tomorrow is market day, and your fruit stall won't set up itself.");
+                Console.ReadLine();
                 Console.Clear();
                 Console.WriteLine(@"
+
+
 ████████ ██   ██ ███████     ███████ ███    ██ ██████  
    ██    ██   ██ ██          ██      ████   ██ ██   ██ 
    ██    ███████ █████       █████   ██ ██  ██ ██   ██ 
@@ -1894,6 +1902,8 @@ namespace Command_Line_Adventure
                                                       ");
 
                 Console.ReadLine();
+                Console.Clear();
+                Main();
             }
 
 
