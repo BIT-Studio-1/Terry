@@ -183,7 +183,7 @@ namespace Command_Line_Adventure
                     string[] OgreBarks = { "Before you stands an Ogre. Huge and threatening, the Ogre yells \n\nOgre: I'm gonna eat you!", "Ogre: Ourghhh! You hit me!", "Ogre: hehe get in me belly", "Ogre: ARGGHH *thud*\nThe Ogre falls, shaking the ground you stand on, \nthe bigger they are the harder they fall\nYou find a very sharp blade on his belt\nYour strength is increased", "Ogre: Finaly! Dinner\nThe Ogre drags you to his lair where he prepares his dinner\nYou are eaten, luckily you bled to death before that happened", "Ogre" };
                     return OgreBarks;
                 case 3:
-                    string[] ChefBarks = { "An angry Chef appears from the larder, he is brandishing a knife and a rolling pin. He looks mighty angry. \nChef: Get out of here or I'll add you to this succulent Chinese meal!", "Chef: Is that all you've got?", "Chef: Haha Take that", "Chef: You have some knife skills...\n You have Defeated the Chef", "Chef: You will go nicely in this dish! \n You have died \n You're on the menu tonight", "Chef" };
+                    string[] ChefBarks = { "An angry Chef appears from the larder, he is brandishing a knife and a rolling pin. He looks mighty angry. \nChef: Get out of here or I'll add you to this succulent Chinese meal!", "Chef:ARGGHH!. Is that all you've got?", "Chef: Haha Take that", "Chef: You have some knife skills...\n Don't let... the food... to overcook... ", "Chef: You will go nicely in this dish! \n You have died \n You're on the menu tonight", "Chef" };
                     return ChefBarks;
                 case 4:
                     string[] KingBarks = { "The final battle with the King begins, here we decide the Kingdom's future.", "King: Ourghhh! I will send you with your father Terry!, ", "King: Hahaha. Die now!", "King: But how could you...? This is... impossible. \n You managed to defeat the king!", "The king stabs you fatally \n King: Say hello to your father, HA HA HA", "King" };
@@ -2036,7 +2036,7 @@ namespace Command_Line_Adventure
             Console.Clear();
             int Scenario = 3;
             string PlaceName = "Kitchen";
-            Console.WriteLine("You are in the Castle's Kitchen. The royal family's chef spots you and attacks you with his sharpest butcher knife!! ");
+            Console.WriteLine("You are in the Castle's Kitchen, it smells great here, yum yum. Someone in the kitchen notices your presence and comes\nrunning towards you!  ");
             Console.WriteLine();
             bool result = Battle(Scenario, PlaceName);
             Console.WriteLine("Your options are...");
