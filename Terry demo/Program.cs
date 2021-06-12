@@ -17,6 +17,8 @@ namespace Command_Line_Adventure
         public static bool BetterArmoryButton = false;
         public static bool CrematoriumButton = false;
         public static bool KitchenButton = false;
+        public static bool SouthEastButton = false;
+
 
         public static void GameOver()
         {
@@ -152,16 +154,16 @@ namespace Command_Line_Adventure
             switch (enemyNumber)
             {                 //Note: cunning stat is useless for enemys - instead use the last 4 stats for cunning checks
                 case 1:       //Strength - Stealth - cunning - Health - SeduceRoll - IntimidateRoll - PersuadeRoll - TrickRoll 
-                    int[] GuardStats = { 2, 2, 2, 3, 4, 3, 3, 2};
+                    int[] GuardStats = { 2, 2, 2, 3, 4, 3, 3, 2 };
                     return GuardStats;
                 case 2:
-                    int[] OgreStats = { 5, 2, 1, 4, 3, 6, 2, 1};
+                    int[] OgreStats = { 5, 2, 1, 4, 3, 6, 2, 1 };
                     return OgreStats;
                 case 3:
-                    int[] ChefStats = { 3, 3, 4, 4, 3, 2, 6, 5};
+                    int[] ChefStats = { 3, 3, 4, 4, 3, 2, 6, 5 };
                     return ChefStats;
                 case 4:
-                    int[] KingStats = { 5, 5, 5, 5, 7, 7, 7, 4};
+                    int[] KingStats = { 5, 5, 5, 5, 7, 7, 7, 4 };
                     return KingStats;
                 case 5:
                     int[] GaintRat = { 2, 1, 1, 2, 6, 2, 6, 3 };
@@ -187,7 +189,7 @@ namespace Command_Line_Adventure
                     string[] KingBarks = { "The final battle with the King begins, here we decide the Kingdom's future.", "King: Ourghhh! I will send you with your father Terry!, ", "King: Hahaha. Die now!", "King: But how could you...? This is... impossible. \n You managed to defeat the king!", "The king stabs you fatally \n King: Say hello to your father, HA HA HA", "King" };
                     return KingBarks;
                 case 5:
-                    string[] GaintRat = { "A gaint rat attacks you out of nowhere\nGaint Rat: SCREEEEEE", "Gaint Rat: eekk", "Gaint Rat: SCREE", "You slay the Gaint rat, it lays lifeless on the cold stone floor", "Gaint Rat: Mohahahahaa, A FEAST\nSays the rat as it starts eating your ruined body", "Gaint Rat" };
+                    string[] GaintRat = { "A giant rat attacks you out of nowhere\nGiant Rat: SCREEEEEE", "Giant Rat: eekk", "Giant Rat: SCREE", "You slay the Giant rat, it lays lifeless on the cold stone floor", "Giant Rat: Mohahahahaa, A FEAST\nSays the rat as it starts eating your ruined body", "Giant Rat" };
                     return GaintRat;
                 default:
                     break;
@@ -212,6 +214,13 @@ namespace Command_Line_Adventure
             Console.ReadLine();
             while (playerStats[3] != 0)
             {
+                if (enemyStats[3] <= 0)
+                {
+                    Console.WriteLine(enemyBarks[3]);
+                    Console.WriteLine("You have defeated your enemy!!");
+                    Console.ReadLine();
+                    return true;
+                }
                 Console.Clear();
                 Console.WriteLine("Your Health: " + playerStats[3]);
                 Console.WriteLine(enemyBarks[5] + " Health: " + enemyStats[3] + "\n");
@@ -227,13 +236,7 @@ namespace Command_Line_Adventure
                     Console.WriteLine(enemyBarks[4]);
                     Console.ReadLine();
                 }
-                if (enemyStats[3] == 0)
-                {
-                    Console.WriteLine(enemyBarks[3]);
-                    Console.WriteLine("You have defeated your enemy!!");
-                    Console.ReadLine();
-                    return true;
-                }
+
 
                 if (decision == 1)
                 {
@@ -429,7 +432,7 @@ namespace Command_Line_Adventure
                                 Console.ReadLine();
                                 Console.Clear();
                                 Knowing = true;
-                                
+
 
                             }
                         }
@@ -581,12 +584,12 @@ namespace Command_Line_Adventure
             GameOver();
             return false;
         }
-            
-        
-    
-            
-            
-        
+
+
+
+
+
+
 
 
 
@@ -773,7 +776,8 @@ namespace Command_Line_Adventure
                     {
                         Crematorium();
                     }
-                    else {
+                    else
+                    {
                         CrematoriumB();
                     }
                     break;
@@ -869,9 +873,15 @@ namespace Command_Line_Adventure
                     }
                     break;
                 case 4:
-                    Southeasthallway();
+                    if (SouthEastButton == false)
+                    {
+                        Southeasthallway();
+                    }
+                    else
+                    {
+                        SoutheasthallwayB();
+                    }
                     break;
-
                 case 5:
                     Inventory();
                     Console.WriteLine("PRESS ENTER");
@@ -930,7 +940,7 @@ namespace Command_Line_Adventure
                     Console.WriteLine("- [1] Take the ring");
                     Console.WriteLine("- [2] Leave it");
                     temp = Console.ReadLine();
-                    if (temp == "1") 
+                    if (temp == "1")
                     {
                         Item = 1;
                         String[] ItemInfo = otherItemsString(Item);
@@ -1289,6 +1299,7 @@ namespace Command_Line_Adventure
             string temp;
             int input;
             Battle(5, "Dim Hallway");
+            SouthEastButton = true;
             Console.Clear();
             Console.WriteLine("You are South East part of the hallway");
             Console.WriteLine();
@@ -1333,6 +1344,67 @@ namespace Command_Line_Adventure
                     Inventory();
                     Console.WriteLine("PRESS ENTER");
                     Southeasthallway();
+                    break;
+
+                default:
+                    Console.WriteLine();
+                    Console.ForegroundColor = ConsoleColor.Red;
+                    Console.WriteLine("You have entered an invalid input");
+                    Console.WriteLine("Press any key to continue...");
+                    Console.ForegroundColor = ConsoleColor.Red;
+                    Console.ReadLine();
+                    break;
+            }
+        }
+        public static void SoutheasthallwayB()
+        {
+            string temp;
+            int input;
+
+            Console.Clear();
+            Console.WriteLine("You are South East part of the hallway");
+            Console.WriteLine();
+            Console.WriteLine("Your options are...");
+            Console.WriteLine("- [1] Go Up (North)");
+            Console.WriteLine("- [2] Go  Left <--");
+            Console.WriteLine("- [3] Enter the Armoury");
+            Console.WriteLine("- [4] Check Inventory");
+
+            Console.WriteLine();
+            temp = Console.ReadLine();
+            if (string.IsNullOrEmpty(temp))
+            {
+                Console.Clear();
+                Console.WriteLine("Please Enter a valid input...");
+                Console.ReadLine();
+                Console.Clear();
+                Southeasthallway();
+            }
+            input = Convert.ToInt32(temp);
+            Console.Clear();
+
+            switch (input)
+            {
+                case 1:
+                    RightHallway();
+                    break;
+                case 2:
+                    Southwesthallway();
+                    break;
+                case 3:
+                    if (EmptyArmouryButton == false)
+                    {
+                        EmptyArmoury();
+                    }
+                    else
+                    {
+                        EmptyArmouryB();
+                    }
+                    break;
+                case 4:
+                    Inventory();
+                    Console.WriteLine("PRESS ENTER");
+                    SoutheasthallwayB();
                     break;
 
                 default:
@@ -1494,7 +1566,14 @@ namespace Command_Line_Adventure
                     LeftHallway();
                     break;
                 case 2:
-                    Southeasthallway();
+                    if (SouthEastButton == false)
+                    {
+                        Southeasthallway();
+                    }
+                    else
+                    {
+                        SoutheasthallwayB();
+                    }
                     break;
                 case 3:
                     Heavydungeon();
@@ -1573,7 +1652,7 @@ namespace Command_Line_Adventure
             Console.WriteLine("At the end of the room, a nice ornamental chest catches your attention.");
             Console.WriteLine();
             Console.WriteLine("Your options are...");
-            Console.WriteLine("- [1] Go backwards"); 
+            Console.WriteLine("- [1] Go backwards");
             Console.WriteLine("- [2] Check the Chest ");
             Console.WriteLine("- [3] Check Inventory");
 
@@ -1602,7 +1681,7 @@ namespace Command_Line_Adventure
                     Weapon = 2;
                     String[] WeaponInfo = weaponString(Weapon);
                     Console.WriteLine($"{WeaponInfo[0]} \n{WeaponInfo[1]} \n{WeaponInfo[2]}");
-                    for (int i=0; i < stats.Length; i++)
+                    for (int i = 0; i < stats.Length; i++)
                     {
                         stats[i] = stats[i] + weapon(ref Weapon)[i];
                     }
@@ -1637,7 +1716,7 @@ namespace Command_Line_Adventure
             Console.WriteLine("You are in the Royal Armoury");
             Console.WriteLine();
             Console.WriteLine("Your options are...");
-            Console.WriteLine("- [1] Go backwards"); 
+            Console.WriteLine("- [1] Go backwards");
             Console.WriteLine("- [2] Check the Chest ");
             Console.WriteLine("- [3] Check Inventory");
 
@@ -1760,7 +1839,8 @@ namespace Command_Line_Adventure
                     {
                         Kitchen();
                     }
-                    else {
+                    else
+                    {
                         kitchenB();
                     }
                     break;
@@ -1823,7 +1903,7 @@ namespace Command_Line_Adventure
             input = Convert.ToInt32(temp);
             Console.Clear();
 
-         
+
 
             switch (input)
             {
@@ -1842,7 +1922,7 @@ namespace Command_Line_Adventure
                             temp = Console.ReadLine();
                             if (temp == "1")
                             {
-                               
+
                                 keySlot = "Empty";
                                 Exterior();
 
@@ -1898,7 +1978,8 @@ namespace Command_Line_Adventure
         }
 
 
-        public static void Exterior() {
+        public static void Exterior()
+        {
             Console.Clear();
             Console.WriteLine("Fresh air at last! You managed to get out of the castle and you reached your freedom but, who is that?");
             Console.WriteLine("An imposing figure stands before you, it seems like the King himself has come.");
@@ -1912,7 +1993,7 @@ namespace Command_Line_Adventure
 
             if (result == true)
             {
-                
+
                 Console.WriteLine($"The King is dead and you avenged your family. You get back home and have a nice and long sleep.");
                 Console.WriteLine("Tomorrow is market day, and your fruit stall won't set up itself.");
                 Console.ReadLine();
@@ -1966,7 +2047,7 @@ namespace Command_Line_Adventure
                         Secondfloor_greathallB();
                     }
                     break;
- 
+
                 case 2:
                     Inventory();
                     Console.WriteLine("PRESS ENTER");
@@ -1983,14 +2064,15 @@ namespace Command_Line_Adventure
                     break;
             }
         }
-        public static void kitchenB() {
+        public static void kitchenB()
+        {
             string temp;
             int input;
 
             Console.Clear();
-            
+
             Console.WriteLine("You are in the Castle's Kitchen. ");
-            Console.WriteLine();  
+            Console.WriteLine();
             Console.WriteLine("Your options are...");
             Console.WriteLine("- [1] Go backwards");
             Console.WriteLine("- [2] Check Inventory");
