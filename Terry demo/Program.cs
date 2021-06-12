@@ -227,7 +227,16 @@ namespace Command_Line_Adventure
                 Console.WriteLine("- [1] Attack the " + enemyBarks[5]);
                 Console.WriteLine("- [2] Hide from the " + enemyBarks[5]);
                 Console.WriteLine("- [3] Talk to the " + enemyBarks[5] + "\n");
+
                 temp1 = Console.ReadLine();
+                if (string.IsNullOrEmpty(temp1))
+                {
+                    Console.Clear();
+                    Console.WriteLine("Please Enter a valid input...");
+                    Console.ReadLine();
+                    Console.Clear();
+
+                }
                 decision = Convert.ToInt32(temp1);
                 Console.Clear();
 
@@ -237,14 +246,7 @@ namespace Command_Line_Adventure
                     Console.ReadLine();
                 }
 
-                if (string.IsNullOrEmpty(temp))
-                {
-                    Console.Clear();
-                    Console.WriteLine("Please Enter a valid input...");
-                    Console.ReadLine();
-                    Console.Clear();
-                    
-                }
+
 
                 if (decision == 1)
                 {
@@ -325,7 +327,7 @@ namespace Command_Line_Adventure
                         decision = Convert.ToInt32(temp1);
                         Console.Clear();
 
-                        if (string.IsNullOrEmpty(temp))
+                        if (string.IsNullOrEmpty(temp1))
                         {
                             Console.Clear();
                             Console.WriteLine("Please Enter a valid input...");
@@ -407,7 +409,7 @@ namespace Command_Line_Adventure
                         temp1 = Console.ReadLine();
                         decision = Convert.ToInt32(temp1);
 
-                        if (string.IsNullOrEmpty(temp))
+                        if (string.IsNullOrEmpty(temp1))
                         {
                             Console.Clear();
                             Console.WriteLine("Please Enter a valid input...");
