@@ -2049,7 +2049,8 @@ namespace Command_Line_Adventure
             Console.WriteLine("  Miguel, Mace, Te Awa, Lewis and Francis                         ");
             Console.WriteLine("                                                                  ");
             Console.WriteLine("  ©2021                                                           ");
-            Thread.Sleep(2000);
+            Thread.Sleep(4000);
+            Console.ReadLine();
             Console.Clear();
 
             Console.WriteLine(@"                                                                          ");
@@ -2082,11 +2083,13 @@ namespace Command_Line_Adventure
             Console.WriteLine("                                                                           ");
             Console.WriteLine("                                                                           ");
             Console.ReadLine();
+            Console.Clear();
 
             Console.WriteLine("Terry is an orphan fruit merchant in the town of Studiojuan, he spends his days selling fruit");
             Console.WriteLine("and minding his own business at his fruit stall in the town square. Terry dislikes trouble and");
             Console.WriteLine("avoids confrontation at every turn. Trouble is what got his parents killed.");
             Console.WriteLine();
+            Console.ReadLine();
             Console.WriteLine();
             Console.WriteLine("It is just another boring Saturday morning in StudioJuan and Terry is sitting in his fruit stall");
             Console.WriteLine("minding his own business. 'What a lovely day' he says to himself as he spit shines the last few");
@@ -2094,11 +2097,16 @@ namespace Command_Line_Adventure
             Console.WriteLine("she is dressed fancily and is wearing a veil that is covering her face. 'Nice day for an apple");
             Console.WriteLine("is it not?' she asks Terry. 'Yes maddam' replies Terry.");
             Console.WriteLine();
+            Console.ReadLine();
             Console.WriteLine("Suddenly Terry is hit on the head and he falls to the ground.");
+            Console.ReadLine();
+            Console.Clear();
         }
         public static void Main()
         {
             int Character;
+
+            Introduction();
 
             do
             {
