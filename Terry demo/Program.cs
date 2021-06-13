@@ -1768,6 +1768,7 @@ namespace Command_Line_Adventure
 
                 case 2:
                     Console.WriteLine("The Chest is empty");
+                    Console.ReadLine();
                     BetterArmoryB();
                     break;
 
