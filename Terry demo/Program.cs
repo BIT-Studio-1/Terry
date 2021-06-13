@@ -180,7 +180,7 @@ namespace Command_Line_Adventure
                     string[] GuardBarks = { "The Guard spots you!\n\nGuard: Stop! in the name of the law, you are under arest", "Guard: Bastard!", "Guard: Take that", "Guard: I . need .. back up ...", "Guard: It's back to the cell for you", "Guard" };
                     return GuardBarks;
                 case 2:
-                    string[] OgreBarks = { "Before you stands an Ogre. Huge and threatening, the Ogre yells \n\nOgre: I'm gonna eat you!", "Ogre: Ourghhh! You hit me!", "Ogre: hehe get in me belly", "Ogre: ARGGHH *thud*\nThe Ogre falls, shaking the ground you stand on, \nthe bigger they are, the harder they fall\nYou find a very sharp blade on his belt\nYour strength is increased", "Ogre: Finaly! Dinner\nThe Ogre drags you to his lair where he prepares his dinner\nYou are eaten, luckily you bled to death before that happened", "Ogre" };
+                    string[] OgreBarks = { "Before you stands an Ogre. Huge and threatening, the Ogre yells \n\nOgre: I'm gonna eat you!", "Ogre: Ourghhh! You hit me!", "Ogre: hehe get in me belly", "Ogre: ARGGHH *thud*\nThe Ogre falls, shaking the ground you stand on, \nthe bigger they are, the harder they fall. ", "Ogre: Finaly! Dinner\nThe Ogre drags you to his lair where he prepares his dinner\nYou are eaten, luckily you bled to death before that happened", "Ogre" };
                     return OgreBarks;
                 case 3:
                     string[] ChefBarks = { "An angry Chef appears from the larder, he is brandishing a knife and a rolling pin. He looks mighty angry. \nChef: Get out of here or I'll add you to this succulent Chinese meal!", "Chef:ARGGHH!. Is that all you've got?", "Chef: Haha Take that", "Chef: You have some knife skills...\n Don't let... the food... burn... ", "Chef: You will go nicely in this dish! \n You have died \n You're on the menu tonight", "Chef" };
@@ -1226,9 +1226,7 @@ namespace Command_Line_Adventure
                     RightHallway();
                     break;
                 case 2:
-                    Console.WriteLine("The BEAST grabs you, throws you out of the lair causing a loss in your health\n");
-                    Console.WriteLine("Your [Health] - (1)");
-                    health = health - 1;
+                    Console.WriteLine("The BEAST grabs you, throws you out of the lair. ");
                     Console.ReadKey();
                     RightHallway();
                     break;
@@ -1797,7 +1795,7 @@ namespace Command_Line_Adventure
             Console.WriteLine("You are in the Great Hall ");
             Console.WriteLine("To your left you see a very fancy door, next to it, a horrendous creature sleeps unaware of your presence.");
             Console.WriteLine("It seems to be one of those ogres you heard about in the old stories.");
-            Console.WriteLine("In front of you, it is the castle's kitchen. ");
+            Console.WriteLine("In front of you, you see the castle's kitchen. ");
             Console.WriteLine("To your right there is a big gate which looks like the way to your freedom.");
             Console.WriteLine();
             Console.WriteLine("Your options are...");
@@ -1879,6 +1877,7 @@ namespace Command_Line_Adventure
                         keySlot = "~Gate Key~";
                         Console.WriteLine($"You picked up {keySlot}");
                         Console.WriteLine($"It might take you out of here...");
+                        Console.WriteLine("You discover the fancy door leads to the Royal Armoury. ");
                         GreatHallButton = true;
                         Console.ReadLine();
                         Secondfloor_greathallB();
@@ -1907,15 +1906,16 @@ namespace Command_Line_Adventure
 
             Console.Clear();
             Console.WriteLine("You are in the Great Hall ");
-            Console.WriteLine("To your left you see a very fancy door, next to it, a horrendous creature sleeps unaware of your presence.");
-            Console.WriteLine("It seems to be one of those ogres you heard about in the old stories.");
+            Console.WriteLine("To your left you see the Royal Armoury");
+            Console.WriteLine("In front of you, you see the castle's kitchen. ");
             Console.WriteLine("To your right there is a big gate which looks like the way to your freedom.");
+
             Console.WriteLine();
             Console.WriteLine("Your options are...");
             Console.WriteLine("- [1] Go down the staircase");
             Console.WriteLine("- [2] Go towards the gate");
             Console.WriteLine("- [3] Enter the kitchen");
-            Console.WriteLine("- [4] Go towards the fancy door");
+            Console.WriteLine("- [4] Go towards the Royal Armoury");
             Console.WriteLine("- [5] Check Inventory");
 
             Console.WriteLine();
@@ -2012,7 +2012,7 @@ namespace Command_Line_Adventure
             Console.WriteLine("Fresh air at last! You managed to get out of the castle and you reached your freedom but, who is that?");
             Console.WriteLine("An imposing figure stands before you, it seems like the King himself has come.");
             Console.WriteLine("King: You, I don't know how you did it, but you escaped Terry. ");
-            Console.WriteLine("I was hoping you could have a slow and painfull death in my dungeon, \nbut it seems like I will have to deal with you right here, right now.");
+            Console.WriteLine("I was hoping you could have a slow and painful death in my dungeon, \nbut it seems like I will have to deal with you right here, right now.");
             Console.WriteLine();
             Console.ReadLine();
             int Scenario = 4;
@@ -2221,7 +2221,7 @@ namespace Command_Line_Adventure
             Console.WriteLine();
             Console.WriteLine("It is just another boring Saturday morning in StudioJuan and Terry is sitting in his fruit stall");
             Console.WriteLine("minding his own business. 'What a lovely day' he says to himself as he spit shines the last few");
-            Console.WriteLine("remaining apples from the morning rush. A woman approches his stall through the thinning crowd,");
+            Console.WriteLine("remaining apples from the morning rush. A woman approaches his stall through the thinning crowd,");
             Console.WriteLine("she is dressed fancily and is wearing a veil that is covering her face. 'Nice day for an apple");
             Console.WriteLine("is it not?' she asks Terry. 'Yes maddam' replies Terry.");
             Console.WriteLine();
