@@ -2240,10 +2240,10 @@ namespace Command_Line_Adventure
                 Console.WriteLine();
                 Console.WriteLine("       1 - Strength       2 - Stealth        3 - Cunning");
                 Console.WriteLine("          ----------         ---------          ---------");
-                Console.WriteLine("Strength:     3                  2                  1     ");
-                Console.WriteLine("Stealth :     1                  3                  1     ");
-                Console.WriteLine("Cunning :     1                  2                  4     ");
-                Console.WriteLine("Health  :     3                  2                  3     ");
+                Console.WriteLine("Strength:     3                  1                  1     ");
+                Console.WriteLine("Stealth :     1                  4                  1     ");
+                Console.WriteLine("Cunning :     1                  1                  4     ");
+                Console.WriteLine("Health  :     4                  3                  3     ");
 
                 Clothing = 1;
 
