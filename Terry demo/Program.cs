@@ -1985,13 +1985,20 @@ namespace Command_Line_Adventure
                     }
                     break;
                 case 4:
-                    BetterArmory();
+                    if (BetterArmoryButton == false)
+                    {
+                        BetterArmory();
+                    }
+                    else 
+                    {
+                        BetterArmoryB();
+                    }
                     break;
 
                 case 5:
                     Inventory();
                     Console.WriteLine("PRESS ENTER");
-                    Secondfloor_greathall();
+                    Secondfloor_greathallB();
                     break;
 
                 default:
