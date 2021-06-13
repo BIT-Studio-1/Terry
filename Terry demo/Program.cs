@@ -101,7 +101,7 @@ namespace Command_Line_Adventure
                     int[] LeatherAmour = { 0, 1, 0, 1 };
                     return LeatherAmour;
                 case 3:
-                    int[] GuardsArmour = { 0, 0, 0, 2 };
+                    int[] GuardsArmour = { 0, 1, 0, 2 };
                     return GuardsArmour;
             }
             int[] Null = { 0, 0, 0, 0 };
