@@ -98,10 +98,10 @@ namespace Command_Line_Adventure
                     int[] Rags = { 0, 0, 0, 0 };
                     return Rags;
                 case 2:
-                    int[] LeatherAmour = { 0, 1, 0, 1 };
+                    int[] LeatherAmour = { 0, 1, 0, 0 };
                     return LeatherAmour;
                 case 3:
-                    int[] GuardsArmour = { 0, 1, 0, 2 };
+                    int[] GuardsArmour = { 0, 1, 0, 1 };
                     return GuardsArmour;
             }
             int[] Null = { 0, 0, 0, 0 };
@@ -119,7 +119,7 @@ namespace Command_Line_Adventure
                     string[] LeatherArmour = { "~Leather Armour~", "A sturdy set of leather clothing, it provides a bit of protection while also being light" };
                     return LeatherArmour;
                 case 3:
-                    string[] GuardsArmour = { "~Guard's Armour~", "Nice quality steel armour, it will protect you on your way out of here", "Health +2" };
+                    string[] GuardsArmour = { "~Guard's Armour~", "Nice quality light dark armour. Provides stealth and protection ", "Stealth +1, Health +1" };
                     return GuardsArmour;
             }
             string[] Null = { "...", "..." };
@@ -154,7 +154,7 @@ namespace Command_Line_Adventure
             switch (enemyNumber)
             {                 //Note: cunning stat is useless for enemys - instead use the last 4 stats for cunning checks
                 case 1:       //Strength - Stealth - cunning - Health - SeduceRoll - IntimidateRoll - PersuadeRoll - TrickRoll 
-                    int[] GuardStats = { 2, 2, 2, 3, 4, 3, 3, 2 };
+                    int[] GuardStats = { 2, 3, 2, 3, 4, 3, 3, 2 };
                     return GuardStats;
                 case 2:
                     int[] OgreStats = { 5, 2, 1, 4, 3, 6, 2, 1 };
@@ -1915,7 +1915,7 @@ namespace Command_Line_Adventure
             Console.WriteLine("- [1] Go down the staircase");
             Console.WriteLine("- [2] Go towards the gate");
             Console.WriteLine("- [3] Enter the kitchen");
-            Console.WriteLine("- [4] Go towards the Royal Armoury");
+            Console.WriteLine("- [4] Enter the Royal Armoury");
             Console.WriteLine("- [5] Check Inventory");
 
             Console.WriteLine();
@@ -2054,6 +2054,10 @@ namespace Command_Line_Adventure
             Console.WriteLine("You are in the Castle's Kitchen, it smells great here, yum yum. Someone in the kitchen notices your presence and comes\nrunning towards you!  ");
             Console.WriteLine();
             bool result = Battle(Scenario, PlaceName);
+            Console.WriteLine("You try the delicious meal the chef was cooking. Suddenly you feel revitalised, all your stats increase +1.");
+            strength++;
+            stealth++;
+            cunning++;
             KitchenButton = true;
             Console.WriteLine("Your options are...");
             Console.WriteLine("- [1] Go backwards");
