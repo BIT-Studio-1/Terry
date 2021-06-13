@@ -2171,6 +2171,7 @@ namespace Command_Line_Adventure
 
         public static void Introduction()
         {
+            Console.ForegroundColor = ConsoleColor.Yellow;
             Console.WriteLine("                                                                  ");
             Console.WriteLine("                                                                  ");
             Console.WriteLine("      ██████████  █████████  ████████   ████████   ██      ██     ");
