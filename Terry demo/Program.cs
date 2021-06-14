@@ -1957,7 +1957,7 @@ namespace Command_Line_Adventure
                             }
                             else if (temp == "2")
                             {
-                                Secondfloor_greathall();
+                                Secondfloor_greathallB();
                             }
                             else
                             {
