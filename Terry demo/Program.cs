@@ -1355,7 +1355,7 @@ namespace Command_Line_Adventure
                 case 4:
                     Inventory();
                     Console.WriteLine("PRESS ENTER");
-                    Southeasthallway();
+                    SoutheasthallwayB();
                     break;
 
                 default:
