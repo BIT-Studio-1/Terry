@@ -1071,6 +1071,15 @@ namespace Command_Line_Adventure
             Console.Clear();
             Console.WriteLine("You are in the Guards' chamber. It seems like only one guard is here. You see a key hanging from his belt.");
             Console.WriteLine();
+            Console.WriteLine(@"
+               _____|~~\_______________________  ___ 
+             _-~               \    |    \      |   |__
+             _-    | )      |    |__/   \   \   |  /  \
+             _-         )   |   |  |     \  \   |  \ o/       <------- Key!
+             _-    | )      |   |--|      |  |  |   <|
+            __-_______________ /__/_______|  |__|__ <|
+           (                |----         |  |      <|
+            `---------------'--\\\\      .`--'      ");
             Console.WriteLine("Your options are...");
             Console.WriteLine("- [1] Go backwards");
             Console.WriteLine("- [2] Try to get the key!");
