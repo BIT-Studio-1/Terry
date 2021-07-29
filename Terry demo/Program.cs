@@ -18,7 +18,7 @@ namespace Command_Line_Adventure
         public static bool CrematoriumButton = false;
         public static bool KitchenButton = false;
         public static bool SouthEastButton = false;
-
+        public static bool button;
 
         public static void GameOver()
         {
@@ -659,16 +659,36 @@ namespace Command_Line_Adventure
                 Console.WriteLine("- [3] Check Inventory");
                 Console.ForegroundColor = ConsoleColor.Yellow;
                 Console.WriteLine();
-
-                temp = Console.ReadLine();
-                if (string.IsNullOrEmpty(temp))
+                do
                 {
-                    Console.Clear();
-                    Console.WriteLine("Please Enter a valid input...");
-                    Console.ReadLine();
-                    Console.Clear();
-                    Dungeon();
-                }
+                    button = false;
+                    temp = Console.ReadLine();
+
+                    if (int.TryParse(temp, out input))
+                    {
+                        input = Convert.ToInt32(temp);
+                        if (input > 3 || input <= 0)
+                        {
+                            Console.Clear();
+                            Console.WriteLine("Please Enter a valid input...");
+                            Console.ReadLine();
+                            Console.Clear();
+                            Dungeon();
+                        }
+                        else
+                        {
+                            button = true;
+                        }
+                    }
+                    else
+                    {
+                        Console.Clear();
+                        Console.WriteLine("Please Enter a valid input...");
+                        Console.ReadLine();
+                        Console.Clear();
+                        Dungeon();
+                    }
+                } while (button == false);
                 input = Convert.ToInt32(temp);
                 Console.Clear();
 
@@ -711,15 +731,36 @@ namespace Command_Line_Adventure
             Console.WriteLine("- [3] Go  Right -->");
             Console.WriteLine("- [4] Check Inventory");
             Console.WriteLine();
-            temp = Console.ReadLine();
-            if (string.IsNullOrEmpty(temp))
+            do
             {
-                Console.Clear();
-                Console.WriteLine("Please Enter a valid input...");
-                Console.ReadLine();
-                Console.Clear();
-                NorthMiddleHallway();
-            }
+                button = false;
+                temp = Console.ReadLine();
+
+                if (int.TryParse(temp, out input))
+                {
+                    input = Convert.ToInt32(temp);
+                    if (input > 3 || input <= 0)
+                    {
+                        Console.Clear();
+                        Console.WriteLine("Please Enter a valid input...");
+                        Console.ReadLine();
+                        Console.Clear();
+                        NorthMiddleHallway();
+                    }
+                    else
+                    {
+                        button = true;
+                    }
+                }
+                else
+                {
+                    Console.Clear();
+                    Console.WriteLine("Please Enter a valid input...");
+                    Console.ReadLine();
+                    Console.Clear();
+                    NorthMiddleHallway();
+                }
+            } while (button == false);
             input = Convert.ToInt32(temp);
             Console.Clear();
 
@@ -2244,6 +2285,7 @@ namespace Command_Line_Adventure
         }
         public static void Menu() {
             int Character;
+            int input;
             do
             {
                 Console.ForegroundColor = ConsoleColor.Yellow;
@@ -2260,18 +2302,40 @@ namespace Command_Line_Adventure
                 Clothing = 1;
 
                 Console.ForegroundColor = ConsoleColor.Yellow;
-
-
-
-                temp = Console.ReadLine();
-                if (string.IsNullOrEmpty(temp))
+                do
                 {
-                    Console.Clear();
-                    Console.WriteLine("Please Enter a valid input...");
-                    Console.ReadLine();
-                    Console.Clear();
-                    Menu();
-                }
+                    button = false;
+                    temp = Console.ReadLine();
+
+                    if (int.TryParse(temp, out input))
+                    {
+                        input = Convert.ToInt32(temp);
+                        if (input > 3 || input <= 0)
+                        {
+                            Console.Clear();
+                            Console.WriteLine("Please Enter a valid input...");
+                            Console.ReadLine();
+                            Console.Clear();
+                            Menu();
+                        }
+                        else
+                        {
+                            button = true;
+                        }
+                    }
+                    else
+                    {
+                        Console.Clear();
+                        Console.WriteLine("Please Enter a valid input...");
+                        Console.ReadLine();
+                        Console.Clear();
+                        Menu();
+                    }
+                } while (button == false);
+
+
+                input = Convert.ToInt32(temp);
+
                 Character = Convert.ToInt32(temp);
                 Console.WriteLine();
                 switch (Character)
