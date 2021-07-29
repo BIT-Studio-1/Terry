@@ -1,11 +1,13 @@
 ﻿using System;
 using System.Threading;
+using Terry_demo;
 
 namespace Command_Line_Adventure
 {
-    class Program
+    public class Program
     {
         // These are universal variables 
+        private Bloodcage bloodcage;
         public static string temp;
         public static int[] stats = { 0, 0, 0, 0 };
         public static string keySlot = "...";
@@ -678,9 +680,8 @@ namespace Command_Line_Adventure
                         NorthMiddleHallway();
                         break;
                     case 2:
-                        Console.WriteLine("You choose to stay. And with that your, only chance of escape is gone. The Guards walk into the dungeon and execute you. ");
+                        //bloodcage
                         Console.ReadLine();
-                        GameOver();
                         break;
                     case 3:
                         Inventory();
