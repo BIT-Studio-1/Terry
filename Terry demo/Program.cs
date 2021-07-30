@@ -229,14 +229,35 @@ namespace Command_Line_Adventure
                 Console.WriteLine("- [2] Hide from the " + enemyBarks[5]);
                 Console.WriteLine("- [3] Talk to the " + enemyBarks[5] + "\n");
 
-                temp1 = Console.ReadLine();
-                if (string.IsNullOrEmpty(temp1))
+                do
                 {
-                    Console.Clear();
-                    Console.WriteLine("Please Enter a valid input...");
-                    Console.ReadLine();
-                    Console.Clear();
-                }
+                    button = false;
+                    temp1 = Console.ReadLine();
+
+                    if (int.TryParse(temp1, out decision))
+                    {
+                        decision = Convert.ToInt32(temp1);
+                        if (decision > 3 || decision <= 0)
+                        {
+                            Console.Clear();
+                            Console.WriteLine("Please Enter a valid input...");
+                            Console.ReadLine();
+                            Console.Clear();
+                        }
+                        else
+                        {
+                            button = true;
+                        }
+                    }
+                    else
+                    {
+                        Console.Clear();
+                        Console.WriteLine("Please Enter a valid input...");
+                        Console.ReadLine();
+                        Console.Clear();
+                    }
+                } while (button == false);
+
                 decision = Convert.ToInt32(temp1);
                 Console.Clear();
 
@@ -323,18 +344,39 @@ namespace Command_Line_Adventure
                         Console.WriteLine("Your options are...");
                         Console.WriteLine("- [1] Run from the " + enemyBarks[5]);
                         Console.WriteLine("- [2] Backstab the " + enemyBarks[5]);
-                        temp1 = Console.ReadLine();
+
+                        do
+                        {
+                            button = false;
+                            temp1 = Console.ReadLine();
+
+                            if (int.TryParse(temp1, out decision))
+                            {
+                                decision = Convert.ToInt32(temp1);
+                                if (decision > 2 || decision <= 0)
+                                {
+                                    Console.Clear();
+                                    Console.WriteLine("Please Enter a valid input...");
+                                    Console.ReadLine();
+                                    Console.Clear();
+                                }
+                                else
+                                {
+                                    button = true;
+                                }
+                            }
+                            else
+                            {
+                                Console.Clear();
+                                Console.WriteLine("Please Enter a valid input...");
+                                Console.ReadLine();
+                                Console.Clear();
+                            }
+                        } while (button == false);
+
                         decision = Convert.ToInt32(temp1);
                         Console.Clear();
 
-                        if (string.IsNullOrEmpty(temp1))
-                        {
-                            Console.Clear();
-                            Console.WriteLine("Please Enter a valid input...");
-                            Console.ReadLine();
-                            Console.Clear();
-                            
-                        }
 
                         if (decision == 1)
                         {
@@ -406,17 +448,38 @@ namespace Command_Line_Adventure
                         Console.WriteLine("- [2] Intimedate");
                         Console.WriteLine("- [3] Persuade");
                         Console.WriteLine("- [4] Trick");
-                        temp1 = Console.ReadLine();
-                        decision = Convert.ToInt32(temp1);
 
-                        if (string.IsNullOrEmpty(temp1))
+                        do
                         {
-                            Console.Clear();
-                            Console.WriteLine("Please Enter a valid input...");
-                            Console.ReadLine();
-                            Console.Clear();
-                            
-                        }
+                            button = false;
+                            temp1 = Console.ReadLine();
+
+                            if (int.TryParse(temp1, out decision))
+                            {
+                                decision = Convert.ToInt32(temp1);
+                                if (decision > 4 || decision <= 0)
+                                {
+                                    Console.Clear();
+                                    Console.WriteLine("Please Enter a valid input...");
+                                    Console.ReadLine();
+                                    Console.Clear();
+                                }
+                                else
+                                {
+                                    button = true;
+                                }
+                            }
+                            else
+                            {
+                                Console.Clear();
+                                Console.WriteLine("Please Enter a valid input...");
+                                Console.ReadLine();
+                                Console.Clear();
+                            }
+                        } while (button == false);
+
+                        decision = Convert.ToInt32(temp1);
+                        Console.Clear();
 
                         if (decision == 1)
                         {
