@@ -1201,15 +1201,36 @@ namespace Command_Line_Adventure
             Console.WriteLine("- [2] Try to get the key!");
             Console.WriteLine("- [3] Check Inventory");
             Console.WriteLine();
-            temp = Console.ReadLine();
-            if (string.IsNullOrEmpty(temp))
+            do
             {
-                Console.Clear();
-                Console.WriteLine("Please Enter a valid input...");
-                Console.ReadLine();
-                Console.Clear();
-                GuardsChamber();
-            }
+                button = false;
+                temp = Console.ReadLine();
+
+                if (int.TryParse(temp, out input))
+                {
+                    input = Convert.ToInt32(temp);
+                    if (input > 3 || input <= 0)
+                    {
+                        Console.Clear();
+                        Console.WriteLine("Please Enter a valid input...");
+                        Console.ReadLine();
+                        Console.Clear();
+                        GuardsChamber();
+                    }
+                    else
+                    {
+                        button = true;
+                    }
+                }
+                else
+                {
+                    Console.Clear();
+                    Console.WriteLine("Please Enter a valid input...");
+                    Console.ReadLine();
+                    Console.Clear();
+                    GuardsChamber();
+                }
+            } while (button == false);
             input = Convert.ToInt32(temp);
             Console.Clear();
 
@@ -1280,15 +1301,36 @@ namespace Command_Line_Adventure
             Console.WriteLine("- [1] Go backwards");
             Console.WriteLine("- [2] Check Inventory");
             Console.WriteLine();
-            temp = Console.ReadLine();
-            if (string.IsNullOrEmpty(temp))
+            do
             {
-                Console.Clear();
-                Console.WriteLine("Please Enter a valid input...");
-                Console.ReadLine();
-                Console.Clear();
-                GuardsChamberB();
-            }
+                button = false;
+                temp = Console.ReadLine();
+
+                if (int.TryParse(temp, out input))
+                {
+                    input = Convert.ToInt32(temp);
+                    if (input > 2 || input <= 0)
+                    {
+                        Console.Clear();
+                        Console.WriteLine("Please Enter a valid input...");
+                        Console.ReadLine();
+                        Console.Clear();
+                        GuardsChamberB();
+                    }
+                    else
+                    {
+                        button = true;
+                    }
+                }
+                else
+                {
+                    Console.Clear();
+                    Console.WriteLine("Please Enter a valid input...");
+                    Console.ReadLine();
+                    Console.Clear();
+                    GuardsChamberB();
+                }
+            } while (button == false);
             input = Convert.ToInt32(temp);
             Console.Clear();
 
@@ -1333,15 +1375,36 @@ namespace Command_Line_Adventure
             Console.WriteLine("- [4] Check Inventory");
 
             Console.WriteLine();
-            temp = Console.ReadLine();
-            if (string.IsNullOrEmpty(temp))
+            do
             {
-                Console.Clear();
-                Console.WriteLine("Please Enter a valid input...");
-                Console.ReadLine();
-                Console.Clear();
-                Lairofthebeast();
-            }
+                button = false;
+                temp = Console.ReadLine();
+
+                if (int.TryParse(temp, out input))
+                {
+                    input = Convert.ToInt32(temp);
+                    if (input > 4 || input <= 0)
+                    {
+                        Console.Clear();
+                        Console.WriteLine("Please Enter a valid input...");
+                        Console.ReadLine();
+                        Console.Clear();
+                        Lairofthebeast();
+                    }
+                    else
+                    {
+                        button = true;
+                    }
+                }
+                else
+                {
+                    Console.Clear();
+                    Console.WriteLine("Please Enter a valid input...");
+                    Console.ReadLine();
+                    Console.Clear();
+                    Lairofthebeast();
+                }
+            } while (button == false);
             input = Convert.ToInt32(temp);
             Console.Clear();
 
@@ -1394,15 +1457,36 @@ namespace Command_Line_Adventure
             Console.WriteLine("- [3] Check Inventory");
 
             Console.WriteLine();
-            temp = Console.ReadLine();
-            if (string.IsNullOrEmpty(temp))
+            do
             {
-                Console.Clear();
-                Console.WriteLine("Please Enter a valid input...");
-                Console.ReadLine();
-                Console.Clear();
-                Lockedmysteryroom();
-            }
+                button = false;
+                temp = Console.ReadLine();
+
+                if (int.TryParse(temp, out input))
+                {
+                    input = Convert.ToInt32(temp);
+                    if (input > 3 || input <= 0)
+                    {
+                        Console.Clear();
+                        Console.WriteLine("Please Enter a valid input...");
+                        Console.ReadLine();
+                        Console.Clear();
+                        Lockedmysteryroom();
+                    }
+                    else
+                    {
+                        button = true;
+                    }
+                }
+                else
+                {
+                    Console.Clear();
+                    Console.WriteLine("Please Enter a valid input...");
+                    Console.ReadLine();
+                    Console.Clear();
+                    Lockedmysteryroom();
+                }
+            } while (button == false);
             input = Convert.ToInt32(temp);
             Console.Clear();
 
@@ -1447,15 +1531,36 @@ namespace Command_Line_Adventure
             Console.WriteLine("- [4] Check Inventory");
 
             Console.WriteLine();
-            temp = Console.ReadLine();
-            if (string.IsNullOrEmpty(temp))
+            do
             {
-                Console.Clear();
-                Console.WriteLine("Please Enter a valid input...");
-                Console.ReadLine();
-                Console.Clear();
-                Southeasthallway();
-            }
+                button = false;
+                temp = Console.ReadLine();
+
+                if (int.TryParse(temp, out input))
+                {
+                    input = Convert.ToInt32(temp);
+                    if (input > 4 || input <= 0)
+                    {
+                        Console.Clear();
+                        Console.WriteLine("Please Enter a valid input...");
+                        Console.ReadLine();
+                        Console.Clear();
+                        Southeasthallway();
+                    }
+                    else
+                    {
+                        button = true;
+                    }
+                }
+                else
+                {
+                    Console.Clear();
+                    Console.WriteLine("Please Enter a valid input...");
+                    Console.ReadLine();
+                    Console.Clear();
+                    Southeasthallway();
+                }
+            } while (button == false);
             input = Convert.ToInt32(temp);
             Console.Clear();
 
@@ -1508,15 +1613,36 @@ namespace Command_Line_Adventure
             Console.WriteLine("- [4] Check Inventory");
 
             Console.WriteLine();
-            temp = Console.ReadLine();
-            if (string.IsNullOrEmpty(temp))
+            do
             {
-                Console.Clear();
-                Console.WriteLine("Please Enter a valid input...");
-                Console.ReadLine();
-                Console.Clear();
-                SoutheasthallwayB();
-            }
+                button = false;
+                temp = Console.ReadLine();
+
+                if (int.TryParse(temp, out input))
+                {
+                    input = Convert.ToInt32(temp);
+                    if (input > 4 || input <= 0)
+                    {
+                        Console.Clear();
+                        Console.WriteLine("Please Enter a valid input...");
+                        Console.ReadLine();
+                        Console.Clear();
+                        SoutheasthallwayB();
+                    }
+                    else
+                    {
+                        button = true;
+                    }
+                }
+                else
+                {
+                    Console.Clear();
+                    Console.WriteLine("Please Enter a valid input...");
+                    Console.ReadLine();
+                    Console.Clear();
+                    SoutheasthallwayB();
+                }
+            } while (button == false);
             input = Convert.ToInt32(temp);
             Console.Clear();
 
@@ -1568,15 +1694,36 @@ namespace Command_Line_Adventure
             Console.WriteLine("- [3] Check Inventory");
 
             Console.WriteLine();
-            temp = Console.ReadLine();
-            if (string.IsNullOrEmpty(temp))
+            do
             {
-                Console.Clear();
-                Console.WriteLine("Please Enter a valid input...");
-                Console.ReadLine();
-                Console.Clear();
-                EmptyArmoury();
-            }
+                button = false;
+                temp = Console.ReadLine();
+
+                if (int.TryParse(temp, out input))
+                {
+                    input = Convert.ToInt32(temp);
+                    if (input > 3 || input <= 0)
+                    {
+                        Console.Clear();
+                        Console.WriteLine("Please Enter a valid input...");
+                        Console.ReadLine();
+                        Console.Clear();
+                        EmptyArmoury();
+                    }
+                    else
+                    {
+                        button = true;
+                    }
+                }
+                else
+                {
+                    Console.Clear();
+                    Console.WriteLine("Please Enter a valid input...");
+                    Console.ReadLine();
+                    Console.Clear();
+                    EmptyArmoury();
+                }
+            } while (button == false);
             input = Convert.ToInt32(temp);
             Console.Clear();
 
@@ -1643,15 +1790,36 @@ namespace Command_Line_Adventure
             Console.WriteLine("- [2] Check Inventory");
 
             Console.WriteLine();
-            temp = Console.ReadLine();
-            if (string.IsNullOrEmpty(temp))
+            do
             {
-                Console.Clear();
-                Console.WriteLine("Please Enter a valid input...");
-                Console.ReadLine();
-                Console.Clear();
-                EmptyArmouryB();
-            }
+                button = false;
+                temp = Console.ReadLine();
+
+                if (int.TryParse(temp, out input))
+                {
+                    input = Convert.ToInt32(temp);
+                    if (input > 2 || input <= 0)
+                    {
+                        Console.Clear();
+                        Console.WriteLine("Please Enter a valid input...");
+                        Console.ReadLine();
+                        Console.Clear();
+                        EmptyArmouryB();
+                    }
+                    else
+                    {
+                        button = true;
+                    }
+                }
+                else
+                {
+                    Console.Clear();
+                    Console.WriteLine("Please Enter a valid input...");
+                    Console.ReadLine();
+                    Console.Clear();
+                    EmptyArmouryB();
+                }
+            } while (button == false);
             input = Convert.ToInt32(temp);
             Console.Clear();
 
@@ -1698,15 +1866,36 @@ namespace Command_Line_Adventure
             Console.WriteLine("- [4] Check Inventory");
 
             Console.WriteLine();
-            temp = Console.ReadLine();
-            if (string.IsNullOrEmpty(temp))
+            do
             {
-                Console.Clear();
-                Console.WriteLine("Please Enter a valid input...");
-                Console.ReadLine();
-                Console.Clear();
-                Southwesthallway();
-            }
+                button = false;
+                temp = Console.ReadLine();
+
+                if (int.TryParse(temp, out input))
+                {
+                    input = Convert.ToInt32(temp);
+                    if (input > 4 || input <= 0)
+                    {
+                        Console.Clear();
+                        Console.WriteLine("Please Enter a valid input...");
+                        Console.ReadLine();
+                        Console.Clear();
+                        Southwesthallway();
+                    }
+                    else
+                    {
+                        button = true;
+                    }
+                }
+                else
+                {
+                    Console.Clear();
+                    Console.WriteLine("Please Enter a valid input...");
+                    Console.ReadLine();
+                    Console.Clear();
+                    Southwesthallway();
+                }
+            } while (button == false);
             input = Convert.ToInt32(temp);
             Console.Clear();
 
@@ -1760,15 +1949,36 @@ namespace Command_Line_Adventure
             Console.WriteLine("- [2] Check Inventory");
 
             Console.WriteLine();
-            temp = Console.ReadLine();
-            if (string.IsNullOrEmpty(temp))
+            do
             {
-                Console.Clear();
-                Console.WriteLine("Please Enter a valid input...");
-                Console.ReadLine();
-                Console.Clear();
-                Heavydungeon();
-            }
+                button = false;
+                temp = Console.ReadLine();
+
+                if (int.TryParse(temp, out input))
+                {
+                    input = Convert.ToInt32(temp);
+                    if (input > 2 || input <= 0)
+                    {
+                        Console.Clear();
+                        Console.WriteLine("Please Enter a valid input...");
+                        Console.ReadLine();
+                        Console.Clear();
+                        Heavydungeon();
+                    }
+                    else
+                    {
+                        button = true;
+                    }
+                }
+                else
+                {
+                    Console.Clear();
+                    Console.WriteLine("Please Enter a valid input...");
+                    Console.ReadLine();
+                    Console.Clear();
+                    Heavydungeon();
+                }
+            } while (button == false);
             input = Convert.ToInt32(temp);
             Console.Clear();
 
@@ -1807,15 +2017,36 @@ namespace Command_Line_Adventure
             Console.WriteLine("- [3] Check Inventory");
 
             Console.WriteLine();
-            temp = Console.ReadLine();
-            if (string.IsNullOrEmpty(temp))
+            do
             {
-                Console.Clear();
-                Console.WriteLine("Please Enter a valid input...");
-                Console.ReadLine();
-                Console.Clear();
-                BetterArmory();
-            }
+                button = false;
+                temp = Console.ReadLine();
+
+                if (int.TryParse(temp, out input))
+                {
+                    input = Convert.ToInt32(temp);
+                    if (input > 3 || input <= 0)
+                    {
+                        Console.Clear();
+                        Console.WriteLine("Please Enter a valid input...");
+                        Console.ReadLine();
+                        Console.Clear();
+                        BetterArmory();
+                    }
+                    else
+                    {
+                        button = true;
+                    }
+                }
+                else
+                {
+                    Console.Clear();
+                    Console.WriteLine("Please Enter a valid input...");
+                    Console.ReadLine();
+                    Console.Clear();
+                    BetterArmory();
+                }
+            } while (button == false);
             input = Convert.ToInt32(temp);
             Console.Clear();
 
@@ -1871,15 +2102,36 @@ namespace Command_Line_Adventure
             Console.WriteLine("- [3] Check Inventory");
 
             Console.WriteLine();
-            temp = Console.ReadLine();
-            if (string.IsNullOrEmpty(temp))
+            do
             {
-                Console.Clear();
-                Console.WriteLine("Please Enter a valid input...");
-                Console.ReadLine();
-                Console.Clear();
-                BetterArmoryB();
-            }
+                button = false;
+                temp = Console.ReadLine();
+
+                if (int.TryParse(temp, out input))
+                {
+                    input = Convert.ToInt32(temp);
+                    if (input > 3 || input <= 0)
+                    {
+                        Console.Clear();
+                        Console.WriteLine("Please Enter a valid input...");
+                        Console.ReadLine();
+                        Console.Clear();
+                        BetterArmoryB();
+                    }
+                    else
+                    {
+                        button = true;
+                    }
+                }
+                else
+                {
+                    Console.Clear();
+                    Console.WriteLine("Please Enter a valid input...");
+                    Console.ReadLine();
+                    Console.Clear();
+                    BetterArmoryB();
+                }
+            } while (button == false);
             input = Convert.ToInt32(temp);
             Console.Clear();
 
@@ -1931,15 +2183,36 @@ namespace Command_Line_Adventure
             Console.WriteLine("- [5] Check Inventory");
 
             Console.WriteLine();
-            temp = Console.ReadLine();
-            if (string.IsNullOrEmpty(temp))
+            do
             {
-                Console.Clear();
-                Console.WriteLine("Please Enter a valid input...");
-                Console.ReadLine();
-                Console.Clear();
-                Secondfloor_greathall();
-            }
+                button = false;
+                temp = Console.ReadLine();
+
+                if (int.TryParse(temp, out input))
+                {
+                    input = Convert.ToInt32(temp);
+                    if (input > 5 || input <= 0)
+                    {
+                        Console.Clear();
+                        Console.WriteLine("Please Enter a valid input...");
+                        Console.ReadLine();
+                        Console.Clear();
+                        Secondfloor_greathall();
+                    }
+                    else
+                    {
+                        button = true;
+                    }
+                }
+                else
+                {
+                    Console.Clear();
+                    Console.WriteLine("Please Enter a valid input...");
+                    Console.ReadLine();
+                    Console.Clear();
+                    Secondfloor_greathall();
+                }
+            } while (button == false);
             input = Convert.ToInt32(temp);
             Console.Clear();
 
@@ -2044,15 +2317,36 @@ namespace Command_Line_Adventure
             Console.WriteLine("- [5] Check Inventory");
 
             Console.WriteLine();
-            temp = Console.ReadLine();
-            if (string.IsNullOrEmpty(temp))
+            do
             {
-                Console.Clear();
-                Console.WriteLine("Please Enter a valid input...");
-                Console.ReadLine();
-                Console.Clear();
-                Secondfloor_greathallB();
-            }
+                button = false;
+                temp = Console.ReadLine();
+
+                if (int.TryParse(temp, out input))
+                {
+                    input = Convert.ToInt32(temp);
+                    if (input > 5 || input <= 0)
+                    {
+                        Console.Clear();
+                        Console.WriteLine("Please Enter a valid input...");
+                        Console.ReadLine();
+                        Console.Clear();
+                        Secondfloor_greathallB();
+                    }
+                    else
+                    {
+                        button = true;
+                    }
+                }
+                else
+                {
+                    Console.Clear();
+                    Console.WriteLine("Please Enter a valid input...");
+                    Console.ReadLine();
+                    Console.Clear();
+                    Secondfloor_greathallB();
+                }
+            } while (button == false);
             input = Convert.ToInt32(temp);
             Console.Clear();
 
@@ -2197,15 +2491,36 @@ namespace Command_Line_Adventure
 
             Console.WriteLine();
 
-            temp = Console.ReadLine();
-            if (string.IsNullOrEmpty(temp))
+            do
             {
-                Console.Clear();
-                Console.WriteLine("Please Enter a valid input...");
-                Console.ReadLine();
-                Console.Clear();
-                kitchenB();
-            }
+                button = false;
+                temp = Console.ReadLine();
+
+                if (int.TryParse(temp, out input))
+                {
+                    input = Convert.ToInt32(temp);
+                    if (input > 2 || input <= 0)
+                    {
+                        Console.Clear();
+                        Console.WriteLine("Please Enter a valid input...");
+                        Console.ReadLine();
+                        Console.Clear();
+                        kitchenB();
+                    }
+                    else
+                    {
+                        button = true;
+                    }
+                }
+                else
+                {
+                    Console.Clear();
+                    Console.WriteLine("Please Enter a valid input...");
+                    Console.ReadLine();
+                    Console.Clear();
+                    kitchenB();
+                }
+            } while (button == false);
             input = Convert.ToInt32(temp);
             Console.Clear();
 
@@ -2252,15 +2567,36 @@ namespace Command_Line_Adventure
             Console.WriteLine("- [2] Check Inventory");
 
             Console.WriteLine();
-            temp = Console.ReadLine();
-            if (string.IsNullOrEmpty(temp))
+            do
             {
-                Console.Clear();
-                Console.WriteLine("Please Enter a valid input...");
-                Console.ReadLine();
-                Console.Clear();
-                kitchenB();
-            }
+                button = false;
+                temp = Console.ReadLine();
+
+                if (int.TryParse(temp, out input))
+                {
+                    input = Convert.ToInt32(temp);
+                    if (input > 2 || input <= 0)
+                    {
+                        Console.Clear();
+                        Console.WriteLine("Please Enter a valid input...");
+                        Console.ReadLine();
+                        Console.Clear();
+                        kitchenB();
+                    }
+                    else
+                    {
+                        button = true;
+                    }
+                }
+                else
+                {
+                    Console.Clear();
+                    Console.WriteLine("Please Enter a valid input...");
+                    Console.ReadLine();
+                    Console.Clear();
+                    kitchenB();
+                }
+            } while (button == false);
             input = Convert.ToInt32(temp);
             Console.Clear();
 
