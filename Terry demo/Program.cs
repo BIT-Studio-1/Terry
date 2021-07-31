@@ -7,7 +7,7 @@ namespace Command_Line_Adventure
     public class Program
     {
         // These are universal variables 
-        private Bloodcage bloodcage;
+        public Bloodcage bloodcage;
         public static string temp;
         public static int[] stats = { 0, 0, 0, 0 };
         public static string keySlot = "...";
@@ -200,7 +200,7 @@ namespace Command_Line_Adventure
             return Null;
         }
 
-        // ** ALL STATS AND BARKS ABOVE THIS POINT ** //
+        // ** ALL STATS AND NPC BATTLE DIOLAGE ABOVE THIS POINT ** //
 
         public static bool Battle(int scenarioNumber, string PlaceName)
         {
@@ -247,8 +247,6 @@ namespace Command_Line_Adventure
                     Console.WriteLine(enemyBarks[4]);
                     Console.ReadLine();
                 }
-
-
 
                 if (decision == 1)
                 {
@@ -680,8 +678,7 @@ namespace Command_Line_Adventure
                         NorthMiddleHallway();
                         break;
                     case 2:
-                        //bloodcage
-                        Console.ReadLine();
+                        Bloodcage bloodcage = new Bloodcage(stats);
                         break;
                     case 3:
                         Inventory();
@@ -2262,8 +2259,6 @@ namespace Command_Line_Adventure
 
                 Console.ForegroundColor = ConsoleColor.Yellow;
 
-
-
                 temp = Console.ReadLine();
                 if (string.IsNullOrEmpty(temp))
                 {
@@ -2327,10 +2322,12 @@ namespace Command_Line_Adventure
             Console.ReadLine();
             Dungeon();
 
+
             Console.ReadLine();
         }
         public static void Main()
         {
+            
 
             Introduction();
             Menu();
