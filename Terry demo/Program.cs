@@ -48,7 +48,7 @@ namespace Command_Line_Adventure
         {
             int[] finalStats = { 0, 0, 0, 0 };
 
-            int[] weaponStats = weapon(ref Weapon);
+            int[] weaponStats = weapon(Weapon);
 
             int[] clothingStats = clothing(Clothing);
 
@@ -63,7 +63,7 @@ namespace Command_Line_Adventure
             return finalStats;
         }
 
-        public static int[] weapon(ref int weaponNumber)
+        public static int[] weapon(int weaponNumber)
         {
             switch (weaponNumber)
             {
@@ -73,6 +73,12 @@ namespace Command_Line_Adventure
                 case 2:
                     int[] KingSword = { 2, 0, 0, 0 };
                     return KingSword;
+                case 3:
+                    int[] Knife = { 1, 0, 0, 0 };
+                    return Knife;
+                default:
+                    int[] Fist = { 0, 0, 0, 0 };
+                    return Fist;
             }
             int[] Null = { 0, 0, 0, 0 };
             return Null;
@@ -87,6 +93,12 @@ namespace Command_Line_Adventure
                 case 2:
                     string[] KingSword = { "~King's Sword~", "King's personal sword, one of the most valuable relics in the kingdom", "Strength +2" };
                     return KingSword;
+                case 3:
+                    string[] Knife = { "~Knife~", "Small but effective", "Strength +1" };
+                    return Knife;
+                default:
+                    string[] Fist = { "~Fists~", "Nothing like your own two hands", "Nothing" };
+                    return Fist;
             }
             string[] Null = { "...", "..." };
             return Null;
@@ -105,6 +117,9 @@ namespace Command_Line_Adventure
                 case 3:
                     int[] GuardsArmour = { 0, 1, 0, 1 };
                     return GuardsArmour;
+                default:
+                    int[] Naked = { 0, 0, 0, 0 };
+                    return Naked;
             }
             int[] Null = { 0, 0, 0, 0 };
             return Null;
@@ -123,6 +138,9 @@ namespace Command_Line_Adventure
                 case 3:
                     string[] GuardsArmour = { "~Guard's Armour~", "Nice quality light dark armour. Provides stealth and protection ", "Stealth +1, Health +1" };
                     return GuardsArmour;
+                default:
+                    string[] Naked = { "~Naked~", "You are Butt Naked", "Valnuarble to embarrassment" };
+                    return Naked;
             }
             string[] Null = { "...", "..." };
             return Null;
@@ -170,6 +188,9 @@ namespace Command_Line_Adventure
                 case 5:
                     int[] GaintRat = { 2, 1, 1, 2, 6, 2, 6, 3 };
                     return GaintRat;
+                case 6:
+                    int[] Prisoner = { 2, 2, 3, 3, 3, 1, 2, 2 };
+                    return Prisoner;
             }
             int[] Null = { 0, 0, 0, 0 };
             return Null;
@@ -193,6 +214,9 @@ namespace Command_Line_Adventure
                 case 5:
                     string[] GaintRat = { "A giant rat attacks you out of nowhere\nGiant Rat: SCREEEEEE", "Giant Rat: eekk", "Giant Rat: SCREE", "You slay the Giant rat, it lays lifeless on the cold stone floor", "Giant Rat: Mohahahahaa, A FEAST\nSays the rat as it starts eating your ruined body", "Giant Rat" };
                     return GaintRat;
+                case 6:
+                    string[] Prisoner = { "The man is startled and quickly gets to his feet, hes welding a Knife", "Prisoner : 'AHGH Stay back!'", "Prisoner : 'Im warning you'", "Prisoner : *Gasp* why ...", "Prisoner : I told you to stay back ..", "Prisoner" };
+                    return Prisoner;
                 default:
                     break;
             }
@@ -1473,7 +1497,7 @@ namespace Command_Line_Adventure
 
                     for (int i = 0; i < stats.Length; i++)
                     {
-                        stats[i] = stats[i] + weapon(ref Weapon)[i];
+                        stats[i] = stats[i] + weapon(Weapon)[i];
                     }
 
                     EmptyArmouryButton = true;
@@ -1706,7 +1730,7 @@ namespace Command_Line_Adventure
                     Console.WriteLine($"{WeaponInfo[0]} \n{WeaponInfo[1]} \n{WeaponInfo[2]}");
                     for (int i = 0; i < stats.Length; i++)
                     {
-                        stats[i] = stats[i] + weapon(ref Weapon)[i];
+                        stats[i] = stats[i] + weapon(Weapon)[i];
                     }
                     BetterArmoryButton = true;
                     Console.ReadLine();
