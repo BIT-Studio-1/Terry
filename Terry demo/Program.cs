@@ -191,6 +191,9 @@ namespace Command_Line_Adventure
                 case 6:
                     int[] Prisoner = { 2, 2, 3, 3, 3, 1, 2, 2 };
                     return Prisoner;
+                case 7:
+                    int[] SirDavid = { 4, 3, 3, 5, 4, 6, 3, 2 };
+                    return SirDavid;
             }
             int[] Null = { 0, 0, 0, 0 };
             return Null;
@@ -217,8 +220,9 @@ namespace Command_Line_Adventure
                 case 6:
                     string[] Prisoner = { "The man is startled and quickly gets to his feet, hes welding a Knife", "Prisoner : 'AHGH Stay back!'", "Prisoner : 'Im warning you'", "Prisoner : *Gasp* why ...", "Prisoner : I told you to stay back ..", "Prisoner" };
                     return Prisoner;
-                default:
-                    break;
+                case 7:
+                    string[] SirDavid = { "Sir David : 'Your gonna regret this'", "Sir David : Arghh", "Sir David : This is your end!", "Sir David : This cant be ...", "Sir David : You shouldve never fought me", "Sir David" };
+                    return SirDavid;
             }
             string[] Null = { "silence", "silence", "silence", "silence", "silence", "silence" };
             return Null;
@@ -702,6 +706,7 @@ namespace Command_Line_Adventure
                         NorthMiddleHallway();
                         break;
                     case 2:
+                        stats = PlayerStats();
                         Bloodcage bloodcage = new Bloodcage(stats);
                         break;
                     case 3:
