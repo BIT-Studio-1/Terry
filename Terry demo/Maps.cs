@@ -16,8 +16,8 @@ namespace Terry_demo
         public void OutsideDungeon()
         {
             Console.WriteLine(@"");
-            Console.WriteLine(@"");
-            Console.WriteLine(@"");
+            Console.WriteLine(@" You have left the Dungeon,");
+            Console.WriteLine(@" the '*' symbol represents your location");
             Console.WriteLine(@" ________________________________________________________________________________ ");
             Console.WriteLine(@"||                                    /|                                       /||");
             Console.WriteLine(@"||__________________________________ / |_____________________________________ / ||");
@@ -30,7 +30,7 @@ namespace Terry_demo
             Console.WriteLine(@"||______________/ |___________/^_/____________/^_/_________ / |______________ / ||");
             Console.WriteLine(@"||╔           ╗|  | ╔       ╗                              |  |              |  ||");
             Console.WriteLine(@"|| Crematorium |  |  Hallway                               |  |              |  ||");
-            Console.WriteLine(@"||╚           ╝|  | ╚       ╝______________________        |  |              |  ||");
+            Console.WriteLine(@"||╚           ╝|  | ╚       ╝_____________*________        |  |              |  ||");
             Console.WriteLine(@"||             |  |        / |           /  /     /|       |  |              |  ||");
             Console.WriteLine(@"||             | /|       /  |__________/^_/____ / |       |  |              |  ||");
             Console.WriteLine(@"||             |/ |       |  |                  |  |       | /|              |  ||");
@@ -60,8 +60,8 @@ namespace Terry_demo
         public void OutsideLairOfTheBeast()
         {
             Console.WriteLine(@"");
-            Console.WriteLine(@"");
-            Console.WriteLine(@"");
+            Console.WriteLine(@" You have left the Lair of the Beast,");
+            Console.WriteLine(@" the '*' symbol represents your location");
             Console.WriteLine(@" ________________________________________________________________________________ ");
             Console.WriteLine(@"||                                    /|                                       /||");
             Console.WriteLine(@"||__________________________________ / |_____________________________________ / ||");
@@ -72,7 +72,7 @@ namespace Terry_demo
             Console.WriteLine(@"||__________________________________|__|_____________________________________|__||");
             Console.WriteLine(@"||               /|            /  /            /  /          /|                /||");
             Console.WriteLine(@"||______________/ |___________/^_/____________/^_/_________ / |______________ / ||");
-            Console.WriteLine(@"||╔           ╗|  | ╔       ╗                              |  |              |  ||");
+            Console.WriteLine(@"||╔           ╗|  | ╔       ╗                  *           |  |              |  ||");
             Console.WriteLine(@"|| Crematorium |  |  Hallway                               |  |              |  ||");
             Console.WriteLine(@"||╚           ╝|  | ╚       ╝______________________        |  |              |  ||");
             Console.WriteLine(@"||             |  |        / |           /  /     /|       |  |              |  ||");
@@ -104,8 +104,8 @@ namespace Terry_demo
         public void OutsideCrematorium()
         {
             Console.WriteLine(@"");
-            Console.WriteLine(@"");
-            Console.WriteLine(@"");
+            Console.WriteLine(@" You have left the Crematorium,");
+            Console.WriteLine(@" the '*' symbol represents your location");
             Console.WriteLine(@" ________________________________________________________________________________ ");
             Console.WriteLine(@"||                                    /|                                       /||");
             Console.WriteLine(@"||__________________________________ / |_____________________________________ / ||");
@@ -121,7 +121,7 @@ namespace Terry_demo
             Console.WriteLine(@"||╚           ╝|  | ╚       ╝______________________        |  |              |  ||");
             Console.WriteLine(@"||             |  |        / |           /  /     /|       |  |              |  ||");
             Console.WriteLine(@"||             | /|       /  |__________/^_/____ / |       |  |              |  ||");
-            Console.WriteLine(@"||             |/ |       |  |                  |  |       | /|              |  ||");
+            Console.WriteLine(@"||             |/ | *     |  |                  |  |       | /|              |  ||");
             Console.WriteLine(@"||             | /|       |  |                  |  |       |/ |   ╔      ╗   |  ||");
             Console.WriteLine(@"||             |/ |       |  |                  |  |       | /|    Locked    |  ||");
             Console.WriteLine(@"||_____________|__|       |  |      ╔       ╗   |  |       |/ |    Mystery   |  ||");
@@ -148,8 +148,8 @@ namespace Terry_demo
         public void OutsideEmptyArmoury()
         {
             Console.WriteLine(@"");
-            Console.WriteLine(@"");
-            Console.WriteLine(@"");
+            Console.WriteLine(@" You have left the empty Armoury,");
+            Console.WriteLine(@" the '*' symbol represents your location");
             Console.WriteLine(@" ________________________________________________________________________________ ");
             Console.WriteLine(@"||                                    /|                                       /||");
             Console.WriteLine(@"||__________________________________ / |_____________________________________ / ||");
@@ -180,7 +180,7 @@ namespace Terry_demo
             Console.WriteLine(@"||             |  |                                        |  |              |  ||");
             Console.WriteLine(@"||             |  |                                        |  |              |  ||");
             Console.WriteLine(@"||             |  |                                        |  |              |  ||");
-            Console.WriteLine(@"||             |  |________________________________________|__|______________|__||");
+            Console.WriteLine(@"||             |  |____________________________________*___|__|______________|__||");
             Console.WriteLine(@"||             | /      /  /        /|                /  /                     /||");
             Console.WriteLine(@"||             |/______/^_/_______ / |_______________/^_/____________________ / ||");
             Console.WriteLine(@"||                                |  |                                       |  ||");
@@ -193,8 +193,8 @@ namespace Terry_demo
         public void OutsideGuardsChamber()
         {
             Console.WriteLine(@"");
-            Console.WriteLine(@"");
-            Console.WriteLine(@"");
+            Console.WriteLine(@" You have left the Guards Chamber,");
+            Console.WriteLine(@" the '*' symbol represents your location");
             Console.WriteLine(@" ________________________________________________________________________________ ");
             Console.WriteLine(@"||                                    /|                                       /||");
             Console.WriteLine(@"||__________________________________ / |_____________________________________ / ||");
@@ -205,7 +205,7 @@ namespace Terry_demo
             Console.WriteLine(@"||__________________________________|__|_____________________________________|__||");
             Console.WriteLine(@"||               /|            /  /            /  /          /|                /||");
             Console.WriteLine(@"||______________/ |___________/^_/____________/^_/_________ / |______________ / ||");
-            Console.WriteLine(@"||╔           ╗|  | ╔       ╗                              |  |              |  ||");
+            Console.WriteLine(@"||╔           ╗|  | ╔       ╗   *                          |  |              |  ||");
             Console.WriteLine(@"|| Crematorium |  |  Hallway                               |  |              |  ||");
             Console.WriteLine(@"||╚           ╝|  | ╚       ╝______________________        |  |              |  ||");
             Console.WriteLine(@"||             |  |        / |           /  /     /|       |  |              |  ||");
@@ -237,8 +237,8 @@ namespace Terry_demo
         public void OutsideHeavyDungeon()
         {
             Console.WriteLine(@"");
-            Console.WriteLine(@"");
-            Console.WriteLine(@"");
+            Console.WriteLine(@" You have left the Heavy Dungeon,");
+            Console.WriteLine(@" the '*' symbol represents your location");
             Console.WriteLine(@" ________________________________________________________________________________ ");
             Console.WriteLine(@"||                                    /|                                       /||");
             Console.WriteLine(@"||__________________________________ / |_____________________________________ / ||");
@@ -269,7 +269,7 @@ namespace Terry_demo
             Console.WriteLine(@"||             |  |                                        |  |              |  ||");
             Console.WriteLine(@"||             |  |                                        |  |              |  ||");
             Console.WriteLine(@"||             |  |                                        |  |              |  ||");
-            Console.WriteLine(@"||             |  |________________________________________|__|______________|__||");
+            Console.WriteLine(@"||             |  |_______*________________________________|__|______________|__||");
             Console.WriteLine(@"||             | /      /  /        /|                /  /                     /||");
             Console.WriteLine(@"||             |/______/^_/_______ / |_______________/^_/____________________ / ||");
             Console.WriteLine(@"||                                |  |                                       |  ||");
@@ -281,8 +281,8 @@ namespace Terry_demo
         public void OutsideMysteryRoom()
         {
             Console.WriteLine(@"");
-            Console.WriteLine(@"");
-            Console.WriteLine(@"");
+            Console.WriteLine(@" You have left the Mystery room,");
+            Console.WriteLine(@" the '*' symbol represents your location");
             Console.WriteLine(@" ________________________________________________________________________________ ");
             Console.WriteLine(@"||                                    /|                                       /||");
             Console.WriteLine(@"||__________________________________ / |_____________________________________ / ||");
@@ -300,7 +300,7 @@ namespace Terry_demo
             Console.WriteLine(@"||             | /|       /  |__________/^_/____ / |       |  |              |  ||");
             Console.WriteLine(@"||             |/ |       |  |                  |  |       | /|              |  ||");
             Console.WriteLine(@"||             | /|       |  |                  |  |       |/ |   ╔      ╗   |  ||");
-            Console.WriteLine(@"||             |/ |       |  |                  |  |       | /|    Locked    |  ||");
+            Console.WriteLine(@"||             |/ |       |  |                  |  |     * | /|    Locked    |  ||");
             Console.WriteLine(@"||_____________|__|       |  |      ╔       ╗   |  |       |/ |    Mystery   |  ||");
             Console.WriteLine(@"||               /|       |  |       Dungeon    |  |       |  |     Room     |  ||");
             Console.WriteLine(@"||_____________ / |       |  |      ╚       ╝   |  |       |  |   ╚      ╝   |  ||");
