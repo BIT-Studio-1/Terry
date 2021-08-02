@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Threading;
+using Terry_demo;
 
 namespace Command_Line_Adventure
 {
@@ -18,7 +19,7 @@ namespace Command_Line_Adventure
         public static bool CrematoriumButton = false;
         public static bool KitchenButton = false;
         public static bool SouthEastButton = false;
-
+        public Maps maps = new Maps();
 
         public static void GameOver()
         {
@@ -675,6 +676,7 @@ namespace Command_Line_Adventure
                 switch (input)
                 {
                     case 1:
+                        Maps.OutsideDungeon();
                         NorthMiddleHallway();
                         break;
                     case 2:
