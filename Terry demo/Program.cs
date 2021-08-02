@@ -1008,9 +1008,6 @@ namespace Command_Line_Adventure
 
             Console.Clear();
             Console.WriteLine("You are in the Crematorium. It is dark and gloomy and you cough because of all the ash.");
-            Console.WriteLine("Memories of your parents come back to you, they met a cruel demise at the hands of the King.");
-            Console.WriteLine("The King will pay for this injustice you say to yourself as you prepare to find some of their");
-            Console.WriteLine("remains here in the Crematorium");
             Console.WriteLine();
 
             Console.WriteLine("Your options are...");
