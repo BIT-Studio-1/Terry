@@ -221,16 +221,16 @@ namespace Command_Line_Adventure
                     Console.ReadLine();
                     return true;
                 }
-
-                Console.Clear();
-                Console.WriteLine("Your Health: " + playerStats[3]);
-                Console.WriteLine(enemyBarks[5] + " Health: " + enemyStats[3] + "\n");
-                Console.WriteLine("- [1] Attack the " + enemyBarks[5]);
-                Console.WriteLine("- [2] Hide from the " + enemyBarks[5]);
-                Console.WriteLine("- [3] Talk to the " + enemyBarks[5] + "\n");
-
                 do
                 {
+                    Console.Clear();
+                    Console.WriteLine("Your Health: " + playerStats[3]);
+                    Console.WriteLine(enemyBarks[5] + " Health: " + enemyStats[3] + "\n");
+                    Console.WriteLine("- [1] Attack the " + enemyBarks[5]);
+                    Console.WriteLine("- [2] Hide from the " + enemyBarks[5]);
+                    Console.WriteLine("- [3] Talk to the " + enemyBarks[5] + "\n");
+
+                
                     button = false;
                     temp1 = Console.ReadLine();
 
@@ -337,16 +337,17 @@ namespace Command_Line_Adventure
                     Console.Clear();
                     if (yourRoll > enemyRoll)
                     {
-                        Console.WriteLine("\nYou hide from the " + enemyBarks[5] + "\n");
-                        Console.WriteLine(enemyBarks[5] + ": where did you go?");
-                        Console.ReadLine();
-                        Console.Clear();
-                        Console.WriteLine("Your options are...");
-                        Console.WriteLine("- [1] Run from the " + enemyBarks[5]);
-                        Console.WriteLine("- [2] Backstab the " + enemyBarks[5]);
-
                         do
                         {
+                            Console.WriteLine("\nYou hide from the " + enemyBarks[5] + "\n");
+                            Console.WriteLine(enemyBarks[5] + ": where did you go?");
+                            Console.ReadLine();
+                            Console.Clear();
+                            Console.WriteLine("Your options are...");
+                            Console.WriteLine("- [1] Run from the " + enemyBarks[5]);
+                            Console.WriteLine("- [2] Backstab the " + enemyBarks[5]);
+
+                        
                             button = false;
                             temp1 = Console.ReadLine();
 
@@ -441,16 +442,17 @@ namespace Command_Line_Adventure
                     int yourRoll = 0, enemyRoll = 0;
                     if (Knowing == false)
                     {
-                        Knowing = true;
-
-                        Console.WriteLine("You attempt to talk to the " + enemyBarks[5]);
-                        Console.WriteLine("- [1] Seduce");
-                        Console.WriteLine("- [2] Intimedate");
-                        Console.WriteLine("- [3] Persuade");
-                        Console.WriteLine("- [4] Trick");
-
                         do
                         {
+                            Knowing = true;
+
+                            Console.WriteLine("You attempt to talk to the " + enemyBarks[5]);
+                            Console.WriteLine("- [1] Seduce");
+                            Console.WriteLine("- [2] Intimedate");
+                            Console.WriteLine("- [3] Persuade");
+                            Console.WriteLine("- [4] Trick");
+
+                        
                             button = false;
                             temp1 = Console.ReadLine();
 
