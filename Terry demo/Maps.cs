@@ -15,7 +15,8 @@ namespace Terry_demo
         {
             Console.WriteLine(@"");
             Console.WriteLine(@" You have left the Dungeon,");
-            Console.WriteLine(@" the '*' symbol represents your location");
+            Console.WriteLine(@"                    **                             ");
+            Console.WriteLine(@" when this appears '**' it represents your location");
             Console.WriteLine(@" ________________________________________________________________________________ ");
             Console.WriteLine(@"||                                    /|                                       /||");
             Console.WriteLine(@"||__________________________________ / |_____________________________________ / ||");
@@ -27,8 +28,8 @@ namespace Terry_demo
             Console.WriteLine(@"||               /|            /  /            /  /          /|                /||");
             Console.WriteLine(@"||______________/ |___________/^_/____________/^_/_________ / |______________ / ||");
             Console.WriteLine(@"||╔           ╗|  | ╔       ╗                              |  |              |  ||");
-            Console.WriteLine(@"|| Crematorium |  |  Hallway                               |  |              |  ||");
-            Console.WriteLine(@"||╚           ╝|  | ╚       ╝_____________*________        |  |              |  ||");
+            Console.WriteLine(@"|| Crematorium |  |  Hallway              **               |  |              |  ||");
+            Console.WriteLine(@"||╚           ╝|  | ╚       ╝_____________**_______        |  |              |  ||");
             Console.WriteLine(@"||             |  |        / |           /  /     /|       |  |              |  ||");
             Console.WriteLine(@"||             | /|       /  |__________/^_/____ / |       |  |              |  ||");
             Console.WriteLine(@"||             |/ |       |  |                  |  |       | /|              |  ||");
@@ -59,7 +60,8 @@ namespace Terry_demo
             
             Console.WriteLine(@"");
             Console.WriteLine(@" You have left the Dungeon,");
-            Console.WriteLine(@" the '*' symbol represents your location");
+            Console.WriteLine(@"                    **                             ");
+            Console.WriteLine(@" when this appears '**' it represents your location");
             Console.WriteLine(@" ________________________________________________________________________________ ");
             Console.WriteLine(@"||                                    /|                                       /||");
             Console.WriteLine(@"||__________________________________ / |_____________________________________ / ||");
@@ -103,7 +105,8 @@ namespace Terry_demo
 
             Console.WriteLine(@"");
             Console.WriteLine(@" You have left the Dungeon,");
-            Console.WriteLine(@" the '*' symbol represents your location");
+            Console.WriteLine(@"                    **                             ");
+            Console.WriteLine(@" when this appears '**' it represents your location");
             Console.WriteLine(@" ________________________________________________________________________________ ");
             Console.WriteLine(@"||                                    /|                                       /||");
             Console.WriteLine(@"||__________________________________ / |_____________________________________ / ||");
@@ -115,8 +118,8 @@ namespace Terry_demo
             Console.WriteLine(@"||               /|            /  /            /  /          /|                /||");
             Console.WriteLine(@"||______________/ |___________/^_/____________/^_/_________ / |______________ / ||");
             Console.WriteLine(@"||╔           ╗|  | ╔       ╗                              |  |              |  ||");
-            Console.WriteLine(@"|| Crematorium |  |  Hallway                               |  |              |  ||");
-            Console.WriteLine(@"||╚           ╝|  | ╚       ╝_____________*________        |  |              |  ||");
+            Console.WriteLine(@"|| Crematorium |  |  Hallway              **               |  |              |  ||");
+            Console.WriteLine(@"||╚           ╝|  | ╚       ╝_____________**_______        |  |              |  ||");
             Console.WriteLine(@"||             |  |        / |           /  /     /|       |  |              |  ||");
             Console.WriteLine(@"||             | /|       /  |__________/^_/____ / |       |  |              |  ||");
             Console.WriteLine(@"||             |/ |       |  |                  |  |       | /|              |  ||");
@@ -147,7 +150,8 @@ namespace Terry_demo
 
             Console.WriteLine(@"");
             Console.WriteLine(@" You have left the Dungeon,");
-            Console.WriteLine(@" the '*' symbol represents your location");
+            Console.WriteLine(@"                    **                             ");
+            Console.WriteLine(@" when this appears '**' it represents your location");
             Console.WriteLine(@" ________________________________________________________________________________ ");
             Console.WriteLine(@"||                                    /|                                       /||");
             Console.WriteLine(@"||__________________________________ / |_____________________________________ / ||");
@@ -191,7 +195,10 @@ namespace Terry_demo
 
             Console.WriteLine(@"");
             Console.WriteLine(@" You have left the Dungeon,");
-            Console.WriteLine(@" the '*' symbol represents your location");
+            Console.WriteLine(@"                    **                             ");
+            Console.WriteLine(@" when this appears '**' it represents your location");
+            Console.WriteLine(@"");
+            Console.WriteLine(@" Press the ENTER key to return to the game");
             Console.WriteLine(@" ________________________________________________________________________________ ");
             Console.WriteLine(@"||                                    /|                                       /||");
             Console.WriteLine(@"||__________________________________ / |_____________________________________ / ||");
@@ -203,8 +210,8 @@ namespace Terry_demo
             Console.WriteLine(@"||               /|            /  /            /  /          /|                /||");
             Console.WriteLine(@"||______________/ |___________/^_/____________/^_/_________ / |______________ / ||");
             Console.WriteLine(@"||╔           ╗|  | ╔       ╗                              |  |              |  ||");
-            Console.WriteLine(@"|| Crematorium |  |  Hallway                               |  |              |  ||");
-            Console.WriteLine(@"||╚           ╝|  | ╚       ╝_____________*________        |  |              |  ||");
+            Console.WriteLine(@"|| Crematorium |  |  Hallway              **               |  |              |  ||");
+            Console.WriteLine(@"||╚           ╝|  | ╚       ╝_____________**_______        |  |              |  ||");
             Console.WriteLine(@"||             |  |        / |           /  /     /|       |  |              |  ||");
             Console.WriteLine(@"||             | /|       /  |__________/^_/____ / |       |  |              |  ||");
             Console.WriteLine(@"||             |/ |       |  |                  |  |       | /|              |  ||");
@@ -230,8 +237,8 @@ namespace Terry_demo
             Console.WriteLine(@"||    Heavy Dungeon               |  |    Empty Armoury                      |  ||");
             Console.WriteLine(@"||   ╚             ╝              |  |   ╚             ╝                     |  ||");
             Console.WriteLine(@"||________________________________|__|_______________________________________|__||");
-            Thread.Sleep(500);
-            Console.Clear();
+            Thread.Sleep(2000);
+            
             
         }
         public void OutsideLairOfTheBeast()
