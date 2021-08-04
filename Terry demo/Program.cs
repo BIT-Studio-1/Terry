@@ -74,8 +74,11 @@ namespace Command_Line_Adventure
                     int[] KingSword = { 2, 0, 0, 0 };
                     return KingSword;
                 case 3:
-                    int[] Knife = { 1, 0, 0, 0 };
+                    int[] Knife = { 1, 1, 0, 0 };
                     return Knife;
+                case 4:
+                    int[] SirDavidSword = { 2, -1, 1, 0 };
+                    return SirDavidSword;
                 default:
                     int[] Fist = { 0, 0, 0, 0 };
                     return Fist;
@@ -96,6 +99,9 @@ namespace Command_Line_Adventure
                 case 3:
                     string[] Knife = { "~Knife~", "Small but effective", "Strength +1" };
                     return Knife;
+                case 4:
+                    string[] SirDavidSword = { "~Sir Davids Sword~", "A betifully forged sword, ment only for those worthy", "Grants strength and Perstige" };
+                    return SirDavidSword;
                 default:
                     string[] Fist = { "~Fists~", "Nothing like your own two hands", "Nothing" };
                     return Fist;
@@ -192,7 +198,7 @@ namespace Command_Line_Adventure
                     int[] Prisoner = { 2, 2, 3, 3, 3, 1, 2, 2 };
                     return Prisoner;
                 case 7:
-                    int[] SirDavid = { 4, 3, 3, 5, 4, 6, 3, 2 };
+                    int[] SirDavid = { 4, 1, 3, 5, 4, 6, 3, 2 };
                     return SirDavid;
             }
             int[] Null = { 0, 0, 0, 0 };

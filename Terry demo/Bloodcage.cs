@@ -41,36 +41,6 @@ namespace Terry_demo
         public bool LeftPathBattle;
         public int BrokenHallState;
 
-       //public void Weapons(int X)
-       //{
-       //    switch (X)
-       //    {
-       //        case 0:
-       //            inventory.Weapon = ;
-       //            inventory.Wname = "~Fist~";
-       //            break;
-       //        case 1:
-       //            inventory.Weapon = 1;
-       //        default:
-       //            inventory.Weapon = 0;
-       //            inventory.Wname = "~Fist~";
-       //            break;
-       //    }
-       //}
-       //public void Clothing(int X)
-       //{
-       //    switch (X)
-       //    {
-       //        case 0:
-       //            inventory.Clothing = 0;
-       //            inventory.Cname = "~Prisoner Rags~";
-       //            break;
-       //        default:
-       //            inventory.Clothing = 0;
-       //            inventory.Cname = "~Naked~";
-       //            break;
-       //    }
-       //}
         public void Backpack(int X, int S)
         {
             int IntMod = 0;
@@ -111,7 +81,16 @@ namespace Terry_demo
 
         public void YourStuff(Inventory inventory)
         {
-            Program.StatsCalculation();
+            int[] weaponStats = inventory.Weapon;
+
+            int[] clothingStats = inventory.Clothing;
+
+            for (int i = 0; i < 4; i++)
+            {
+                Playerstats[i] = Playerstats[i] + weaponStats[i] + clothingStats[i];
+            }
+
+            Console.Clear();
             Console.ForegroundColor = ConsoleColor.Yellow;
             Console.WriteLine();
             Console.WriteLine("~Inventory~");
@@ -137,12 +116,12 @@ namespace Terry_demo
 
         public void Wake()
         {
-            choice = 0;
+            Console.Clear();
             Console.WriteLine("You fall asleep, waking up to a looked door. Many days pass, only barely suviving on the scraps they gave you");
             Console.WriteLine("Guard : You! get up, its your turn in the BloodCage\n");
             Console.WriteLine("The guard chains you up and drags you down the hall, then throws you into the Ruins");
             Console.WriteLine("Guard : Id say good luck but even thats not gonna help you\n");
-            Console.WriteLine("A metal gate drops in between you both and he walks away luaghing to himself");
+            Console.WriteLine("A metal gate drops in between you both and he walks away luaghing to himself\n");
             Console.WriteLine("[1] Move into the scary Ruins");
             temp = Console.ReadLine();
             if (string.IsNullOrEmpty(temp))
@@ -167,7 +146,7 @@ namespace Terry_demo
             choice = 0;
             Console.Clear();
             Console.WriteLine("You enter the ruins, ruble and broken podiums litter the room");
-            Console.WriteLine("There are two paths, one on the left and one on the right");
+            Console.WriteLine("There are two paths, one on the left and one on the right\n");
             Console.WriteLine("[1] Move to Left path");
             Console.WriteLine("[2] Move to right path");
             Console.WriteLine("[3] Check Inventory");
@@ -202,7 +181,7 @@ namespace Terry_demo
             {
                 Console.Clear();
                 Console.WriteLine("You see a scared man muttering to himself in this empty room");
-                Console.WriteLine("He does not seem to notice you");
+                Console.WriteLine("He does not seem to notice you\n");
                 Console.WriteLine("[1] Ask 'Whats going on here?'");
                 Console.WriteLine("[2] Attack him");
                 Console.WriteLine("[3] Sneak up to him");
@@ -219,7 +198,7 @@ namespace Terry_demo
                 {
                     case 1:
                         Console.Clear();
-                        Console.WriteLine("Scared man : 'we are all gonna die, its coming for us'");
+                        Console.WriteLine("Scared man : 'we are all gonna die, its coming for us'\n");
                         Console.WriteLine("[1] Ask 'Whats coming for us?'");
                         Console.WriteLine("[2] Leave him alone");
                         if (Playerstats[2] >= 3)
@@ -260,7 +239,7 @@ namespace Terry_demo
                         break;
                     case 2:
                         Program.Battle(6, "Empty Ruin");
-                        Console.WriteLine("You defeated the Prisoner\nYou see hes got a Knife and a few coins");
+                        Console.WriteLine("You defeated the Prisoner\nYou see hes got a Knife and a few coins\n");
                         Console.WriteLine("[1] Take his Knife and coins");
                         Console.WriteLine("[2] Leave");
                         temp = Console.ReadLine();
@@ -313,7 +292,7 @@ namespace Terry_demo
                         {
                             if (StealKnife == false)
                             {
-                                Console.WriteLine("You can see a Knife in his bag and a few coins, he still hasent noticed you");
+                                Console.WriteLine("You can see a Knife in his bag and a few coins, he still hasent noticed you\n");
                                 Console.WriteLine("[1] Steal the Knife");
                                 Console.WriteLine("[2] Sneak Back");
 
@@ -344,7 +323,7 @@ namespace Terry_demo
                             }
                             else
                             {
-                                Console.WriteLine("You cant see anything else on him");
+                                Console.WriteLine("You cant see anything else on him\n");
                                 Console.WriteLine("[1] Sneak Back");
 
                                 temp = Console.ReadLine();
@@ -366,9 +345,9 @@ namespace Terry_demo
                         }
                         if (yourRoll < enemyRoll)
                         {
-                            Console.WriteLine("Scared man : 'Huh?! Stay BACK!'");
+                            Console.WriteLine("Scared man : 'Huh?! Stay BACK!'\n");
                             Program.Battle(6, "Empty Ruin");
-                            Console.WriteLine("You killed the Prisoner\nYou see hes got a Knife");
+                            Console.WriteLine("You killed the Prisoner\nYou see hes got a Knife\n");
                             Console.WriteLine("[1] Take his Knife");
                             Console.WriteLine("[2] Leave");
 
@@ -410,7 +389,7 @@ namespace Terry_demo
             else
             {
                 Console.Clear();
-                Console.WriteLine("You see the Prisoners corpse on the ground");
+                Console.WriteLine("You see the Prisoners corpse on the ground\n");
                 Console.WriteLine("[1] Leave");
                 Console.WriteLine("[2] Cheack Inventoery");
                 temp = Console.ReadLine();
@@ -439,7 +418,7 @@ namespace Terry_demo
         {
             choice = 0;
             Console.Clear();
-            Console.WriteLine("You enter a dark hallway, you see a light at the end of the hallway");
+            Console.WriteLine("You enter a dark hallway, you see a light at the end of the hallway\n");
             Console.WriteLine("[1] Follow the light");
             Console.WriteLine("[2] Go back");
             Console.WriteLine("[3] Check Inventory");
@@ -501,7 +480,7 @@ namespace Terry_demo
                         Console.WriteLine("Sir David : 'If you fetch my bag I left down in the Celler I can asure you both our freedom\n");
                         Console.WriteLine("[1] Say 'I will get your bag'");
                         Console.WriteLine("[2] Say 'Im not your servent to command'");
-                        Console.WriteLine("[3] Leave");
+                        Console.WriteLine("[3] Go back to dark hallway");
                         Console.WriteLine("[4] Check Inventory");
                         if (Playerstats[2] >= 3)
                         {
@@ -532,7 +511,7 @@ namespace Terry_demo
                                 BrokenHall();
                                 break;
                             case 3:
-                                RightPath();                               
+                                RightPath();
                                 break;
                             case 4:
                                 YourStuff(inventory);
@@ -549,11 +528,108 @@ namespace Terry_demo
                         break;
                     case 2:
                         Program.Battle(7, "Broken Hall");
-                        Console.WriteLine(" ");
+                        Console.WriteLine("You have defeated Sir David in battle, he is dead");
+                        Console.ReadLine();
+                        Console.WriteLine("New Weapon ~Sir Davids Sword~");
+                        Console.ReadLine();
+                        inventory.Weapon = Program.weapon(4);
+                        inventory.Wname = Program.weaponString(4);
                         BrokenHallState = 2;
                         break;
                     case 3:
+                        int yourRoll = 0, enemyRoll = 0;
+                        Random randy = new Random();
+                        string[] enemyBarks = Program.EnemyBarks(6);
+                        int[] enemyStats = Program.EnemyStats(6);
+                        Console.WriteLine("You sneak with " + Playerstats[1] + " dice");
+                        Console.ReadLine();
+                        for (int i = 0; i < Playerstats[1]; i++)
+                        {
+                            int dice = randy.Next(1, 7);
+                            Console.WriteLine(dice);
+                            yourRoll = yourRoll + dice;
 
+                        }
+                        Console.WriteLine("\nThe " + enemyBarks[5] + " checks with " + enemyStats[1] + " dice");
+                        Console.ReadLine();
+                        for (int i = 0; i < enemyStats[1]; i++)
+                        {
+                            int dice = randy.Next(1, 7);
+                            Console.WriteLine(dice);
+                            enemyRoll = enemyRoll + dice;
+                        }
+                        Console.ReadLine();
+                        Console.WriteLine("Your total sneak is " + yourRoll);
+                        Console.WriteLine("The " + enemyBarks[5] + "s total check is " + enemyRoll);
+                        Console.ReadLine();
+                        Console.Clear();
+
+                        if (yourRoll > enemyRoll)
+                        {
+                            Console.Clear();
+                            Console.WriteLine("You sneak up to him \nSir David : 'I know your there, prisoner, dont try anything funny now'\n");
+                            Console.WriteLine("[1] Attack");
+                            Console.WriteLine("[2] Go back");
+
+                            temp = Console.ReadLine();
+                            if (string.IsNullOrEmpty(temp))
+                            {
+                                Console.WriteLine("Please Enter a valid input...");
+                                Console.ReadLine();
+                            }
+                            choice = Convert.ToInt32(temp);
+
+                            switch (choice)
+                            {
+                                case 1:
+                                    Program.Battle(7, "Broken Hall");
+                                    Console.WriteLine("You have defeated Sir David in battle, he is dead");
+                                    Console.ReadLine();
+                                    Console.WriteLine("New Weapon ~Sir Davids Sword~");
+                                    Console.ReadLine();
+                                    inventory.Weapon = Program.weapon(4);
+                                    inventory.Wname = Program.weaponString(4);
+                                    BrokenHallState = 2;
+                                    break;
+                                case 2:
+                                    BrokenHall();
+                                    break;
+                            }
+
+
+                        }
+                        if (yourRoll < enemyRoll)
+                        {
+                            Console.Clear();
+                            Console.WriteLine("You sneak up to him \nSir David : 'I know your there, prisoner, dont try anything funny now'\n");
+                            Console.WriteLine("[1] Attack");
+                            Console.WriteLine("[2] Go back");
+
+                            temp = Console.ReadLine();
+                            if (string.IsNullOrEmpty(temp))
+                            {
+                                Console.WriteLine("Please Enter a valid input...");
+                                Console.ReadLine();
+                            }
+                            choice = Convert.ToInt32(temp);
+
+                            switch (choice)
+                            {
+                                case 1:
+                                    Program.Battle(7, "Broken Hall");
+                                    Console.WriteLine("You have defeated Sir David in battle, he is dead");
+                                    Console.ReadLine();
+                                    Console.WriteLine("New Weapon ~Sir Davids Sword~");
+                                    Console.ReadLine();
+                                    inventory.Weapon = Program.weapon(4);
+                                    inventory.Wname = Program.weaponString(4);
+                                    BrokenHallState = 2;
+                                    break;
+                                case 2:
+                                    BrokenHall();
+                                    break;
+                            }
+                        }
                         break;
                     case 4:
                         RightPath();
@@ -565,13 +641,15 @@ namespace Terry_demo
             }
             if (BrokenHallState == 1)
             {
+                Console.Clear();
                 Console.WriteLine("Your in an old hall, with a long table in the middile, the walls are decorated with tattered royal banners");
-                Console.WriteLine("You see Sir David resting on the same pile of rubble tending to his wounds");
+                Console.WriteLine("You see Sir David resting on the same pile of rubble tending to his wounds\n");
                 Console.WriteLine("[1] Talk");
                 Console.WriteLine("[2] Attack");
                 Console.WriteLine("[3] Sneak");
-                Console.WriteLine("[4] Leave");
-                Console.WriteLine("[5] Check Inventory");
+                Console.WriteLine("[4] Move to Dark hallway");
+                Console.WriteLine("[5] Move to Celler hatch");
+                Console.WriteLine("[6] Check Inventory");
 
                 temp = Console.ReadLine();
                 if (string.IsNullOrEmpty(temp))
@@ -580,6 +658,186 @@ namespace Terry_demo
                     Console.ReadLine();
                 }
                 choice = Convert.ToInt32(temp);
+
+                switch (choice)
+                {
+                    case 1:
+                        Console.Clear();
+                        Console.WriteLine("Sir David : 'You realy should be going, we dont want to stay down her too long, it might find us");
+                        Console.ReadLine();
+                        BrokenHall();
+                        break;
+                    case 2:
+                        Program.Battle(7, "Broken Hall");
+                        Console.WriteLine("You have defeated Sir David in battle, he is dead");
+                        Console.ReadLine();
+                        Console.WriteLine("New Weapon ~Sir Davids Sword~");
+                        Console.ReadLine();
+                        inventory.Weapon = Program.weapon(4);
+                        inventory.Wname = Program.weaponString(4);
+                        BrokenHallState = 2;
+                        break;
+                    case 3:
+                        int yourRoll = 0, enemyRoll = 0;
+                        Random randy = new Random();
+                        string[] enemyBarks = Program.EnemyBarks(6);
+                        int[] enemyStats = Program.EnemyStats(6);
+                        Console.WriteLine("You sneak with " + Playerstats[1] + " dice");
+                        Console.ReadLine();
+                        for (int i = 0; i < Playerstats[1]; i++)
+                        {
+                            int dice = randy.Next(1, 7);
+                            Console.WriteLine(dice);
+                            yourRoll = yourRoll + dice;
+
+                        }
+                        Console.WriteLine("\nThe " + enemyBarks[5] + " checks with " + enemyStats[1] + " dice");
+                        Console.ReadLine();
+                        for (int i = 0; i < enemyStats[1]; i++)
+                        {
+                            int dice = randy.Next(1, 7);
+                            Console.WriteLine(dice);
+                            enemyRoll = enemyRoll + dice;
+                        }
+                        Console.ReadLine();
+                        Console.WriteLine("Your total sneak is " + yourRoll);
+                        Console.WriteLine("The " + enemyBarks[5] + "s total check is " + enemyRoll);
+                        Console.ReadLine();
+                        Console.Clear();
+
+                        if (yourRoll > enemyRoll)
+                        {
+                            Console.Clear();
+                            Console.WriteLine("You sneak up to him \nSir David : 'I know your there, prisoner, dont try anything funny now'\n");
+                            Console.WriteLine("[1] Attack");
+                            Console.WriteLine("[2] Go back");
+
+                            temp = Console.ReadLine();
+                            if (string.IsNullOrEmpty(temp))
+                            {
+                                Console.WriteLine("Please Enter a valid input...");
+                                Console.ReadLine();
+                            }
+                            choice = Convert.ToInt32(temp);
+
+                            switch (choice)
+                            {
+                                case 1:
+                                    Program.Battle(7, "Broken Hall");
+                                    Console.WriteLine("You have defeated Sir David in battle, he is dead");
+                                    Console.ReadLine();
+                                    Console.WriteLine("New Weapon ~Sir Davids Sword~");
+                                    Console.ReadLine();
+                                    inventory.Weapon = Program.weapon(4);
+                                    inventory.Wname = Program.weaponString(4);
+                                    BrokenHallState = 2;
+                                    break;
+                                case 2:
+                                    BrokenHall();
+                                    break;
+                            }
+
+
+                        }
+                        if (yourRoll < enemyRoll)
+                        {
+                            Console.Clear();
+                            Console.WriteLine("You sneak up to him \nSir David : 'I know your there, prisoner, dont try anything funny now'\n");
+                            Console.WriteLine("[1] Attack");
+                            Console.WriteLine("[2] Go back");
+
+                            temp = Console.ReadLine();
+                            if (string.IsNullOrEmpty(temp))
+                            {
+                                Console.WriteLine("Please Enter a valid input...");
+                                Console.ReadLine();
+                            }
+                            choice = Convert.ToInt32(temp);
+
+                            switch (choice)
+                            {
+                                case 1:
+                                    Program.Battle(7, "Broken Hall");
+                                    Console.WriteLine("You have defeated Sir David in battle, he is dead");
+                                    Console.ReadLine();
+                                    Console.WriteLine("New Weapon ~Sir Davids Sword~");
+                                    Console.ReadLine();
+                                    inventory.Weapon = Program.weapon(4);
+                                    inventory.Wname = Program.weaponString(4);
+                                    BrokenHallState = 2;
+                                    break;
+                                case 2:
+                                    BrokenHall();
+                                    break;
+                            }
+                        }
+                        break;
+                    case 4:
+                        RightPath();
+                        break;
+                    case 5:
+                        CellerHatch();
+                        break;
+                    case 6:
+                        YourStuff(inventory);
+                        BrokenHall();
+                        break;
+                }
+            }
+
+            if (BrokenHallState == 2)
+            {
+                Console.Clear();
+                Console.WriteLine("Your in an old hall, with a long table in the middile, the walls are decorated with tattered royal banners");
+                Console.WriteLine("You see Sir David resting on the same pile of rubble tending to his wounds");
+                Console.WriteLine("[1] Move to Dark hallway");
+                Console.WriteLine("[2] Move to Celler hatch");
+                Console.WriteLine("[3] Check Inventory");
+
+                temp = Console.ReadLine();
+                if (string.IsNullOrEmpty(temp))
+                {
+                    Console.WriteLine("Please Enter a valid input...");
+                    Console.ReadLine();
+                }
+                choice = Convert.ToInt32(temp);
+
+                switch (choice)
+                {
+                    case 1:
+                        RightPath();
+                        break;
+                    case 2:
+                        CellerHatch();
+                        break;
+                    case 3:
+                        YourStuff(inventory);
+                        BrokenHall();
+                        break;
+                }
+
+            }
+        }
+
+        public void CellerHatch()
+        {
+            Console.Clear();
+            Console.WriteLine("To be continued");
+            Console.WriteLine("[1] Return to the Broken hall");
+
+            temp = Console.ReadLine();
+            if (string.IsNullOrEmpty(temp))
+            {
+                Console.WriteLine("Please Enter a valid input...");
+                Console.ReadLine();
+            }
+            choice = Convert.ToInt32(temp);
+
+            switch (choice)
+            {
+                case 1:
+                    BrokenHall();
+                    break;
             }
         }
 
@@ -603,9 +861,6 @@ namespace Terry_demo
             Backpack(99, 2);
             Backpack(99, 3);
             Backpack(99, 4);
-
-            Console.WriteLine($"{Playerstats[0]} {Playerstats[1]} {Playerstats[2]} {Playerstats[3]}");
-            Console.ReadLine();
 
             Wake();
         }
