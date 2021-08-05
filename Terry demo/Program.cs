@@ -759,22 +759,22 @@ namespace Command_Line_Adventure
                 input = Convert.ToInt32(temp);
                 Console.Clear();
 
-                switch (temp)
+                switch (input)
                 {
 
                     case 1:
                         Maps.OutsideDungeon();
                         NorthMiddleHallway();
                         break;
-                    case "2":
+                    case 2:
                         Console.WriteLine("You choose to stay. And with that your, only chance of escape is gone. The Guards walk into the dungeon and execute you. ");
                         Console.ReadLine();
                         GameOver();
                         break;
-                    case "3":
+                    case 3:
                         Inventory();
                         break;
-                    case "VENT":
+                    case 4:
                         vent();
                         break;
 
@@ -788,7 +788,7 @@ namespace Command_Line_Adventure
                         Console.ReadLine();
                         break;
                 }
-            } while (temp != "0");
+            } while (input != 0);
         }
         public static void vent()
         {

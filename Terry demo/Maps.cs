@@ -241,7 +241,7 @@ namespace Terry_demo
             
             
         }
-        public void OutsideLairOfTheBeast()
+        public static void OutsideLairOfTheBeast()
         {
             Console.WriteLine(@"");
             Console.WriteLine(@" You have left the The lair of the Beast,");
@@ -467,7 +467,7 @@ namespace Terry_demo
             Console.WriteLine(@"||________________________________|__|_______________________________________|__||");
             Thread.Sleep(4000);
         }
-        public void OutsideCrematorium()
+        public static void OutsideCrematorium()
         {
             Console.WriteLine(@"");
             Console.WriteLine(@" You have left the Crematorium,");
@@ -693,7 +693,7 @@ namespace Terry_demo
             Console.WriteLine(@"||________________________________|__|_______________________________________|__||");
             Thread.Sleep(4000);
         }
-        public void OutsideEmptyArmoury()
+        public static void OutsideEmptyArmoury()
         {
             Console.WriteLine(@"");
             Console.WriteLine(@" You have left the The Empty Armoury,");
@@ -920,7 +920,7 @@ namespace Terry_demo
             Thread.Sleep(4000);
             
         }
-        public void OutsideGuardsChamber()
+        public static void OutsideGuardsChamber()
         {
             Console.WriteLine(@"");
             Console.WriteLine(@" You have left the The Guards Chamber,");
@@ -1147,7 +1147,7 @@ namespace Terry_demo
             Thread.Sleep(4000);
             
         }
-        public void OutsideHeavyDungeon()
+        public static void OutsideHeavyDungeon()
         {
             Console.WriteLine(@"");
             Console.WriteLine(@" You have left the The Heavy Dungeon,");
@@ -1374,7 +1374,7 @@ namespace Terry_demo
             Thread.Sleep(4000);
             
         }
-        public void OutsideMysteryRoom()
+        public static void OutsideMysteryRoom()
         {
             Console.WriteLine(@"");
             Console.WriteLine(@" You have left the The Mystery Room,");
