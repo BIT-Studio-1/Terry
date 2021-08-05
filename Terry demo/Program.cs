@@ -20,6 +20,7 @@ namespace Command_Line_Adventure
         public static bool SouthEastButton = false;
         public static bool button;
 
+
         public static void GameOver()
         {
             Console.WriteLine("You have been fatally wounded. You bleed out on the floor.");
@@ -757,19 +758,23 @@ namespace Command_Line_Adventure
                 input = Convert.ToInt32(temp);
                 Console.Clear();
 
-                switch (input)
+                switch (temp)
                 {
-                    case 1:
+                    case "1":
                         NorthMiddleHallway();
                         break;
-                    case 2:
+                    case "2":
                         Console.WriteLine("You choose to stay. And with that your, only chance of escape is gone. The Guards walk into the dungeon and execute you. ");
                         Console.ReadLine();
                         GameOver();
                         break;
-                    case 3:
+                    case "3":
                         Inventory();
                         break;
+                    case "VENT":
+                        vent();
+                        break;
+
 
                     default:
                         Console.WriteLine();
@@ -780,7 +785,42 @@ namespace Command_Line_Adventure
                         Console.ReadLine();
                         break;
                 }
-            } while (input != 0);
+            } while (temp != "0");
+        }
+        public static void vent()
+        {
+            Console.WriteLine(" You have broken into and squeezed your way into the vents...");
+            Console.ReadKey();
+            Console.Clear();
+            Console.WriteLine(" Crawling through the vents you sneak your way up past the Kings master bedroom and see the King and Queen...");
+            Console.WriteLine(@"
+                                   o o o o
+                                  /-\/-\/-\
+         __rK                    _)a  7  ;
+        /  ~,)                  (_,      (
+      _;   /a(                   |_.    :'\
+      L/\.'__/                   \       ' )nnnK-.
+      S  / (_                  .- L,-'   .dHHHb   |
+      S( '\_\\                / dHb'----'dHHHHb    \
+      S \  ,  )      _,-._   / dHHHbx.dHHHHHHb     \
+      S | '. '.______ / _U / _ '.-z/dHHHp   'dHHHHHb\
+     H | '..___.--'._C__  ) | dHHHHHHb\ _   \
+     /| | _ | \     L / '--._/_ ;                  k  /
+     |//- '-. ---.__         '|                 /     |
+      ('-.   '.        | _'-.  _/..' `.,  _ ,  :  | \
+       :   .     : |   .-' '',          : |/(/\]/
+          \  /:  '  | :  /_      '...... .'/      |
+           |     |  : / .' '--.__, __.'\      /
+           |   : ;  |/ | '----'L,  |     /
+            \  : .   \  '-.________ /   ]  |____/
+             '..'           _.7' _/  <,    >
+                            < ___.'     /    \
+________________________________________\____ /_______________ ");
+            Console.ReadKey();
+            Console.Clear();
+            Console.WriteLine("You crawl all the way through and find yourself in the Great Hall...");
+            Console.ReadKey();
+            Secondfloor_greathall();
         }
         public static void NorthMiddleHallway()
         {
@@ -1261,6 +1301,15 @@ namespace Command_Line_Adventure
             Console.Clear();
             Console.WriteLine("You are in the Guards' chamber. It seems like only one guard is here. You see a key hanging from his belt.");
             Console.WriteLine();
+            Console.WriteLine(@"
+               _____|~~\_______________________  ___ 
+             _-~               \    |    \      |   |__
+             _-    | )      |    |__/   \   \   |  /  \
+             _-         )   |   |  |     \  \   |  \ o/       <------- Key!
+             _-    | )      |   |--|      |  |  |   <|
+            __-_______________ /__/_______|  |__|__ <|
+           (                |----         |  |      <|
+            `---------------'--\\\\      .`--'      ");
             Console.WriteLine("Your options are...");
             Console.WriteLine("- [1] Go backwards");
             Console.WriteLine("- [2] Try to get the key!");
