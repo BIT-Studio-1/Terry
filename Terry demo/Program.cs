@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Threading;
+using Terry_demo;
 
 namespace Command_Line_Adventure
 {
@@ -18,8 +19,8 @@ namespace Command_Line_Adventure
         public static bool CrematoriumButton = false;
         public static bool KitchenButton = false;
         public static bool SouthEastButton = false;
+        public Maps maps = new Maps();
         public static bool button;
-
 
         public static void GameOver()
         {
@@ -760,7 +761,9 @@ namespace Command_Line_Adventure
 
                 switch (temp)
                 {
-                    case "1":
+
+                    case 1:
+                        Maps.OutsideDungeon();
                         NorthMiddleHallway();
                         break;
                     case "2":
@@ -1162,6 +1165,7 @@ ________________________________________\____ /_______________ ");
             switch (input)
             {
                 case 1:
+                    Maps.OutsideCrematorium();
                     LeftHallway();
                     break;
                 case 2:
@@ -1262,6 +1266,7 @@ ________________________________________\____ /_______________ ");
             switch (input)
             {
                 case 1:
+                    Maps.OutsideCrematorium();
                     LeftHallway();
                     break;
                 case 2:
@@ -1317,6 +1322,7 @@ ________________________________________\____ /_______________ ");
                 button = false;
                 temp = Console.ReadLine();
 
+
                 if (int.TryParse(temp, out input))
                 {
                     input = Convert.ToInt32(temp);
@@ -1351,6 +1357,7 @@ ________________________________________\____ /_______________ ");
             switch (input)
             {
                 case 1:
+                    Maps.OutsideGuardsChamber();
                     LeftHallway();
                     break;
 
@@ -1448,6 +1455,7 @@ ________________________________________\____ /_______________ ");
             switch (input)
             {
                 case 1:
+                    Maps.OutsideGuardsChamber();
                     LeftHallway();
                     break;
 
@@ -1522,6 +1530,7 @@ ________________________________________\____ /_______________ ");
             switch (input)
             {
                 case 1:
+                    Maps.OutsideLairOfTheBeast();
                     RightHallway();
                     break;
                 case 2:
@@ -1604,6 +1613,7 @@ ________________________________________\____ /_______________ ");
             switch (input)
             {
                 case 1:
+                    Maps.OutsideMysteryRoom();
                     RightHallway();
                     break;
                 case 2:
