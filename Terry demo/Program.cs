@@ -1,11 +1,13 @@
 ﻿using System;
 using System.Threading;
+using Terry_demo;
 
 namespace Command_Line_Adventure
 {
-    class Program
+    public class Program
     {
         // These are universal variables 
+        public Bloodcage bloodcage;
         public static string temp;
         public static int[] stats = { 0, 0, 0, 0 };
         public static string keySlot = "...";
@@ -46,7 +48,7 @@ namespace Command_Line_Adventure
         {
             int[] finalStats = { 0, 0, 0, 0 };
 
-            int[] weaponStats = weapon(ref Weapon);
+            int[] weaponStats = weapon(Weapon);
 
             int[] clothingStats = clothing(Clothing);
 
@@ -61,7 +63,7 @@ namespace Command_Line_Adventure
             return finalStats;
         }
 
-        public static int[] weapon(ref int weaponNumber)
+        public static int[] weapon(int weaponNumber)
         {
             switch (weaponNumber)
             {
@@ -71,6 +73,15 @@ namespace Command_Line_Adventure
                 case 2:
                     int[] KingSword = { 2, 0, 0, 0 };
                     return KingSword;
+                case 3:
+                    int[] Knife = { 1, 1, 0, 0 };
+                    return Knife;
+                case 4:
+                    int[] SirDavidSword = { 2, -1, 1, 0 };
+                    return SirDavidSword;
+                default:
+                    int[] Fist = { 0, 0, 0, 0 };
+                    return Fist;
             }
             int[] Null = { 0, 0, 0, 0 };
             return Null;
@@ -85,6 +96,15 @@ namespace Command_Line_Adventure
                 case 2:
                     string[] KingSword = { "~King's Sword~", "King's personal sword, one of the most valuable relics in the kingdom", "Strength +2" };
                     return KingSword;
+                case 3:
+                    string[] Knife = { "~Knife~", "Small but effective", "Strength +1" };
+                    return Knife;
+                case 4:
+                    string[] SirDavidSword = { "~Sir Davids Sword~", "A betifully forged sword, ment only for those worthy", "Grants strength and Perstige" };
+                    return SirDavidSword;
+                default:
+                    string[] Fist = { "~Fists~", "Nothing like your own two hands", "Nothing" };
+                    return Fist;
             }
             string[] Null = { "...", "..." };
             return Null;
@@ -103,6 +123,9 @@ namespace Command_Line_Adventure
                 case 3:
                     int[] GuardsArmour = { 0, 1, 0, 1 };
                     return GuardsArmour;
+                default:
+                    int[] Naked = { 0, 0, 0, 0 };
+                    return Naked;
             }
             int[] Null = { 0, 0, 0, 0 };
             return Null;
@@ -121,6 +144,9 @@ namespace Command_Line_Adventure
                 case 3:
                     string[] GuardsArmour = { "~Guard's Armour~", "Nice quality light dark armour. Provides stealth and protection ", "Stealth +1, Health +1" };
                     return GuardsArmour;
+                default:
+                    string[] Naked = { "~Naked~", "You are Butt Naked", "Valnuarble to embarrassment" };
+                    return Naked;
             }
             string[] Null = { "...", "..." };
             return Null;
@@ -168,6 +194,12 @@ namespace Command_Line_Adventure
                 case 5:
                     int[] GaintRat = { 2, 1, 1, 2, 6, 2, 6, 3 };
                     return GaintRat;
+                case 6:
+                    int[] Prisoner = { 2, 2, 3, 3, 3, 1, 2, 2 };
+                    return Prisoner;
+                case 7:
+                    int[] SirDavid = { 4, 1, 3, 5, 4, 6, 3, 2 };
+                    return SirDavid;
             }
             int[] Null = { 0, 0, 0, 0 };
             return Null;
@@ -191,14 +223,18 @@ namespace Command_Line_Adventure
                 case 5:
                     string[] GaintRat = { "A giant rat attacks you out of nowhere\nGiant Rat: SCREEEEEE", "Giant Rat: eekk", "Giant Rat: SCREE", "You slay the Giant rat, it lays lifeless on the cold stone floor", "Giant Rat: Mohahahahaa, A FEAST\nSays the rat as it starts eating your ruined body", "Giant Rat" };
                     return GaintRat;
-                default:
-                    break;
+                case 6:
+                    string[] Prisoner = { "The man is startled and quickly gets to his feet, hes welding a Knife", "Prisoner : 'AHGH Stay back!'", "Prisoner : 'Im warning you'", "Prisoner : *Gasp* why ...", "Prisoner : I told you to stay back ..", "Prisoner" };
+                    return Prisoner;
+                case 7:
+                    string[] SirDavid = { "Sir David : 'Your gonna regret this'", "Sir David : Arghh", "Sir David : This is your end!", "Sir David : This cant be ...", "Sir David : You shouldve never fought me", "Sir David" };
+                    return SirDavid;
             }
             string[] Null = { "silence", "silence", "silence", "silence", "silence", "silence" };
             return Null;
         }
 
-        // ** ALL STATS AND BARKS ABOVE THIS POINT ** //
+        // ** ALL STATS AND NPC BATTLE DIOLAGE ABOVE THIS POINT ** //
 
         public static bool Battle(int scenarioNumber, string PlaceName)
         {
@@ -245,8 +281,6 @@ namespace Command_Line_Adventure
                     Console.WriteLine(enemyBarks[4]);
                     Console.ReadLine();
                 }
-
-
 
                 if (decision == 1)
                 {
@@ -678,9 +712,8 @@ namespace Command_Line_Adventure
                         NorthMiddleHallway();
                         break;
                     case 2:
-                        Console.WriteLine("You choose to stay. And with that your, only chance of escape is gone. The Guards walk into the dungeon and execute you. ");
-                        Console.ReadLine();
-                        GameOver();
+                        stats = PlayerStats();
+                        Bloodcage bloodcage = new Bloodcage(stats);
                         break;
                     case 3:
                         Inventory();
@@ -1475,7 +1508,7 @@ namespace Command_Line_Adventure
 
                     for (int i = 0; i < stats.Length; i++)
                     {
-                        stats[i] = stats[i] + weapon(ref Weapon)[i];
+                        stats[i] = stats[i] + weapon(Weapon)[i];
                     }
 
                     EmptyArmouryButton = true;
@@ -1708,7 +1741,7 @@ namespace Command_Line_Adventure
                     Console.WriteLine($"{WeaponInfo[0]} \n{WeaponInfo[1]} \n{WeaponInfo[2]}");
                     for (int i = 0; i < stats.Length; i++)
                     {
-                        stats[i] = stats[i] + weapon(ref Weapon)[i];
+                        stats[i] = stats[i] + weapon(Weapon)[i];
                     }
                     BetterArmoryButton = true;
                     Console.ReadLine();
@@ -2261,8 +2294,6 @@ namespace Command_Line_Adventure
 
                 Console.ForegroundColor = ConsoleColor.Yellow;
 
-
-
                 temp = Console.ReadLine();
                 if (string.IsNullOrEmpty(temp))
                 {
@@ -2326,10 +2357,12 @@ namespace Command_Line_Adventure
             Console.ReadLine();
             Dungeon();
 
+
             Console.ReadLine();
         }
         public static void Main()
         {
+            
 
             Introduction();
             Menu();
