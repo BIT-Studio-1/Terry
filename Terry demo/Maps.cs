@@ -237,7 +237,7 @@ namespace Terry_demo
             Console.WriteLine(@"||    Heavy Dungeon               |  |    Empty Armoury                      |  ||");
             Console.WriteLine(@"||   ╚             ╝              |  |   ╚             ╝                     |  ||");
             Console.WriteLine(@"||________________________________|__|_______________________________________|__||");
-            Thread.Sleep(2000);
+            Thread.Sleep(4000);
             
             
         }
