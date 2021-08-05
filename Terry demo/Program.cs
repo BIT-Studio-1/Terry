@@ -734,7 +734,7 @@ namespace Command_Line_Adventure
                     if (int.TryParse(temp, out input))
                     {
                         input = Convert.ToInt32(temp);
-                        if (input > 3 || input <= 0)
+                        if (input > 4 || input <= 0)
                         {
                             Console.Clear();
                             Console.WriteLine("Please Enter a valid input...");
