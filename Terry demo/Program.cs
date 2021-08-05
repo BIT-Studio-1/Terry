@@ -955,6 +955,7 @@ namespace Command_Line_Adventure
             switch (input)
             {
                 case 1:
+                    Maps.OutsideCrematorium();
                     LeftHallway();
                     break;
                 case 2:
@@ -1037,6 +1038,7 @@ namespace Command_Line_Adventure
             switch (input)
             {
                 case 1:
+                    Maps.OutsideCrematorium();
                     LeftHallway();
                     break;
                 case 2:
@@ -1096,6 +1098,7 @@ namespace Command_Line_Adventure
             switch (input)
             {
                 case 1:
+                    Maps.OutsideGuardsChamber();
                     LeftHallway();
                     break;
 
@@ -1172,6 +1175,7 @@ namespace Command_Line_Adventure
             switch (input)
             {
                 case 1:
+                    Maps.OutsideGuardsChamber();
                     LeftHallway();
                     break;
 
@@ -1225,6 +1229,7 @@ namespace Command_Line_Adventure
             switch (input)
             {
                 case 1:
+                    Maps.OutsideLairOfTheBeast();
                     RightHallway();
                     break;
                 case 2:
@@ -1286,6 +1291,7 @@ namespace Command_Line_Adventure
             switch (input)
             {
                 case 1:
+                    Maps.OutsideMysteryRoom();
                     RightHallway();
                     break;
                 case 2:
