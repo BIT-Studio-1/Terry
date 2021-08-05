@@ -18,6 +18,7 @@ namespace Command_Line_Adventure
         public static bool CrematoriumButton = false;
         public static bool KitchenButton = false;
         public static bool SouthEastButton = false;
+        public static bool SouthwestButton = false;
         public static bool button;
 
 
@@ -169,6 +170,10 @@ namespace Command_Line_Adventure
                 case 5:
                     int[] GaintRat = { 2, 1, 1, 2, 6, 2, 6, 3 };
                     return GaintRat;
+                case 6:
+                    int[] GroupGuards = { 2, 2, 1, 2 };
+                    return GroupGuards;
+
             }
             int[] Null = { 0, 0, 0, 0 };
             return Null;
@@ -192,6 +197,10 @@ namespace Command_Line_Adventure
                 case 5:
                     string[] GaintRat = { "A giant rat attacks you out of nowhere\nGiant Rat: SCREEEEEE", "Giant Rat: eekk", "Giant Rat: SCREE", "You slay the Giant rat, it lays lifeless on the cold stone floor", "Giant Rat: Mohahahahaa, A FEAST\nSays the rat as it starts eating your ruined body", "Giant Rat" };
                     return GaintRat;
+                case 6:
+                    string[] GroupGuards = { "They suspect you are there...\nGuard: Who's there? Show yourself!!", "Ourghhh! Is useless to resist", "Die now prisoner!! ", "You killed the guards, what a masacre...", "HAHAHA. No one can scape the King's dungeon.", "group of guards" };
+                    return GroupGuards;
+
                 default:
                     break;
             }
@@ -1968,7 +1977,10 @@ ________________________________________\____ /_______________ ");
             int input;
 
             Console.Clear();
-            Console.WriteLine("You are South West part of the hallway");
+            Console.WriteLine("You are South West part of the hallway. Watch out! A group of patrolling guards are comming in front of you.");
+            Console.WriteLine("You need to hide or you will be caught...");
+            Battle(6, "Dim Hallway");
+            SouthwestButton = true;
             Console.WriteLine();
             Console.WriteLine("Your options are...");
             Console.WriteLine("- [1] Go  Up (North)");
@@ -2032,6 +2044,89 @@ ________________________________________\____ /_______________ ");
                     Inventory();
                     Console.WriteLine("PRESS ENTER");
                     Southwesthallway();
+                    break;
+
+                default:
+                    Console.WriteLine();
+                    Console.ForegroundColor = ConsoleColor.Red;
+                    Console.WriteLine("You have entered an invalid input");
+                    Console.WriteLine("Press any key to continue...");
+                    Console.ForegroundColor = ConsoleColor.Red;
+                    Console.ReadLine();
+                    break;
+            }
+        }
+
+        public static void SouthwesthallwayB()
+        {
+            string temp;
+            int input;
+
+            Console.Clear();
+            Console.WriteLine("You are South West part of the hallway. ");
+            Console.WriteLine();
+            Console.WriteLine("Your options are...");
+            Console.WriteLine("- [1] Go  Up (North)");
+            Console.WriteLine("- [2] Go  Right -->");
+            Console.WriteLine("- [3] Enter the Main Prison");
+            Console.WriteLine("- [4] Check Inventory");
+
+            Console.WriteLine();
+            do
+            {
+                button = false;
+                temp = Console.ReadLine();
+
+                if (int.TryParse(temp, out input))
+                {
+                    input = Convert.ToInt32(temp);
+                    if (input > 4 || input <= 0)
+                    {
+                        Console.Clear();
+                        Console.WriteLine("Please Enter a valid input...");
+                        Console.ReadLine();
+                        Console.Clear();
+                        SouthwesthallwayB();
+                    }
+                    else
+                    {
+                        button = true;
+                    }
+                }
+                else
+                {
+                    Console.Clear();
+                    Console.WriteLine("Please Enter a valid input...");
+                    Console.ReadLine();
+                    Console.Clear();
+                    SouthwesthallwayB();
+                }
+            } while (button == false);
+            input = Convert.ToInt32(temp);
+            Console.Clear();
+
+            switch (input)
+            {
+                case 1:
+                    LeftHallway();
+                    break;
+                case 2:
+                    if (SouthEastButton == false)
+                    {
+                        Southeasthallway();
+                    }
+                    else
+                    {
+                        SoutheasthallwayB();
+                    }
+                    break;
+                case 3:
+                    Heavydungeon();
+                    break;
+                case 4:
+                    Inventory();
+                    Console.WriteLine("PRESS ENTER");
+                    SouthwesthallwayB();
                     break;
 
                 default:
