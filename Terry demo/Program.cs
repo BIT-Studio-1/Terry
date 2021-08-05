@@ -18,6 +18,7 @@ namespace Command_Line_Adventure
         public static bool CrematoriumButton = false;
         public static bool KitchenButton = false;
         public static bool SouthEastButton = false;
+        public static bool button;
 
 
         public static void GameOver()
@@ -659,11 +660,37 @@ namespace Command_Line_Adventure
                 Console.WriteLine("- [3] Check Inventory");
                 Console.ForegroundColor = ConsoleColor.Yellow;
                 Console.WriteLine();
-
-                temp = Console.ReadLine();
-                if (string.IsNullOrEmpty(temp))
+                do
                 {
+                    button = false;
+                    temp = Console.ReadLine();
 
+                    if (int.TryParse(temp, out input))
+                    {
+                        input = Convert.ToInt32(temp);
+                        if (input > 3 || input <= 0)
+                        {
+                            Console.Clear();
+                            Console.WriteLine("Please Enter a valid input...");
+                            Console.ReadLine();
+                            Console.Clear();
+                            Dungeon();
+                        }
+                        else
+                        {
+                            button = true;
+                        }
+                    }
+                    else
+                    {
+                        Console.Clear();
+                        Console.WriteLine("Please Enter a valid input...");
+                        Console.ReadLine();
+                        Console.Clear();
+                        Dungeon();
+                    }
+                } while (button == false);
+                input = Convert.ToInt32(temp);
                 Console.Clear();
 
                 switch (temp)
