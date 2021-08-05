@@ -663,13 +663,7 @@ namespace Command_Line_Adventure
                 temp = Console.ReadLine();
                 if (string.IsNullOrEmpty(temp))
                 {
-                    Console.Clear();
-                    Console.WriteLine("Please Enter a valid input...");
-                    Console.ReadLine();
-                    Console.Clear();
-                    Dungeon();
-                }
-                //input = Convert.ToInt32(temp);
+
                 Console.Clear();
 
                 switch (temp)
